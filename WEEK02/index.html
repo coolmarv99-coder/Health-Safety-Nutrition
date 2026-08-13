@@ -1,0 +1,162 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>CLDV-05 Week 2 — The Whole-Child Well-Being Lens</title>
+  <style>
+    :root{--ink:#18343b;--muted:#587178;--paper:#fffdf8;--cream:#f5f1e8;--teal:#167d78;--teal2:#0e5f5c;--gold:#e7ad3c;--coral:#d96b52;--blue:#4f7f98;--green:#4f8765;--line:#d5dedb;--good:#e5f5eb;--goodInk:#215f3b;--try:#fff1dc;--tryInk:#7a4b00;--shadow:0 18px 45px rgba(24,52,59,.12)}
+    *{box-sizing:border-box} html{scroll-behavior:smooth} body{margin:0;background:linear-gradient(135deg,#edf7f3 0,#f7f2e8 42%,#eef3f5 100%);color:var(--ink);font-family:Inter,ui-sans-serif,system-ui,-apple-system,"Segoe UI",sans-serif;line-height:1.55}
+    button,select{font:inherit} button{cursor:pointer}.skip{position:absolute;left:-999px;top:1rem;background:#fff;padding:.7rem 1rem;z-index:10}.skip:focus{left:1rem}.shell{max-width:1080px;margin:auto;padding:20px}
+    .topbar{position:sticky;top:0;z-index:5;background:rgba(255,253,248,.94);backdrop-filter:blur(12px);border:1px solid rgba(213,222,219,.9);border-radius:18px;padding:12px 16px;display:flex;gap:16px;align-items:center;box-shadow:0 8px 25px rgba(24,52,59,.08)}
+    .brand{font-weight:800;white-space:nowrap}.progress-wrap{flex:1}.progress-label{display:flex;justify-content:space-between;font-size:.82rem;color:var(--muted);margin-bottom:4px}.track{height:10px;background:#dfe9e6;border-radius:999px;overflow:hidden}.fill{height:100%;width:0;background:linear-gradient(90deg,var(--teal),var(--gold));transition:width .35s ease}.reset{border:1px solid var(--line);background:#fff;border-radius:10px;padding:.55rem .8rem;color:var(--ink)}
+    .hero{margin:24px 0 20px;background:var(--ink);color:white;border-radius:28px;overflow:hidden;box-shadow:var(--shadow);display:grid;grid-template-columns:1.15fr .85fr}.hero-copy{padding:clamp(28px,5vw,58px)}.eyebrow{text-transform:uppercase;letter-spacing:.13em;font-size:.76rem;font-weight:800;color:#9ddbd2}.hero h1{font-family:Georgia,serif;font-size:clamp(2.3rem,5vw,4.4rem);line-height:.98;margin:.5rem 0 1rem;max-width:700px}.hero p{font-size:1.08rem;color:#dbe8e7;max-width:650px}.hero-image{min-height:390px;position:relative;margin:0;background:#315b56;overflow:hidden}.hero-image img{display:block;width:100%;height:100%;position:absolute;inset:0;object-fit:cover;object-position:58% center}.hero-image figcaption{position:absolute;left:18px;right:18px;bottom:18px;padding:10px 13px;border-radius:12px;background:rgba(24,52,59,.88);color:#f5fbfa;font-size:.88rem;line-height:1.4;box-shadow:0 6px 18px rgba(0,0,0,.18)}
+    .focus{background:white;border:1px solid var(--line);border-radius:20px;padding:22px 24px;display:grid;grid-template-columns:1fr auto;gap:20px;align-items:center}.focus h2{margin:0 0 5px;font-family:Georgia,serif}.focus p{margin:0;color:var(--muted)}.lens{background:#e5f3f0;color:var(--teal2);border-radius:999px;padding:.7rem 1rem;font-weight:800}
+    nav.stations{display:flex;gap:8px;overflow:auto;padding:18px 2px 4px}.stations a{text-decoration:none;color:var(--muted);background:rgba(255,255,255,.75);border:1px solid var(--line);border-radius:999px;padding:.55rem .85rem;white-space:nowrap;font-size:.88rem}.stations a.done{background:var(--good);color:var(--goodInk);border-color:#b8dcc5}
+    .station{scroll-margin-top:90px;margin:22px 0;background:var(--paper);border:1px solid var(--line);border-radius:24px;padding:clamp(22px,4vw,38px);box-shadow:0 12px 34px rgba(24,52,59,.07)}.kicker{font-size:.78rem;text-transform:uppercase;letter-spacing:.12em;color:var(--teal);font-weight:900}.station h2{font-family:Georgia,serif;font-size:clamp(1.7rem,3vw,2.45rem);margin:.2rem 0 .4rem}.lead{color:var(--muted);max-width:800px}.callout{border-left:5px solid var(--gold);background:#fff7e7;padding:14px 18px;border-radius:0 12px 12px 0;margin:18px 0}.grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:14px}.card{border:1px solid var(--line);border-radius:16px;padding:17px;background:white}.card h3{margin:.1rem 0 .45rem;font-size:1rem}.small{font-size:.9rem;color:var(--muted)}
+    .choices{display:grid;gap:10px;margin-top:14px}.choice{width:100%;text-align:left;border:2px solid var(--line);background:#fff;border-radius:14px;padding:14px 16px;color:var(--ink)}.choice:hover,.choice:focus-visible{border-color:var(--teal);outline:none}.choice.selected{border-color:var(--teal);background:#e8f5f2}.choice.correct{border-color:#70ac84;background:var(--good)}.choice.incorrect{border-color:#e1ad64;background:var(--try)}.choice:disabled{cursor:default;opacity:1}
+    .feedback{display:none;margin-top:12px;padding:13px 15px;border-radius:12px}.feedback.show{display:block}.feedback.good{background:var(--good);color:var(--goodInk)}.feedback.try{background:var(--try);color:var(--tryInk)}.action{border:0;border-radius:12px;background:var(--teal);color:white;padding:.75rem 1rem;font-weight:800;margin-top:12px}.action:hover{background:var(--teal2)}.action.secondary{background:#e6eeec;color:var(--ink)}
+    .tag-grid{display:flex;flex-wrap:wrap;gap:9px;margin:14px 0}.tag{border:2px solid var(--line);border-radius:999px;background:#fff;padding:.6rem .9rem}.tag[aria-pressed="true"]{background:#dff1ed;border-color:var(--teal);color:var(--teal2)}
+    .scenario{background:linear-gradient(145deg,#eef7f5,#fff8ea);border-radius:18px;padding:20px;border:1px solid #d5e5df}.scenario h3{font-family:Georgia,serif;font-size:1.35rem;margin:0 0 .5rem}.meter{display:grid;grid-template-columns:repeat(3,1fr);gap:8px;margin:18px 0}.strand{text-align:center;border-radius:14px;padding:13px 8px;font-weight:800}.safety{background:#ffe9e2;color:#813b2e}.health{background:#e3f0f5;color:#315e71}.nutrition{background:#e6f1e8;color:#3c6749}
+    .match-row{display:grid;grid-template-columns:1fr 1fr;gap:14px;align-items:center;padding:12px 0;border-bottom:1px solid var(--line)}select{width:100%;border:2px solid var(--line);border-radius:10px;padding:.7rem;background:white;color:var(--ink)}select:focus{outline:3px solid rgba(22,125,120,.2);border-color:var(--teal)}
+    .finale{background:linear-gradient(145deg,#17373d,#245b5d);color:white}.finale .lead{color:#d7e6e5}.finale .choice{background:#fff;color:var(--ink)}.completion{display:none;text-align:center;padding:22px;background:#e6f5ec;color:#205a39;border-radius:16px;margin-top:18px}.completion.show{display:block}.completion strong{font-family:Georgia,serif;font-size:1.5rem;display:block}
+    footer{padding:20px 6px 40px;color:var(--muted);font-size:.88rem;display:flex;justify-content:space-between;gap:20px}.source a{color:var(--teal2)}
+    @media(max-width:760px){.hero{grid-template-columns:1fr}.hero-image{min-height:300px}.hero-image img{object-position:center 45%}.grid{grid-template-columns:1fr}.focus{grid-template-columns:1fr}.topbar{flex-wrap:wrap}.brand{width:100%}.match-row{grid-template-columns:1fr}.meter{grid-template-columns:1fr}footer{flex-direction:column}}
+    @media(prefers-reduced-motion:reduce){*{scroll-behavior:auto!important;transition:none!important}}
+  </style>
+</head>
+<body>
+<a class="skip" href="#main">Skip to learning activities</a>
+<div class="shell">
+  <header class="topbar">
+    <div class="brand">CLDV-05 · Week 2</div>
+    <div class="progress-wrap" aria-label="Guide progress">
+      <div class="progress-label"><span>Your progress</span><span id="progressText">0 of 5 complete</span></div>
+      <div class="track"><div class="fill" id="progressFill"></div></div>
+    </div>
+    <button class="reset" id="resetAll" type="button">Reset guide</button>
+  </header>
+
+  <section class="hero">
+    <div class="hero-copy">
+      <div class="eyebrow">Paris Chapter 1 · Interactive Reading Guide</div>
+      <h1>The Whole-Child Well-Being Lens</h1>
+      <p>Children’s experiences do not arrive in separate boxes. Practice seeing the connections among development, relationships, environments, program quality, health, safety, and nutrition.</p>
+    </div>
+    <figure class="hero-image">
+      <img src="images/CLDV-05 Vignette Image 2(1).png" alt="Maya observes children and takes notes while educators supervise an outdoor early-childhood play area.">
+      <figcaption>Maya begins with careful observation: What connections can an educator notice before deciding how to act?</figcaption>
+    </figure>
+  </section>
+
+  <section class="focus">
+    <div><h2>Learning focus</h2><p>Use a holistic lens to recognize interacting influences on children’s well-being and select intentional, appropriate educator responses.</p></div>
+    <div class="lens">NOTICE → CONNECT → ACT</div>
+  </section>
+
+  <nav class="stations" aria-label="Guide stations">
+    <a href="#station1" data-nav="1">1 · Think in systems</a><a href="#station2" data-nav="2">2 · Quality in action</a><a href="#station3" data-nav="3">3 · Know the frameworks</a><a href="#station4" data-nav="4">4 · Whole-child scenario</a><a href="#station5" data-nav="5">5 · Put it together</a>
+  </nav>
+
+  <main id="main">
+    <section class="station" id="station1">
+      <div class="kicker">Station 1</div><h2>Think in systems</h2>
+      <p class="lead">Chapter 1 describes development and well-being as interrelated. Choose the response that best uses a whole-child lens.</p>
+      <div class="scenario"><h3>Morning observation</h3><p>Elena, age four, has recently begun arriving tired. She eats very little at breakfast, withdraws from friends, and has difficulty concentrating during stories. Her family has also mentioned an unstable work schedule.</p></div>
+      <div class="choices" data-question="systems">
+        <button class="choice" data-correct="false">Treat the concentration problem as a separate academic weakness, as the educator's immediate professional response.</button>
+        <button class="choice" data-correct="false">Assume Maya’s family is not maintaining appropriate routines, because this offers a response to the situation described.</button>
+        <button class="choice" data-correct="true">Notice the pattern across sleep, nutrition, relationships, family circumstances, and learning before deciding how to respond.</button>
+        <button class="choice" data-correct="false">Wait for a medical diagnosis before offering any classroom support, as the educator's initial response.</button>
+      </div>
+      <div class="feedback" id="fb-systems" role="status"></div>
+    </section>
+
+    <section class="station" id="station2">
+      <div class="kicker">Station 2</div><h2>Quality in action</h2>
+      <p class="lead">High-quality programs do more than keep children occupied. They intentionally connect environments, relationships, curriculum, assessment, and family partnership.</p>
+      <div class="grid">
+        <div class="card"><h3>Program A</h3><p class="small">The room is clean and well supplied. Teachers use one curriculum for every child and contact families mainly when problems arise.</p></div>
+        <div class="card"><h3>Program B</h3><p class="small">Teachers build warm relationships, plan achievable challenges, observe children to adjust experiences, and invite families’ goals and knowledge.</p></div>
+      </div>
+      <div class="choices" data-question="quality">
+        <button class="choice" data-correct="true">Program B more fully reflects the chapter’s description of quality because several features work together.</button>
+        <button class="choice" data-correct="false">Program A is higher quality because cleanliness is the only feature needed to judge a program.</button>
+        <button class="choice" data-correct="false">Both programs are equivalent because curriculum and family partnership do not affect well-being, as the initial response.</button>
+        <button class="choice" data-correct="false">Neither can support children unless every possible community stressor has first been eliminated, in practice.</button>
+      </div>
+      <div class="feedback" id="fb-quality" role="status"></div>
+    </section>
+
+    <section class="station" id="station3">
+      <div class="kicker">Station 3</div><h2>Know the frameworks</h2>
+      <p class="lead">Match each description to the framework it represents. The choices are deliberately out of sequence.</p>
+      <div id="matching">
+        <div class="match-row"><div><strong>A program chooses to document quality beyond minimum legal requirements.</strong></div><select aria-label="Framework for voluntary quality documentation" data-answer="NAEYC accreditation"><option value="">Choose a framework…</option></select></div>
+        <div class="match-row"><div><strong>California licensing regulations governing licensed child-care facilities.</strong></div><select aria-label="Framework for licensed child-care facilities" data-answer="Title 22"><option value="">Choose a framework…</option></select></div>
+        <div class="match-row"><div><strong>More stringent requirements for state-subsidized programs, including ratios and staff qualifications.</strong></div><select aria-label="Framework for state-subsidized programs" data-answer="Title 5"><option value="">Choose a framework…</option></select></div>
+      </div>
+      <button class="action" id="checkMatch" type="button">Check connections</button>
+      <div class="feedback" id="fb-match" role="status"></div>
+    </section>
+
+    <section class="station" id="station4">
+      <div class="kicker">Station 4 · Signature interaction</div><h2>Whole-child scenario</h2>
+      <div class="scenario"><h3>The Garden Room</h3><p>A teacher notices that several children are restless late in the morning. The room becomes crowded during transitions. Snack is often rushed, one child has difficulty opening the food sent from home, and families receive few updates about classroom routines. Staff members are warm with children but say they have no time to review observations together.</p></div>
+      <p><strong>Select every influence that deserves attention.</strong></p>
+      <div class="tag-grid" id="influences">
+        <button class="tag" aria-pressed="false" data-valid="true">Physical environment</button><button class="tag" aria-pressed="false" data-valid="true">Nutrition and mealtime</button><button class="tag" aria-pressed="false" data-valid="true">Family partnership</button><button class="tag" aria-pressed="false" data-valid="true">Program planning</button><button class="tag" aria-pressed="false" data-valid="true">Children’s engagement</button><button class="tag" aria-pressed="false" data-valid="false">One child’s “bad attitude”</button>
+      </div>
+      <button class="action" id="checkInfluences" type="button">Examine the pattern</button>
+      <div class="feedback" id="fb-influences" role="status"></div>
+      <div class="callout"><strong>Whole-child move:</strong> Rather than finding one person to blame, look for connected program conditions that adults can intentionally improve.</div>
+    </section>
+
+    <section class="station finale" id="station5">
+      <div class="kicker">Station 5</div><h2>Put it together</h2>
+      <p class="lead">A program wants to strengthen children’s well-being. Which plan best reflects the chapter’s central message?</p>
+      <div class="meter" aria-hidden="true"><div class="strand safety">SAFETY<br><small>prevent harm</small></div><div class="strand health">HEALTH<br><small>promote wellness</small></div><div class="strand nutrition">NUTRITION<br><small>support growth</small></div></div>
+      <div class="choices" data-question="synthesis">
+        <button class="choice" data-correct="false">Concentrate on compliance paperwork and postpone attention to relationships and routines, as the initial response.</button>
+        <button class="choice" data-correct="true">Use regulations as a foundation while intentionally strengthening environments, relationships, family partnership, health, safety, and nutrition together.</button>
+        <button class="choice" data-correct="false">Select one strand for the year because working on several dimensions would confuse children, initially.</button>
+        <button class="choice" data-correct="false">Respond only after a visible health or safety problem occurs, because this offers a response in this situation.</button>
+      </div>
+      <div class="feedback" id="fb-synthesis" role="status"></div>
+      <div class="completion" id="completion"><strong>Week 2 lens established</strong>You completed all five stations. Carry this question forward: <em>What connections am I noticing, and what can an educator intentionally do?</em></div>
+    </section>
+  </main>
+
+  <footer><div>Professor Marvin Patton · CLDV-05 Health, Safety and Nutrition</div><div class="source">Primary source: <a href="https://socialsci.libretexts.org/Bookshelves/Early_Childhood_Education/Health_Safety_and_Nutrition_(Paris)/01%3A_Introduction/1.01%3A_Childrens_Well-Being_and_Early_Childhood_Education" target="_blank" rel="noopener">Paris, Chapter 1</a></div></footer>
+</div>
+<script>
+// Shuffle each complete answer label on every fresh page load. Input values and answer keys move together.
+function shuffleAnswerChoices(group){
+  const choices=[...group.children];
+  for(let i=choices.length-1;i>0;i--){
+    const j=Math.floor(Math.random()*(i+1));
+    [choices[i],choices[j]]=[choices[j],choices[i]];
+  }
+  choices.forEach(choice=>group.appendChild(choice));
+}
+document.querySelectorAll('.options').forEach(shuffleAnswerChoices);
+
+  const state={1:false,2:false,3:false,4:false,5:false};
+  const messages={
+    systems:{good:"Yes. A whole-child lens looks for interacting influences before narrowing the response. Observation should open inquiry, not turn quickly into blame or diagnosis.",bad:"Look again at the entire pattern. Chapter 1 emphasizes that development, health, relationships, environments, and social circumstances interact."},
+    quality:{good:"Exactly. Quality emerges from connected practices: responsive relationships, intentional teaching, appropriate challenge, observation, and family partnership.",bad:"Reconsider what makes quality comprehensive. One acceptable feature cannot substitute for responsive relationships, intentional planning, assessment, and family partnership."},
+    synthesis:{good:"Well reasoned. Regulations establish essential protections, while high-quality practice deliberately supports several interrelated dimensions of children’s lives.",bad:"Try the plan that joins prevention, wellness, nutrition, relationships, and program quality. Chapter 1 presents well-being as interconnected and intentional."}
+  };
+  function shuffle(a){for(let i=a.length-1;i>0;i--){const j=Math.floor(Math.random()*(i+1));[a[i],a[j]]=[a[j],a[i]]}return a}
+  document.querySelectorAll('.choices').forEach(group=>{const buttons=shuffle([...group.children]);buttons.forEach(b=>group.appendChild(b));group.addEventListener('click',e=>{const b=e.target.closest('.choice');if(!b)return;const key=group.dataset.question,good=b.dataset.correct==='true';group.querySelectorAll('.choice').forEach(x=>{x.classList.remove('correct','incorrect');x.disabled=false});b.classList.add(good?'correct':'incorrect');const fb=document.querySelector('#fb-'+key);fb.className='feedback show '+(good?'good':'try');fb.textContent=good?messages[key].good:messages[key].bad;if(good){group.querySelectorAll('.choice').forEach(x=>x.disabled=true);const n=key==='systems'?1:key==='quality'?2:5;complete(n)}})});
+  const options=['Title 5','NAEYC accreditation','Title 22'];document.querySelectorAll('#matching select').forEach((s,i)=>shuffle([...options]).forEach(v=>{const o=document.createElement('option');o.value=v;o.textContent=v;s.appendChild(o)}));
+  document.querySelector('#checkMatch').addEventListener('click',()=>{const selects=[...document.querySelectorAll('#matching select')],right=selects.filter(s=>s.value===s.dataset.answer).length;const fb=document.querySelector('#fb-match');if(right===3){fb.className='feedback show good';fb.textContent='All three connections fit. Title 22 is the licensing foundation; Title 5 adds requirements for state-subsidized programs; NAEYC accreditation is voluntary and documents quality beyond licensing.';complete(3)}else{fb.className='feedback show try';fb.textContent=`${right} of 3 connections fit. Recheck which framework is licensing, which applies to state-subsidized programs, and which is voluntary accreditation.`}});
+  document.querySelectorAll('.tag').forEach(t=>t.addEventListener('click',()=>t.setAttribute('aria-pressed',t.getAttribute('aria-pressed')!=='true')));
+  document.querySelector('#checkInfluences').addEventListener('click',()=>{const tags=[...document.querySelectorAll('.tag')],missed=tags.some(t=>t.dataset.valid==='true'&&t.getAttribute('aria-pressed')!=='true'),blame=tags.find(t=>t.dataset.valid==='false').getAttribute('aria-pressed')==='true';const fb=document.querySelector('#fb-influences');if(!missed&&!blame){fb.className='feedback show good';fb.textContent='You identified the interacting influences without labeling the child. The next step is coordinated improvement: review space and transitions, protect time for snack, support access to food, communicate with families, and use staff observations for planning.';complete(4)}else{fb.className='feedback show try';fb.textContent=blame?'Separate observation from blame. The scenario points to several changeable program conditions, not evidence of a child’s bad attitude.':'Look for every connected program influence: environment, mealtime, family partnership, planning, and children’s engagement.'}});
+  function complete(n){state[n]=true;update()}
+  function update(){const count=Object.values(state).filter(Boolean).length;document.querySelector('#progressText').textContent=`${count} of 5 complete`;document.querySelector('#progressFill').style.width=`${count*20}%`;Object.keys(state).forEach(n=>document.querySelector(`[data-nav="${n}"]`).classList.toggle('done',state[n]));document.querySelector('#completion').classList.toggle('show',count===5)}
+  document.querySelector('#resetAll').addEventListener('click',()=>{if(!confirm('Reset every response and return to the beginning?'))return;Object.keys(state).forEach(k=>state[k]=false);document.querySelectorAll('.choice').forEach(b=>{b.disabled=false;b.classList.remove('correct','incorrect')});document.querySelectorAll('.feedback').forEach(f=>f.className='feedback');document.querySelectorAll('select').forEach(s=>s.selectedIndex=0);document.querySelectorAll('.tag').forEach(t=>t.setAttribute('aria-pressed','false'));update();window.scrollTo({top:0,behavior:'smooth'})});
+  update();
+</script>
+</body>
+</html>
