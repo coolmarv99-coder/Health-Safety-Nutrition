@@ -1,0 +1,202 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>CLDV-05 Week 8 Interactive Reading Guide</title>
+<style>
+:root{--navy:#173f63;--teal:#287a78;--ink:#172033;--muted:#5c6678;--gold:#e1ad35;--border:#d8deea;--shadow:0 8px 24px rgba(22,32,51,.09);--green:#287a51;--soft:#f5f7fb}
+*{box-sizing:border-box}html{scroll-behavior:smooth}body{margin:0;font-family:system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif;background:var(--soft);color:var(--ink);line-height:1.55}
+button,input,textarea,select{font:inherit}button{cursor:pointer}a{color:var(--navy)}
+button:focus-visible,input:focus-visible,textarea:focus-visible,select:focus-visible,a:focus-visible{outline:3px solid #4e9cf5;outline-offset:2px}
+.sitebar{background:var(--navy);color:#fff;padding:14px 20px}.sitebar-inner{max-width:1180px;margin:auto;display:flex;align-items:center;justify-content:space-between;gap:18px}
+.brand{display:flex;align-items:center;gap:12px;font-weight:700}.logo{width:46px;height:46px;border:2px solid #fff;border-radius:12px;display:grid;place-items:center}.small{font-size:.9rem;color:var(--muted)}.sitebar .small{color:#d9e6f5}
+main{max-width:1180px;margin:0 auto;padding:28px 18px 60px}.hero{display:flex;justify-content:space-between;gap:24px;align-items:end;flex-wrap:wrap}
+h1{font-size:clamp(2rem,4vw,3rem);line-height:1.05;margin:.1em 0}.subtitle{font-size:1.08rem;margin:0;color:#39445a}
+.progress-wrap{min-width:260px}.progress-line{height:10px;background:#d9dee7;border-radius:999px;overflow:hidden}.progress-fill{height:100%;width:0;background:linear-gradient(90deg,var(--green),#52a981);transition:width .35s ease}
+.steps{display:grid;grid-template-columns:repeat(4,1fr);gap:10px;margin:24px 0}.step{background:#fff;border:1px solid var(--border);border-radius:999px;padding:11px 12px;text-align:center;font-weight:650;color:#667085;text-decoration:none}.step.active{background:#eaf5f3;color:#145854;border-color:#a7d2cf}.step.done{background:#eaf7f1;color:#176847}
+.card{background:#fff;border:1px solid var(--border);border-radius:22px;box-shadow:var(--shadow);overflow:hidden}
+.story{display:grid;grid-template-columns:minmax(300px,44%) 1fr;background:linear-gradient(110deg,#f3f6fb,#fff)}.story img{width:100%;height:100%;min-height:430px;object-fit:cover}.story-copy{padding:30px}
+.kicker{font-size:.82rem;text-transform:uppercase;letter-spacing:.08em;font-weight:800;color:#4e5f7b}h2{font-size:1.55rem;margin:.25em 0 .5em}h3{font-size:1.18rem;margin:0 0 12px}
+.story-note{background:rgba(255,255,255,.88);border-left:5px solid var(--gold);padding:14px 16px;border-radius:12px;margin-top:18px}
+.grid2{display:grid;grid-template-columns:1fr 1fr;gap:18px;margin-top:18px}.activity{padding:24px}.question{font-weight:700;margin-bottom:14px}.options{display:grid;gap:10px}
+.option{display:flex;gap:12px;align-items:flex-start;border:1px solid #ccd3df;border-radius:13px;padding:12px;background:#fff}
+.feedback{display:none;margin-top:14px;padding:13px 15px;border-radius:13px;background:#edf9f1;border:1px solid #acd7b9}.feedback.show{display:block}
+.match-row{display:grid;grid-template-columns:190px 1fr;gap:12px;align-items:center;margin:10px 0}.term{font-weight:750;background:#edf5ff;border:1px solid #a7c5ef;border-radius:10px;padding:10px}select{width:100%;padding:10px;border:1px solid #bac4d3;border-radius:10px;background:#fff}
+.btn{border:none;border-radius:12px;padding:12px 18px;font-weight:750;background:var(--green);color:#fff;box-shadow:0 4px 12px rgba(40,122,81,.2)}.btn.secondary{background:#fff;color:var(--navy);border:1px solid #aeb9c8;box-shadow:none}.btn-row{display:flex;gap:10px;flex-wrap:wrap;margin-top:15px}
+.resource-bar{display:flex;align-items:center;justify-content:space-between;gap:16px;flex-wrap:wrap;margin:18px 0;padding:16px 18px;border:1px solid #b9c9dc;border-radius:18px;background:#eef6ff}.resource-bar p{margin:0}.resource-link{display:inline-flex;align-items:center;gap:8px;text-decoration:none;border-radius:12px;padding:11px 15px;font-weight:750;background:#fff;color:var(--navy);border:1px solid #9fb0c5}
+.concept-strip{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;margin-top:18px}.concept{padding:18px;border-radius:18px;border:1px solid var(--border);background:#fff}.concept strong{display:block;margin-bottom:6px}
+.health-cycle{display:grid;grid-template-columns:repeat(4,1fr);gap:10px;margin:18px 0}.health-step{padding:13px;border-radius:15px;background:#eef5fb;border:1px solid #c5d6e7;text-align:center}.health-step strong{display:block;color:#355c80;letter-spacing:.05em}.health-step span{font-size:.84rem;color:var(--muted)}.health-check{display:grid;gap:13px;margin-top:16px}.check-item{padding:17px;border:1px solid var(--border);border-radius:16px;background:#fff}.check-item p{margin:0 0 10px}.actions{display:flex;gap:8px;flex-wrap:wrap}.health-action{border:2px solid #ccd3df;border-radius:999px;padding:8px 12px;background:#fff;color:var(--ink)}.health-action[aria-pressed="true"]{border-color:#4e7298;background:#eef5fb}.context{display:block;margin-top:8px;font-size:.88rem;color:var(--muted)}.wide{grid-column:1/-1}.observation-pair{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-top:12px}.observation-pair div{padding:14px;border-radius:14px;border:1px solid var(--border);background:#fff}.observation-pair strong{display:block;margin-bottom:5px}
+.reflection{margin-top:18px;padding:24px;background:linear-gradient(135deg,#f1fbf4,#fff)}textarea{width:100%;min-height:120px;border:1px solid #bbc5d3;border-radius:14px;padding:14px;resize:vertical}
+.compare-panel{display:none;margin-top:18px}.compare-panel.show{display:grid;grid-template-columns:repeat(3,1fr);gap:14px}.compare-box{border-radius:18px;padding:18px;border:1px solid var(--border)}.compare-box:nth-child(1){background:#fff8df}.compare-box:nth-child(2){background:#edf9f5}.compare-box:nth-child(3){background:#f4efff}
+.complete{display:none;margin-top:18px;padding:20px;background:#eaf8f1;border:1px solid #a9d9bf;border-radius:18px;align-items:center;justify-content:space-between;gap:14px}.complete.show{display:flex}
+.badge{display:inline-block;background:#e8f5ee;color:#176847;border-radius:999px;padding:5px 10px;font-weight:800;font-size:.82rem}.section-label{font-size:.82rem;text-transform:uppercase;letter-spacing:.07em;font-weight:800;color:var(--teal)}
+.sr-only{position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0,0,0,0);white-space:nowrap;border:0}
+@media(max-width:850px){.story,.grid2{grid-template-columns:1fr}.story img{min-height:240px;max-height:390px}.concept-strip,.health-cycle,.observation-pair,.compare-panel.show{grid-template-columns:1fr}.steps{grid-template-columns:1fr 1fr}}
+@media(max-width:520px){main{padding:18px 12px 40px}.sitebar{padding:10px 12px}.steps{grid-template-columns:1fr}.step{text-align:left}.match-row{grid-template-columns:1fr}.activity,.reflection,.story-copy{padding:18px}.complete.show{align-items:flex-start;flex-direction:column}}
+</style>
+</head>
+<body>
+<header class="sitebar"><div class="sitebar-inner"><div class="brand"><div class="logo">05</div><div>Health, Safety &amp; Nutrition<div class="small">Interactive Reading Guide</div></div></div><div class="small">Week 8 • Paris Chapter 7</div></div></header>
+
+<main>
+<section class="hero"><div><span class="badge">Health Strand · First Observation</span> <span class="badge">OBSERVE → COMPARE → SUPPORT → ACT</span>
+<h1>Health Is More Than Not Being Sick</h1>
+<p class="subtitle">Health records, screenings, oral health, sleep, developmental concerns, family support, and staff wellness</p></div>
+<div class="progress-wrap"><div style="display:flex;justify-content:space-between;margin-bottom:7px"><strong>Overall progress</strong><span id="progressText">0%</span></div><div class="progress-line" role="progressbar" aria-valuemin="0" aria-valuemax="100" aria-valuenow="0"><div class="progress-fill" id="progressFill"></div></div></div></section>
+
+<nav class="steps"><a class="step active" href="#story">1. Health Lens</a><a class="step" href="#explore">2. Morning Check</a><a class="step" href="#practice">3. Support &amp; Refer</a><a class="step" href="#reflect">4. Health Debrief</a></nav>
+
+<aside class="resource-bar"><p><strong>Keep Paris Chapter 7 nearby.</strong><br><span class="small">This guide supports the reading; it does not replace it.</span></p><a class="resource-link" href="https://socialsci.libretexts.org/Bookshelves/Early_Childhood_Education/Health_Safety_and_Nutrition_(Paris)/03%3A_Health/3.01%3A_Promoting_Good_Health_and_Wellness" target="_blank" rel="noopener noreferrer">📖 Open Paris Chapter 7</a></aside>
+<aside class="resource-bar"><p><strong>Practice freely.</strong><br><span class="small">Plan for about 15–20 minutes. Responses remain on this page and are not saved, graded, or submitted.</span></p></aside>
+
+<section id="story" class="card story">
+<img src="images/cldv05-week8-vignette.png" alt="An early childhood education student reviews a sample child file containing emergency contacts, immunizations, allergy information, medication instructions, health history, permissions, and care-plan notes">
+<div class="story-copy"><div class="kicker">Opening vignette</div><h2>“Health Is More Than Not Being Sick”</h2>
+<p>Maya is reviewing a sample child file: emergency contacts, immunization records, allergies, medication instructions, health history, and permission forms. At first, she thinks, “That is a lot of paperwork.”</p>
+<p>Then she imagines an asthma attack, fever, dental concern, food allergy, or developmental delay. Suddenly, the records look different. They are information that helps adults care for children safely.</p>
+<p>She also remembers the small things teachers notice: squinting at a book, falling asleep during circle, complaining that a tooth hurts, struggling to hear directions, or seeming unusually tired.</p>
+<p>Health promotion, she realizes, is not only about reacting when something goes wrong. It includes prevention, records, screenings, communication, sleep, oral health, staff wellness, and helping families connect with support.</p>
+<p>Maya writes: <strong>Wellness is part of the learning environment.</strong></p>
+<div class="health-cycle"><div class="health-step"><strong>OBSERVE</strong><span>What do I actually see, hear, measure, or learn?</span></div><div class="health-step"><strong>COMPARE</strong><span>Is this typical for this child? What changed or repeats?</span></div><div class="health-step"><strong>SUPPORT</strong><span>What routine care or environment may help?</span></div><div class="health-step"><strong>ACT</strong><span>Monitor, document, communicate, exclude, or refer?</span></div></div>
+<div class="story-note"><strong>The lens has changed:</strong> You have finished investigating safety hazards. Now you will learn how educators observe, protect, and support children’s health—without diagnosing.</div>
+<div class="btn-row"><button class="btn" id="storyDone">Begin the Health strand</button></div></div>
+</section>
+
+<section id="explore" class="grid2">
+<article class="card activity wide"><div class="section-label">Health Check / Morning Observation</div><h3>👁️ What does each observation call for?</h3><p>Choose the most appropriate first professional action. A single unusual observation does not always mean illness or exclusion.</p><div class="health-check" id="morningCheck">
+<div class="check-item" data-answer="routine"><p><strong>1.</strong> Lena arrives cheerful, eats normally, and has the same faint birthmark documented in her health information.</p><div class="actions"><button class="health-action" data-value="routine" aria-pressed="false">Routine support</button><button class="health-action" data-value="monitor" aria-pressed="false">Observe and compare</button><button class="health-action" data-value="communicate" aria-pressed="false">Document / communicate</button><button class="health-action" data-value="prompt" aria-pressed="false">Prompt action</button></div></div>
+<div class="check-item" data-answer="monitor"><p><strong>2.</strong> Mateo yawns twice during arrival after his family reports that he went to bed late. He otherwise participates normally.</p><div class="actions"><button class="health-action" data-value="routine" aria-pressed="false">Routine support</button><button class="health-action" data-value="monitor" aria-pressed="false">Observe and compare</button><button class="health-action" data-value="communicate" aria-pressed="false">Document / communicate</button><button class="health-action" data-value="prompt" aria-pressed="false">Prompt action</button></div><span class="context">Offer ordinary support and watch whether fatigue changes his functioning; yawning alone does not establish illness.</span></div>
+<div class="check-item" data-answer="communicate"><p><strong>3.</strong> For the third day, Nia squints at books, moves within inches of pictures, and asks for help identifying familiar images.</p><div class="actions"><button class="health-action" data-value="routine" aria-pressed="false">Routine support</button><button class="health-action" data-value="monitor" aria-pressed="false">Observe and compare</button><button class="health-action" data-value="communicate" aria-pressed="false">Document / communicate</button><button class="health-action" data-value="prompt" aria-pressed="false">Prompt action</button></div></div>
+<div class="check-item" data-answer="prompt"><p><strong>4.</strong> A child with a documented severe allergy develops breathing difficulty shortly after snack.</p><div class="actions"><button class="health-action" data-value="routine" aria-pressed="false">Routine support</button><button class="health-action" data-value="monitor" aria-pressed="false">Observe and compare</button><button class="health-action" data-value="communicate" aria-pressed="false">Document / communicate</button><button class="health-action" data-value="prompt" aria-pressed="false">Prompt action</button></div></div>
+<div class="check-item" data-answer="monitor"><p><strong>5.</strong> Usually energetic Ava sits quietly for ten minutes but then joins play, eats breakfast, and shows no other change.</p><div class="actions"><button class="health-action" data-value="routine" aria-pressed="false">Routine support</button><button class="health-action" data-value="monitor" aria-pressed="false">Observe and compare</button><button class="health-action" data-value="communicate" aria-pressed="false">Document / communicate</button><button class="health-action" data-value="prompt" aria-pressed="false">Prompt action</button></div><span class="context">The change is worth noticing, but its duration, recurrence, and relationship to other signs matter.</span></div>
+</div><div class="btn-row"><button class="btn" id="checkMorning">Check the morning observations</button><button class="btn secondary" id="resetMorning">Clear choices</button></div><div class="feedback" id="morningFeedback" role="status"></div></article>
+
+<article class="card activity wide"><div class="section-label">Objective health communication</div><h3>📝 Observation or diagnosis?</h3><div class="observation-pair"><div><strong>Note A</strong>“Nia is developing a vision disorder and needs glasses.”</div><div><strong>Note B</strong>“During book viewing on Monday, Tuesday, and Wednesday, Nia held pictures within approximately four inches of her face and squinted while naming familiar images.”</div></div><p class="question">Which response uses the educator’s health-observation role appropriately?</p><div class="options"><label class="option"><input type="radio" name="promotion" value="0"> Use Note A because families need a clear medical conclusion, because this offers a consistent response to the situation described.</label><label class="option"><input type="radio" name="promotion" value="1"> Use Note B, compare it with prior functioning, share the pattern respectfully, and discuss screening or follow-up without diagnosing.</label><label class="option"><input type="radio" name="promotion" value="2"> Keep both notes private until Nia says she cannot see, because this offers a response in practice.</label><label class="option"><input type="radio" name="promotion" value="3"> Use Note A internally and Note B only if the family requests evidence, as the initial response.</label></div><div class="btn-row"><button class="btn" id="promotionCheck">Check the health note</button></div><div class="feedback" id="promotionFeedback"></div></article>
+</section>
+
+<section class="concept-strip">
+<div class="concept"><strong>👀 OBSERVE facts.</strong>Record what you see, hear, measure, or learn—not a medical conclusion.</div>
+<div class="concept"><strong>🔄 COMPARE over time.</strong>A change from the child’s usual functioning or a repeated pattern often matters more than one isolated sign.</div>
+<div class="concept"><strong>🤝 SUPPORT, then ACT.</strong>Use routine care when appropriate; monitor, document, communicate, or refer when the evidence warrants it.</div>
+</section>
+
+<section class="grid2">
+<article class="card activity"><div class="section-label">Daily observation</div><h3>👁️ Small signs can matter</h3>
+<p class="question">A child repeatedly squints at books and moves very close to pictures. What is the most appropriate teacher response?</p>
+<div class="options">
+<label class="option"><input type="radio" name="vision" value="0"> Assume the child simply prefers close-up viewing, because this offers a response in this situation.</label>
+<label class="option"><input type="radio" name="vision" value="1"> Document the pattern and communicate the concern so appropriate screening or follow-up can occur.</label>
+<label class="option"><input type="radio" name="vision" value="2"> Tell the family the child probably needs glasses, as the educator's initial response.</label>
+<label class="option"><input type="radio" name="vision" value="3"> Wait until the child complains about vision, as the educator's immediate professional response.</label>
+</div><div class="btn-row"><button class="btn" id="visionCheck">Check answer</button></div><div class="feedback" id="visionFeedback"></div></article>
+
+<article class="card activity"><div class="section-label">Screening versus evaluation</div><h3>🔎 What does screening do?</h3>
+<p class="question">What is the primary purpose of developmental or health screening?</p>
+<div class="options">
+<label class="option"><input type="radio" name="screening" value="0"> Identify children who may need more detailed evaluation or support.</label>
+<label class="option"><input type="radio" name="screening" value="1"> Provide a final diagnosis, because this offers a response in practice.</label>
+<label class="option"><input type="radio" name="screening" value="2"> Replace family observations with standardized results, as the initial response.</label>
+<label class="option"><input type="radio" name="screening" value="3"> Determine whether a child may remain enrolled, for this situation.</label>
+</div><div class="btn-row"><button class="btn" id="screeningCheck">Check answer</button></div><div class="feedback" id="screeningFeedback"></div></article>
+</section>
+
+<section id="practice" class="grid2">
+<article class="card activity"><div class="section-label">Oral health</div><h3>🦷 Health begins early</h3>
+<p class="question">Which classroom practice best promotes children’s oral health?</p>
+<div class="options">
+<label class="option"><input type="radio" name="oral" value="0"> Wait for children to report tooth pain before discussing dental care.</label>
+<label class="option"><input type="radio" name="oral" value="1"> Avoid toothbrushing activities because they are a family responsibility, as the initial response.</label>
+<label class="option"><input type="radio" name="oral" value="2"> Support regular oral-hygiene routines and connect families with dental resources when needed.</label>
+<label class="option"><input type="radio" name="oral" value="3"> Use sweet snacks as rewards only on special days, in practice.</label>
+</div><div class="btn-row"><button class="btn" id="oralCheck">Check answer</button></div><div class="feedback" id="oralFeedback"></div></article>
+
+<article class="card activity"><div class="section-label">Sleep and learning</div><h3>😴 Rest supports development</h3>
+<p class="question">Why should early childhood educators pay attention to sleep?</p>
+<div class="options">
+<label class="option"><input type="radio" name="sleep" value="0"> Sleep matters mainly for infants, because this offers a response to the situation described.</label>
+<label class="option"><input type="radio" name="sleep" value="1"> Sleep concerns should be discussed only with physicians, as the initial response.</label>
+<label class="option"><input type="radio" name="sleep" value="2"> Programs should require every child to nap for the same length of time.</label>
+<label class="option"><input type="radio" name="sleep" value="3"> Adequate sleep supports attention, behavior, physical health, and learning, for this situation.</label>
+</div><div class="btn-row"><button class="btn" id="sleepCheck">Check answer</button></div><div class="feedback" id="sleepFeedback"></div></article>
+</section>
+
+<section class="grid2">
+<article class="card activity"><div class="section-label">Family partnership</div><h3>🤝 Connect, don’t diagnose</h3>
+<p class="question">A teacher notices a repeated developmental concern. What is the strongest professional next step?</p>
+<div class="options">
+<label class="option"><input type="radio" name="family" value="0"> Share objective observations respectfully with the family and discuss appropriate screening or referral resources.</label>
+<label class="option"><input type="radio" name="family" value="1"> Tell the family which diagnosis seems most likely, because this offers a response in practice.</label>
+<label class="option"><input type="radio" name="family" value="2"> Wait several months so the family does not worry unnecessarily, for this situation.</label>
+<label class="option"><input type="radio" name="family" value="3"> Discuss the concern with other families to see whether they have noticed it.</label>
+</div><div class="btn-row"><button class="btn" id="familyCheck">Check answer</button></div><div class="feedback" id="familyFeedback"></div></article>
+
+<article class="card activity"><div class="section-label">Staff wellness</div><h3>💚 Healthy adults matter too</h3>
+<p class="question">Why does staff wellness belong in a chapter about children’s health?</p>
+<div class="options">
+<label class="option"><input type="radio" name="staff" value="0"> Adults who feel well never become stressed, because this offers a response in practice.</label>
+<label class="option"><input type="radio" name="staff" value="1"> Staff wellness is primarily a workplace benefit unrelated to children, in practice.</label>
+<label class="option"><input type="radio" name="staff" value="2"> Educators’ physical and emotional well-being affects their ability to provide consistent, responsive care.</label>
+<label class="option"><input type="radio" name="staff" value="3"> Healthy staff can replace formal health policies, as the educator's initial response.</label>
+</div><div class="btn-row"><button class="btn" id="staffCheck">Check answer</button></div><div class="feedback" id="staffFeedback"></div></article>
+</section>
+
+<section class="card activity" style="margin-top:18px"><div class="section-label">Final self-check</div><h3>Check your understanding</h3>
+<p class="question">Which statement best integrates Paris Chapter 7?</p>
+<div class="options">
+<label class="option"><input type="radio" name="final" value="0"> Health promotion begins when a child develops symptoms, because this offers a response in practice.</label>
+<label class="option"><input type="radio" name="final" value="1"> Wellness is mainly an individual family responsibility, because this offers a consistent response to the situation described.</label>
+<label class="option"><input type="radio" name="final" value="2"> Teachers should diagnose concerns before recommending outside evaluation, because this offers a response in practice.</label>
+<label class="option"><input type="radio" name="final" value="3"> Good health practice combines records, prevention, observation, screening, oral health, sleep, family partnership, and staff wellness.</label>
+</div><div class="btn-row"><button class="btn" id="finalCheck">Check my thinking</button></div><div class="feedback" id="finalFeedback"></div></section>
+
+<aside class="resource-bar"><p><strong>Need a quick review?</strong><br><span class="small">Revisit health records, daily observation, immunizations, oral health, sleep, screenings, developmental concerns, family resources, and staff wellness.</span></p><a class="resource-link" href="https://socialsci.libretexts.org/Bookshelves/Early_Childhood_Education/Health_Safety_and_Nutrition_(Paris)/03%3A_Health/3.01%3A_Promoting_Good_Health_and_Wellness" target="_blank" rel="noopener noreferrer">📖 Return to Paris Chapter 7</a></aside>
+
+<section id="reflect" class="card reflection"><div class="kicker">Health-strand debrief</div><h2>Complete the reasoning</h2>
+<p><strong>A single observation becomes more meaningful when I compare it with…</strong></p>
+<label for="reflectionText" class="sr-only">Your reflection</label><textarea id="reflectionText" placeholder="Type a few words or sentences. This response remains on this page and is not graded or submitted."></textarea>
+<div class="btn-row"><button class="btn" id="compareBtn">Compare My Thinking</button></div>
+<div class="compare-panel" id="comparePanel">
+<div class="compare-box"><h3>Compare with the child</h3><p>Consider the child’s usual energy, appetite, participation, sleep, behavior, health information, and prior observations.</p></div>
+<div class="compare-box"><h3>Compare across time</h3><p>Notice duration, recurrence, clusters of signs, and whether routine support changes the observation.</p></div>
+<div class="compare-box"><h3>Stay within your role</h3><p>Document and communicate observable patterns; families and qualified health professionals provide diagnosis and clinical evaluation.</p></div>
+</div></section>
+
+<div class="complete" id="completeBox"><div><strong>🌿 Health lens established!</strong><br><span class="small">You began using OBSERVE → COMPARE → SUPPORT → ACT without turning observation into diagnosis.</span></div><button class="btn" id="restartBtn">Restart guide</button></div>
+</main>
+
+<script>
+// Shuffle each complete answer label on every fresh page load. Input values and answer keys move together.
+function shuffleAnswerChoices(group){
+  const choices=[...group.children];
+  for(let i=choices.length-1;i>0;i--){
+    const j=Math.floor(Math.random()*(i+1));
+    [choices[i],choices[j]]=[choices[j],choices[i]];
+  }
+  choices.forEach(choice=>group.appendChild(choice));
+}
+document.querySelectorAll('.options').forEach(shuffleAnswerChoices);
+
+const state={story:false,promotion:false,match:false,vision:false,screening:false,oral:false,sleep:false,family:false,staff:false,final:false,reflect:false};
+const steps=[...document.querySelectorAll('.step')];
+document.querySelectorAll('.options').forEach(group=>{const choices=[...group.children];for(let i=choices.length-1;i>0;i--){const j=Math.floor(Math.random()*(i+1));[choices[i],choices[j]]=[choices[j],choices[i]]}choices.forEach(choice=>group.appendChild(choice))});
+function updateProgress(){const done=Object.values(state).filter(Boolean).length;const pct=Math.round(done/11*100);const bar=document.querySelector('.progress-line');document.getElementById('progressFill').style.width=pct+'%';document.getElementById('progressText').textContent=pct+'%';bar.setAttribute('aria-valuenow',pct);steps.forEach((s,i)=>{s.classList.toggle('done',i<Math.min(4,Math.ceil(done*4/11)));s.classList.toggle('active',i===Math.min(3,Math.floor(done*4/11)))});if(done===11)document.getElementById('completeBox').classList.add('show')}
+function show(box,txt){box.innerHTML=txt;box.classList.add('show')}
+function radioCheck(name,correct,feedbackId,success,retry,key){const c=document.querySelector('input[name='+name+']:checked'),f=document.getElementById(feedbackId);if(!c)return show(f,'⚠️ Choose an answer first.');const ok=Number(c.value)===correct;show(f,ok?'✅ <strong>Correct.</strong> '+success:'↻ <strong>Try again.</strong> '+retry);if(ok){state[key]=true;updateProgress()}}
+document.getElementById('storyDone').onclick=()=>{state.story=true;updateProgress();document.getElementById('explore').scrollIntoView({behavior:'smooth'})};
+document.querySelectorAll('.health-action').forEach(b=>b.onclick=()=>{b.closest('.actions').querySelectorAll('.health-action').forEach(x=>x.setAttribute('aria-pressed','false'));b.setAttribute('aria-pressed','true')});
+document.getElementById('checkMorning').onclick=()=>{const items=[...document.querySelectorAll('.check-item')],f=document.getElementById('morningFeedback'),answered=items.filter(i=>i.querySelector('[aria-pressed="true"]')).length,correct=items.filter(i=>i.querySelector('[aria-pressed="true"]')?.dataset.value===i.dataset.answer).length;if(answered<items.length)return show(f,'⚠️ Choose an action for all five observations. You have completed <strong>'+answered+' of 5</strong>.');show(f,correct===items.length?'✅ <strong>Strong Health Check.</strong> You distinguished usual variation, monitoring, a repeated pattern needing communication, and a condition requiring prompt action.':'↻ You matched <strong>'+correct+' of 5</strong> first actions. Reconsider what is typical for the child, whether the sign repeats, whether other functioning changed, and whether immediate health is threatened.');if(correct===items.length){state.match=true;updateProgress()}};
+document.getElementById('resetMorning').onclick=()=>{document.querySelectorAll('.health-action').forEach(b=>b.setAttribute('aria-pressed','false'));document.getElementById('morningFeedback').classList.remove('show')};
+document.getElementById('promotionCheck').onclick=()=>radioCheck('promotion',1,'promotionFeedback','Note B reports observable, repeatable facts. The educator can compare the pattern and communicate it without claiming a diagnosis.','Choose the note and response that separate observation from medical conclusion.','promotion');
+document.getElementById('visionCheck').onclick=()=>radioCheck('vision',1,'visionFeedback','Repeated observations can signal a need for screening or follow-up; teachers document and communicate rather than diagnose.','Choose observation and referral rather than assumption or diagnosis.','vision');
+document.getElementById('screeningCheck').onclick=()=>radioCheck('screening',0,'screeningFeedback','Screening identifies children who may benefit from more complete evaluation; it is not itself a diagnosis.','Choose identification for possible follow-up.','screening');
+document.getElementById('oralCheck').onclick=()=>radioCheck('oral',2,'oralFeedback','Early oral-health routines and family access to dental care support prevention rather than waiting for pain.','Choose prevention and connection to care.','oral');
+document.getElementById('sleepCheck').onclick=()=>radioCheck('sleep',3,'sleepFeedback','Sleep supports physical health, attention, behavior, and learning across early childhood.','Choose the response connecting sleep with multiple areas of functioning.','sleep');
+document.getElementById('familyCheck').onclick=()=>radioCheck('family',0,'familyFeedback','Teachers share objective observations and help families access screening or evaluation; they do not diagnose.','Choose respectful partnership and appropriate referral.','family');
+document.getElementById('staffCheck').onclick=()=>radioCheck('staff',2,'staffFeedback','Educator wellness affects patience, consistency, responsiveness, attendance, and the quality of daily care.','Choose the response linking adult well-being with caregiving quality.','staff');
+document.getElementById('finalCheck').onclick=()=>radioCheck('final',3,'finalFeedback','Paris Chapter 7 presents health promotion as proactive, interconnected work involving children, families, records, routines, screening, and staff.','Choose the comprehensive health-promotion response.','final');
+document.getElementById('compareBtn').onclick=()=>{document.getElementById('comparePanel').classList.add('show');state.reflect=true;updateProgress();document.getElementById('comparePanel').scrollIntoView({behavior:'smooth',block:'nearest'})};
+document.getElementById('restartBtn').onclick=()=>location.reload();
+updateProgress();
+</script>
+</body></html>
