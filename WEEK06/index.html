@@ -1,0 +1,212 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>CLDV-05 Week 6 Interactive Reading Guide</title>
+<style>
+:root{--navy:#173f63;--teal:#287a78;--ink:#172033;--muted:#5c6678;--gold:#e1ad35;--border:#d8deea;--shadow:0 8px 24px rgba(22,32,51,.09);--green:#287a51;--soft:#f5f7fb}
+*{box-sizing:border-box}html{scroll-behavior:smooth}
+body{margin:0;font-family:system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif;background:var(--soft);color:var(--ink);line-height:1.55}
+button,input,textarea,select{font:inherit}button{cursor:pointer}a{color:var(--navy)}
+button:focus-visible,input:focus-visible,textarea:focus-visible,select:focus-visible,a:focus-visible{outline:3px solid #4e9cf5;outline-offset:2px}
+.sitebar{background:var(--navy);color:#fff;padding:14px 20px}.sitebar-inner{max-width:1180px;margin:auto;display:flex;align-items:center;justify-content:space-between;gap:18px}
+.brand{display:flex;align-items:center;gap:12px;font-weight:700}.logo{width:46px;height:46px;border:2px solid #fff;border-radius:12px;display:grid;place-items:center}.small{font-size:.9rem;color:var(--muted)}.sitebar .small{color:#d9e6f5}
+main{max-width:1180px;margin:0 auto;padding:28px 18px 60px}.hero{display:flex;justify-content:space-between;gap:24px;align-items:end;flex-wrap:wrap}
+h1{font-size:clamp(2rem,4vw,3rem);line-height:1.05;margin:.1em 0}.subtitle{font-size:1.08rem;margin:0;color:#39445a}
+.progress-wrap{min-width:260px}.progress-line{height:10px;background:#d9dee7;border-radius:999px;overflow:hidden}.progress-fill{height:100%;width:0;background:linear-gradient(90deg,var(--green),#52a981);transition:width .35s ease}
+.steps{display:grid;grid-template-columns:repeat(4,1fr);gap:10px;margin:24px 0}.step{background:#fff;border:1px solid var(--border);border-radius:999px;padding:11px 12px;text-align:center;font-weight:650;color:#667085;text-decoration:none}.step.active{background:#eaf5f3;color:#145854;border-color:#a7d2cf}.step.done{background:#eaf7f1;color:#176847}
+.card{background:#fff;border:1px solid var(--border);border-radius:22px;box-shadow:var(--shadow);overflow:hidden}
+.story{display:grid;grid-template-columns:minmax(300px,44%) 1fr;background:linear-gradient(110deg,#fff5ef,#fff)}.story img{width:100%;height:100%;min-height:430px;object-fit:cover}.story-copy{padding:30px}
+.kicker{font-size:.82rem;text-transform:uppercase;letter-spacing:.08em;font-weight:800;color:#89543d}h2{font-size:1.55rem;margin:.25em 0 .5em}h3{font-size:1.18rem;margin:0 0 12px}
+.story-note{background:rgba(255,255,255,.88);border-left:5px solid var(--gold);padding:14px 16px;border-radius:12px;margin-top:18px}
+.grid2{display:grid;grid-template-columns:1fr 1fr;gap:18px;margin-top:18px}.activity{padding:24px}.question{font-weight:700;margin-bottom:14px}.options{display:grid;gap:10px}
+.option{display:flex;gap:12px;align-items:flex-start;border:1px solid #ccd3df;border-radius:13px;padding:12px;background:#fff}
+.feedback{display:none;margin-top:14px;padding:13px 15px;border-radius:13px;background:#edf9f1;border:1px solid #acd7b9}.feedback.show{display:block}
+.match-row{display:grid;grid-template-columns:190px 1fr;gap:12px;align-items:center;margin:10px 0}.term{font-weight:750;background:#edf5ff;border:1px solid #a7c5ef;border-radius:10px;padding:10px}
+select{width:100%;padding:10px;border:1px solid #bac4d3;border-radius:10px;background:#fff}
+.btn{border:none;border-radius:12px;padding:12px 18px;font-weight:750;background:var(--green);color:#fff;box-shadow:0 4px 12px rgba(40,122,81,.2)}
+.btn.secondary{background:#fff;color:var(--navy);border:1px solid #aeb9c8;box-shadow:none}.btn-row{display:flex;gap:10px;flex-wrap:wrap;margin-top:15px}
+.resource-bar{display:flex;align-items:center;justify-content:space-between;gap:16px;flex-wrap:wrap;margin:18px 0;padding:16px 18px;border:1px solid #b9c9dc;border-radius:18px;background:#eef6ff}
+.resource-bar p{margin:0}.resource-link{display:inline-flex;align-items:center;gap:8px;text-decoration:none;border-radius:12px;padding:11px 15px;font-weight:750;background:#fff;color:var(--navy);border:1px solid #9fb0c5}
+.concept-strip{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;margin-top:18px}.concept{padding:18px;border-radius:18px;border:1px solid var(--border);background:#fff}.concept strong{display:block;margin-bottom:6px}
+.cycle{display:grid;grid-template-columns:repeat(4,1fr);gap:10px;margin:18px 0}.cycle div{padding:13px;border-radius:15px;background:#fff2eb;border:1px solid #e1c5b7;text-align:center}.cycle strong{display:block;color:#89543d;letter-spacing:.05em}.cycle span{font-size:.84rem;color:var(--muted)}.triage{display:grid;gap:13px;margin-top:16px}.triage-item{padding:17px;border:1px solid var(--border);border-radius:16px;background:#fff}.triage-item p{margin:0 0 10px}.levels{display:flex;gap:8px;flex-wrap:wrap}.level{border:2px solid #ccd3df;border-radius:999px;padding:8px 12px;background:#fff;color:var(--ink)}.level[aria-pressed="true"]{border-color:#89543d;background:#fff2eb}.wide{grid-column:1/-1}.sequence{margin:10px 0 0;padding-left:1.3rem}.sequence li{margin:.45rem 0}
+.reflection{margin-top:18px;padding:24px;background:linear-gradient(135deg,#f1fbf4,#fff)}textarea{width:100%;min-height:120px;border:1px solid #bbc5d3;border-radius:14px;padding:14px;resize:vertical}
+.compare-panel{display:none;margin-top:18px}.compare-panel.show{display:grid;grid-template-columns:repeat(3,1fr);gap:14px}.compare-box{border-radius:18px;padding:18px;border:1px solid var(--border)}
+.compare-box:nth-child(1){background:#fff8df}.compare-box:nth-child(2){background:#edf9f5}.compare-box:nth-child(3){background:#f4efff}
+.complete{display:none;margin-top:18px;padding:20px;background:#eaf8f1;border:1px solid #a9d9bf;border-radius:18px;align-items:center;justify-content:space-between;gap:14px}.complete.show{display:flex}
+.badge{display:inline-block;background:#e8f5ee;color:#176847;border-radius:999px;padding:5px 10px;font-weight:800;font-size:.82rem}.section-label{font-size:.82rem;text-transform:uppercase;letter-spacing:.07em;font-weight:800;color:var(--teal)}
+.sr-only{position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0,0,0,0);white-space:nowrap;border:0}
+@media(max-width:850px){.story,.grid2{grid-template-columns:1fr}.story img{min-height:240px;max-height:390px}.concept-strip,.cycle,.compare-panel.show{grid-template-columns:1fr}.steps{grid-template-columns:1fr 1fr}}
+@media(max-width:520px){main{padding:18px 12px 40px}.sitebar{padding:10px 12px}.steps{grid-template-columns:1fr}.step{text-align:left}.match-row{grid-template-columns:1fr}.activity,.reflection,.story-copy{padding:18px}.complete.show{align-items:flex-start;flex-direction:column}}
+@media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}.progress-fill{transition:none}}
+</style>
+</head>
+<body>
+<header class="sitebar"><div class="sitebar-inner"><div class="brand"><div class="logo">05</div><div>Health, Safety &amp; Nutrition<div class="small">Interactive Reading Guide</div></div></div><div class="small">Week 6 • Paris Chapter 5</div></div></header>
+
+<main>
+<section class="hero"><div><span class="badge">Safety Detective · Case File 4</span> <span class="badge">NOTICE → ASSESS → PREVENT → RESPOND</span>
+<h1>The Day Nothing Goes as Planned</h1>
+<p class="subtitle">Minor injuries, first aid, emergency response, communication, and disaster preparedness</p></div>
+<div class="progress-wrap"><div style="display:flex;justify-content:space-between;margin-bottom:7px"><strong>Overall progress</strong><span id="progressText">0%</span></div>
+<div class="progress-line" role="progressbar" aria-valuemin="0" aria-valuemax="100" aria-valuenow="0"><div class="progress-fill" id="progressFill"></div></div></div>
+</section>
+
+<nav class="steps"><a class="step active" href="#story">1. Case File</a><a class="step" href="#explore">2. Triage</a><a class="step" href="#practice">3. Protective Action</a><a class="step" href="#reflect">4. Debrief</a></nav>
+
+<aside class="resource-bar"><p><strong>Keep Paris Chapter 5 nearby.</strong><br><span class="small">This guide supports the reading; it does not replace it.</span></p>
+<a class="resource-link" href="https://socialsci.libretexts.org/Bookshelves/Early_Childhood_Education/Health_Safety_and_Nutrition_(Paris)/02%3A_Safety/2.04%3A_Caring_for_Minor_Injuries_and_Preparing_for_and_Managing_Emergencies" target="_blank" rel="noopener noreferrer">📖 Open Paris Chapter 5</a></aside>
+<aside class="resource-bar"><p><strong>Practice freely.</strong><br><span class="small">Plan for about 15–20 minutes. Responses remain on this page and are not saved, graded, or submitted.</span></p></aside>
+
+<section id="story" class="card story">
+<img src="images/cldv05-week6-vignette.png" alt="An early childhood education student observes a teacher calmly caring for a child with a minor knee injury while other staff support the classroom">
+<div class="story-copy"><div class="kicker">Opening vignette</div><h2>“The Day Nothing Goes as Planned”</h2>
+<p>Maya is helping in a preschool classroom when a child trips on the edge of a rug and scrapes his knee. The injury is minor, but the adults respond with calm purpose.</p>
+<p>One teacher kneels beside the child and reassures him. Another keeps the rest of the class engaged. Someone retrieves the first aid kit while another checks the incident form.</p>
+<p>Later, the teacher tells Maya, “Most emergencies are not dramatic. But if we wait until something happens to decide what to do, we are already behind.”</p>
+<p>Maya thinks about fire drills, earthquakes, lockdowns, allergic reactions, missing children, family notifications, emergency cards, evacuation bags, and first aid supplies.</p>
+<p>She writes: <strong>Calm is easier when preparation has already happened.</strong></p>
+<div class="cycle"><div><strong>NOTICE</strong><span>Observe signs, scene, and group</span></div><div><strong>ASSESS</strong><span>Decide urgency and protective action</span></div><div><strong>PREVENT</strong><span>Stop added harm and protect others</span></div><div><strong>RESPOND</strong><span>Care, call, communicate, document</span></div></div>
+<div class="story-note"><strong>Week 6 challenge:</strong> The order matters. Immediate threats to life and group safety come before paperwork, explanation, or routine follow-up.</div>
+<div class="btn-row"><button class="btn" id="storyDone">Open the response case file</button></div></div>
+</section>
+
+<section id="explore" class="grid2">
+<article class="card activity wide"><div class="section-label">Response Scan / Triage</div><h3>🩺 Classify the first response</h3><p>Choose the level that best fits each observation. These classifications guide the first action; staff must continue monitoring and follow program procedures.</p><div class="triage" id="triageScan">
+<div class="triage-item" data-answer="routine"><p><strong>1.</strong> A child has a shallow knee scrape, is alert, and the bleeding stops with ordinary first aid.</p><div class="levels"><button class="level" data-value="routine" aria-pressed="false">Routine minor-injury care</button><button class="level" data-value="urgent" aria-pressed="false">Urgent emergency action</button><button class="level" data-value="investigate" aria-pressed="false">Assess further first</button></div></div>
+<div class="triage-item" data-answer="urgent"><p><strong>2.</strong> A child who was eating suddenly cannot breathe, cough, speak, or make sounds.</p><div class="levels"><button class="level" data-value="routine" aria-pressed="false">Routine minor-injury care</button><button class="level" data-value="urgent" aria-pressed="false">Urgent emergency action</button><button class="level" data-value="investigate" aria-pressed="false">Assess further first</button></div></div>
+<div class="triage-item" data-answer="investigate"><p><strong>3.</strong> After a fall, a child says “I’m okay” but seems quieter than usual.</p><div class="levels"><button class="level" data-value="routine" aria-pressed="false">Routine minor-injury care</button><button class="level" data-value="urgent" aria-pressed="false">Urgent emergency action</button><button class="level" data-value="investigate" aria-pressed="false">Assess further first</button></div></div>
+<div class="triage-item" data-answer="urgent"><p><strong>4.</strong> Smoke is entering the classroom from the hallway.</p><div class="levels"><button class="level" data-value="routine" aria-pressed="false">Routine minor-injury care</button><button class="level" data-value="urgent" aria-pressed="false">Urgent emergency action</button><button class="level" data-value="investigate" aria-pressed="false">Assess further first</button></div></div>
+<div class="triage-item" data-answer="investigate"><p><strong>5.</strong> A child reports stomach pain but has no visible injury or known cause.</p><div class="levels"><button class="level" data-value="routine" aria-pressed="false">Routine minor-injury care</button><button class="level" data-value="urgent" aria-pressed="false">Urgent emergency action</button><button class="level" data-value="investigate" aria-pressed="false">Assess further first</button></div></div>
+</div><div class="btn-row"><button class="btn" id="checkTriage">Check triage</button><button class="btn secondary" id="resetTriage">Clear choices</button></div><div class="feedback" id="triageFeedback" role="status"></div></article>
+
+<article class="card activity wide"><div class="section-label">Simultaneous demands</div><h3>🚨 What happens first?</h3><p class="question">During outdoor play, one child has a bleeding scrape while a fire alarm sounds. Two teachers supervise the group. What is the strongest coordinated response?</p><div class="options"><label class="option"><input type="radio" name="prepared" value="0"> Finish cleaning and documenting the scrape before moving anyone, because this approach offers a clear and consistent professional response based on the information currently available to the educator in this particular classroom situation.</label><label class="option"><input type="radio" name="prepared" value="1"> Activate the practiced evacuation plan: one adult leads and accounts for the group while the other maintains necessary care and moves the injured child safely; reassess, communicate, and document after reaching safety.</label><label class="option"><input type="radio" name="prepared" value="2"> One teacher evacuates while the other stays behind with the injured child, because this approach offers a clear and consistent response based on the information currently available here.</label><label class="option"><input type="radio" name="prepared" value="3"> Silence the alarm briefly so the child receiving first aid does not become frightened, because this approach offers a clear and consistent response to the situation described here.</label></div><div class="btn-row"><button class="btn" id="preparedCheck">Test the response plan</button></div><div class="feedback" id="preparedFeedback"></div></article>
+</section>
+
+<section class="concept-strip">
+<div class="concept"><strong>🧰 Preparation makes speed safer.</strong>Roles, training, supplies, records, drills, and accommodations reduce hesitation and confusion.</div>
+<div class="concept"><strong>📣 Match action to threat.</strong>Evacuation, shelter-in-place, lockdown, first aid, or emergency services solve different problems.</div>
+<div class="concept"><strong>❤️ Response continues after danger.</strong>Reassessment, accountability, communication, documentation, family reunification, and emotional recovery matter too.</div>
+</section>
+
+<section class="grid2">
+<article class="card activity"><div class="section-label">Minor injury</div><h3>🩹 A scraped knee</h3>
+<p class="question">Why should a minor injury still receive an organized professional response?</p>
+<div class="options">
+<label class="option"><input type="radio" name="minor" value="0"> Children need reassurance, appropriate first aid, supervision, documentation, and family communication as required.</label>
+<label class="option"><input type="radio" name="minor" value="1"> Minor injuries always require emergency medical services, because this offers a response in practice.</label>
+<label class="option"><input type="radio" name="minor" value="2"> Any injury proves the environment was unsafe, as the educator's initial response.</label>
+<label class="option"><input type="radio" name="minor" value="3"> Documentation matters more than comforting the child, as the educator's initial response.</label>
+</div><div class="btn-row"><button class="btn" id="minorCheck">Check answer</button></div><div class="feedback" id="minorFeedback"></div></article>
+
+<article class="card activity"><div class="section-label">First aid limits</div><h3>🚑 Know when it is an emergency</h3>
+<p class="question">Which situation most clearly requires emergency medical services?</p>
+<div class="options">
+<label class="option"><input type="radio" name="ems" value="0"> A small scrape that stops bleeding quickly, as the educator's initial response.</label>
+<label class="option"><input type="radio" name="ems" value="1"> A mild bruise after bumping into a table, in practice.</label>
+<label class="option"><input type="radio" name="ems" value="2"> A child who cannot breathe or make sounds because of choking.</label>
+<label class="option"><input type="radio" name="ems" value="3"> A child who cries after a minor fall but soon calms.</label>
+</div><div class="btn-row"><button class="btn" id="emsCheck">Check answer</button></div><div class="feedback" id="emsFeedback"></div></article>
+</section>
+
+<section id="practice" class="grid2">
+<article class="card activity"><div class="section-label">Evacuation</div><h3>🚪 Leave the danger area</h3>
+<p class="question">Which situation most strongly suggests evacuation?</p>
+<div class="options">
+<label class="option"><input type="radio" name="evac" value="0"> A fire makes remaining in the building unsafe, in practice.</label>
+<label class="option"><input type="radio" name="evac" value="1"> Severe weather makes the indoor room safer than outside, initially.</label>
+<label class="option"><input type="radio" name="evac" value="2"> An unauthorized person is nearby and children should remain secured inside.</label>
+<label class="option"><input type="radio" name="evac" value="3"> A child needs routine first aid, as the educator's immediate professional response.</label>
+</div><div class="btn-row"><button class="btn" id="evacCheck">Check answer</button></div><div class="feedback" id="evacFeedback"></div></article>
+
+<article class="card activity"><div class="section-label">Shelter-in-place</div><h3>🏠 Stay protected indoors</h3>
+<p class="question">Which example best fits sheltering in place?</p>
+<div class="options">
+<label class="option"><input type="radio" name="shelter" value="0"> A fire alarm requires everyone to exit immediately, as the initial response.</label>
+<label class="option"><input type="radio" name="shelter" value="1"> Hazardous outdoor conditions make it safer to remain inside in a designated area.</label>
+<label class="option"><input type="radio" name="shelter" value="2"> A missing child requires staff to search the neighborhood independently, in practice.</label>
+<label class="option"><input type="radio" name="shelter" value="3"> A routine earthquake drill is cancelled, because this offers a response in this situation.</label>
+</div><div class="btn-row"><button class="btn" id="shelterCheck">Check answer</button></div><div class="feedback" id="shelterFeedback"></div></article>
+</section>
+
+<section class="grid2">
+<article class="card activity"><div class="section-label">Lockdown</div><h3>🔒 Secure the program</h3>
+<p class="question">When is lockdown most appropriate?</p>
+<div class="options">
+<label class="option"><input type="radio" name="lockdown" value="0"> When children need to relocate because of smoke, as the educator's initial response.</label>
+<label class="option"><input type="radio" name="lockdown" value="1"> When a child has a minor cut, as the educator's immediate professional response.</label>
+<label class="option"><input type="radio" name="lockdown" value="2"> When a dangerous or unauthorized person creates a threat that requires securing people inside.</label>
+<label class="option"><input type="radio" name="lockdown" value="3"> Whenever families arrive unexpectedly, because this approach offers a consistent response to the situation described.</label>
+</div><div class="btn-row"><button class="btn" id="lockdownCheck">Check answer</button></div><div class="feedback" id="lockdownFeedback"></div></article>
+
+<article class="card activity"><div class="section-label">Attendance and reunification</div><h3>📋 Account for every child</h3>
+<p class="question">Why are current attendance records and emergency contacts essential during an emergency?</p>
+<div class="options">
+<label class="option"><input type="radio" name="records" value="0"> They replace the need for staff communication, because this offers a response in practice.</label>
+<label class="option"><input type="radio" name="records" value="1"> They allow teachers to postpone family notification, as the educator's initial response.</label>
+<label class="option"><input type="radio" name="records" value="2"> They are needed only after evacuation is complete, as the initial response.</label>
+<label class="option"><input type="radio" name="records" value="3"> They help staff verify every child’s location and communicate with families during reunification.</label>
+</div><div class="btn-row"><button class="btn" id="recordsCheck">Check answer</button></div><div class="feedback" id="recordsFeedback"></div></article>
+</section>
+
+<section class="card activity" style="margin-top:18px"><div class="section-label">Final self-check</div><h3>Check your understanding</h3>
+<p class="question">Which statement best integrates Paris Chapter 5?</p>
+<div class="options">
+<label class="option"><input type="radio" name="final" value="0"> Emergency plans are mainly useful for rare natural disasters, as the educator's immediate professional response.</label>
+<label class="option"><input type="radio" name="final" value="1"> Calm adults can improvise effectively without regular drills, because this offers a response to the situation described.</label>
+<label class="option"><input type="radio" name="final" value="2"> Emergency response ends once immediate physical danger has passed, as the educator's immediate professional response.</label>
+<label class="option"><input type="radio" name="final" value="3"> Prepared programs combine first-aid knowledge, clear roles, practiced plans, appropriate protective actions, communication, and recovery support.</label>
+</div><div class="btn-row"><button class="btn" id="finalCheck">Check my thinking</button></div><div class="feedback" id="finalFeedback"></div></section>
+
+<aside class="resource-bar"><p><strong>Need a quick review?</strong><br><span class="small">Revisit first aid kits, minor injuries, lifesaving first aid, missing-child response, emergency planning, preparedness/response/recovery, evacuation, shelter-in-place, and lockdown.</span></p>
+<a class="resource-link" href="https://socialsci.libretexts.org/Bookshelves/Early_Childhood_Education/Health_Safety_and_Nutrition_(Paris)/02%3A_Safety/2.04%3A_Caring_for_Minor_Injuries_and_Preparing_for_and_Managing_Emergencies" target="_blank" rel="noopener noreferrer">📖 Return to Paris Chapter 5</a></aside>
+
+<section id="reflect" class="card reflection"><div class="kicker">Detective debrief</div><h2>Explain the order of action</h2>
+<p><strong>In an emergency, documentation and family communication are important, but they generally follow…</strong></p>
+<label for="reflectionText" class="sr-only">Your reflection</label><textarea id="reflectionText" placeholder="Type a few words or sentences. This response remains on this page and is not graded or submitted."></textarea>
+<div class="btn-row"><button class="btn" id="compareBtn">Compare My Thinking</button></div>
+<div class="compare-panel" id="comparePanel">
+<div class="compare-box"><h3>The chapter emphasizes…</h3><p>Preparedness makes response more efficient because staff have already practiced roles, routes, communication, and protective actions.</p></div>
+<div class="compare-box"><h3>Consider…</h3><p>Did your response mention reducing panic, clarifying roles, accounting for children, practicing movement, or finding problems in the plan before a real emergency?</p></div>
+<div class="compare-box"><h3>Add to your thinking…</h3><p>Preparedness also includes supplies, family communication, children with mobility or other special needs, and planning for recovery after the emergency.</p></div>
+</div></section>
+
+<div class="complete" id="completeBox"><div><strong>🔎 Response case file complete!</strong><br><span class="small">You applied NOTICE → ASSESS → PREVENT → RESPOND under time pressure while maintaining care and group accountability.</span></div><button class="btn" id="restartBtn">Restart guide</button></div>
+</main>
+
+<script>
+// Shuffle each complete answer label on every fresh page load. Input values and answer keys move together.
+function shuffleAnswerChoices(group){
+  const choices=[...group.children];
+  for(let i=choices.length-1;i>0;i--){
+    const j=Math.floor(Math.random()*(i+1));
+    [choices[i],choices[j]]=[choices[j],choices[i]];
+  }
+  choices.forEach(choice=>group.appendChild(choice));
+}
+document.querySelectorAll('.options').forEach(shuffleAnswerChoices);
+
+const state={story:false,prepared:false,match:false,minor:false,ems:false,evac:false,shelter:false,lockdown:false,records:false,final:false,reflect:false};
+const steps=[...document.querySelectorAll('.step')];
+document.querySelectorAll('.options').forEach(group=>{const choices=[...group.children];for(let i=choices.length-1;i>0;i--){const j=Math.floor(Math.random()*(i+1));[choices[i],choices[j]]=[choices[j],choices[i]]}choices.forEach(choice=>group.appendChild(choice))});
+function updateProgress(){const done=Object.values(state).filter(Boolean).length;const pct=Math.round(done/11*100);const bar=document.querySelector('.progress-line');document.getElementById('progressFill').style.width=pct+'%';document.getElementById('progressText').textContent=pct+'%';bar.setAttribute('aria-valuenow',pct);steps.forEach((s,i)=>{s.classList.toggle('done',i<Math.min(4,Math.ceil(done*4/11)));s.classList.toggle('active',i===Math.min(3,Math.floor(done*4/11)))});if(done===11)document.getElementById('completeBox').classList.add('show')}
+function show(box,txt){box.innerHTML=txt;box.classList.add('show')}
+function radioCheck(name,correct,feedbackId,success,retry,key){const c=document.querySelector('input[name='+name+']:checked'),f=document.getElementById(feedbackId);if(!c)return show(f,'⚠️ Choose an answer first.');const ok=Number(c.value)===correct;show(f,ok?'✅ <strong>Correct.</strong> '+success:'↻ <strong>Try again.</strong> '+retry);if(ok){state[key]=true;updateProgress()}}
+document.getElementById('storyDone').onclick=()=>{state.story=true;updateProgress();document.getElementById('explore').scrollIntoView({behavior:'smooth'})};
+document.querySelectorAll('.level').forEach(b=>b.onclick=()=>{b.closest('.levels').querySelectorAll('.level').forEach(x=>x.setAttribute('aria-pressed','false'));b.setAttribute('aria-pressed','true')});
+document.getElementById('checkTriage').onclick=()=>{const items=[...document.querySelectorAll('.triage-item')],f=document.getElementById('triageFeedback'),answered=items.filter(i=>i.querySelector('[aria-pressed="true"]')).length,correct=items.filter(i=>i.querySelector('[aria-pressed="true"]')?.dataset.value===i.dataset.answer).length;if(answered<items.length)return show(f,'⚠️ Classify all five observations first. You have completed <strong>'+answered+' of 5</strong>.');show(f,correct===items.length?'✅ <strong>Sound triage.</strong> You separated routine care, immediate threats, and conditions requiring closer assessment without assuming that a child’s words or lack of visible injury settle the question.':'↻ You classified <strong>'+correct+' of 5</strong> appropriately. Reconsider threats to breathing, environmental danger, and symptoms that require assessment before classification.');if(correct===items.length){state.match=true;updateProgress()}};
+document.getElementById('resetTriage').onclick=()=>{document.querySelectorAll('.level').forEach(b=>b.setAttribute('aria-pressed','false'));document.getElementById('triageFeedback').classList.remove('show')};
+document.getElementById('preparedCheck').onclick=()=>radioCheck('prepared',1,'preparedFeedback','The immediate environmental threat governs the first action. Practiced roles allow evacuation, necessary care, and group accountability to occur together.','Choose the response that protects the entire group without abandoning the injured child.','prepared');
+document.getElementById('minorCheck').onclick=()=>radioCheck('minor',0,'minorFeedback','Professional care includes comforting the child, appropriate first aid, continued supervision, documentation, and required communication.','Choose the organized response that attends to both the child and program responsibilities.','minor');
+document.getElementById('emsCheck').onclick=()=>radioCheck('ems',2,'emsFeedback','A child who cannot breathe or make sounds due to choking is experiencing a life-threatening emergency.','Choose the condition involving immediate threat to breathing or life.','ems');
+document.getElementById('evacCheck').onclick=()=>radioCheck('evac',0,'evacFeedback','Evacuation is appropriate when remaining in the building or area is unsafe.','Choose the situation requiring people to leave the danger area.','evac');
+document.getElementById('shelterCheck').onclick=()=>radioCheck('shelter',1,'shelterFeedback','Shelter-in-place keeps people inside when the indoor environment offers the safer protection.','Choose the situation in which going outside would increase danger.','shelter');
+document.getElementById('lockdownCheck').onclick=()=>radioCheck('lockdown',2,'lockdownFeedback','Lockdown is used when a human threat requires people to secure themselves inside.','Choose the threat that makes movement or open access unsafe.','lockdown');
+document.getElementById('recordsCheck').onclick=()=>radioCheck('records',3,'recordsFeedback','Current rosters and contacts help programs account for every child and communicate during reunification.','Choose the response about accountability and family communication.','records');
+document.getElementById('finalCheck').onclick=()=>radioCheck('final',3,'finalFeedback','Paris Chapter 5 connects first aid with practiced emergency management before, during, and after an event.','Choose the comprehensive preparedness-and-response answer.','final');
+document.getElementById('compareBtn').onclick=()=>{document.getElementById('comparePanel').classList.add('show');state.reflect=true;updateProgress();document.getElementById('comparePanel').scrollIntoView({behavior:'smooth',block:'nearest'})};
+document.getElementById('restartBtn').onclick=()=>location.reload();
+updateProgress();
+</script>
+</body></html>
