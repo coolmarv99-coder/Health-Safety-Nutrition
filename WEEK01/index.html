@@ -1,0 +1,230 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>CLDV-05 Week 1 Interactive Reading Guide</title>
+<style>
+:root{--navy:#173f63;--teal:#287a78;--ink:#172033;--muted:#5c6678;--gold:#e1ad35;--border:#d8deea;--shadow:0 8px 24px rgba(22,32,51,.09);--green:#287a51;--soft:#f5f7fb}
+*{box-sizing:border-box}html{scroll-behavior:smooth}
+body{margin:0;font-family:system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif;background:var(--soft);color:var(--ink);line-height:1.55}
+button,input,textarea,select{font:inherit}button{cursor:pointer}
+button:focus-visible,input:focus-visible,textarea:focus-visible,select:focus-visible{outline:3px solid #4e9cf5;outline-offset:2px}
+.sitebar{background:var(--navy);color:#fff;padding:14px 20px}.sitebar-inner{max-width:1180px;margin:auto;display:flex;align-items:center;justify-content:space-between;gap:18px}
+.brand{display:flex;align-items:center;gap:12px;font-weight:700}.logo{width:46px;height:46px;border:2px solid #fff;border-radius:12px;display:grid;place-items:center}
+.small{font-size:.9rem;color:var(--muted)}.sitebar .small{color:#d9e6f5}
+main{max-width:1180px;margin:0 auto;padding:28px 18px 60px}.hero{display:flex;justify-content:space-between;gap:24px;align-items:end;flex-wrap:wrap}
+h1{font-size:clamp(2rem,4vw,3rem);line-height:1.05;margin:.1em 0}.subtitle{font-size:1.08rem;margin:0;color:#39445a}
+.progress-wrap{min-width:260px}.progress-line{height:10px;background:#d9dee7;border-radius:999px;overflow:hidden}.progress-fill{height:100%;width:0;background:linear-gradient(90deg,var(--green),#52a981);transition:width .35s ease}
+.steps{display:grid;grid-template-columns:repeat(4,1fr);gap:10px;margin:24px 0}.step{background:#fff;border:1px solid var(--border);border-radius:999px;padding:11px 12px;text-align:center;font-weight:650;color:#667085;text-decoration:none}.step.active{background:#eaf5f3;color:#145854;border-color:#a7d2cf}.step.done{background:#eaf7f1;color:#176847}
+.card{background:#fff;border:1px solid var(--border);border-radius:22px;box-shadow:var(--shadow);overflow:hidden}
+.story{display:grid;grid-template-columns:minmax(300px,44%) 1fr;background:linear-gradient(110deg,#f3f8f4,#fff)}.story img{width:100%;height:100%;min-height:430px;object-fit:cover}.story-copy{padding:30px}
+.kicker{font-size:.82rem;text-transform:uppercase;letter-spacing:.08em;font-weight:800;color:#3e6a4f}h2{font-size:1.55rem;margin:.25em 0 .5em}h3{font-size:1.18rem;margin:0 0 12px}
+.story-note{background:rgba(255,255,255,.88);border-left:5px solid var(--gold);padding:14px 16px;border-radius:12px;margin-top:18px}
+.grid2{display:grid;grid-template-columns:1fr 1fr;gap:18px;margin-top:18px}.activity{padding:24px}.question{font-weight:700;margin-bottom:14px}
+.options{display:grid;gap:10px}.option{display:flex;gap:12px;align-items:flex-start;border:1px solid #ccd3df;border-radius:13px;padding:12px;background:#fff}
+.feedback{display:none;margin-top:14px;padding:13px 15px;border-radius:13px;background:#edf9f1;border:1px solid #acd7b9}.feedback.show{display:block}
+.match-row{display:grid;grid-template-columns:190px 1fr;gap:12px;align-items:center;margin:10px 0}.term{font-weight:750;background:#edf5ff;border:1px solid #a7c5ef;border-radius:10px;padding:10px}
+select{width:100%;padding:10px;border:1px solid #bac4d3;border-radius:10px;background:#fff}
+.btn{border:none;border-radius:12px;padding:12px 18px;font-weight:750;background:var(--green);color:#fff;box-shadow:0 4px 12px rgba(40,122,81,.2)}
+.btn.secondary{background:#fff;color:var(--navy);border:1px solid #aeb9c8;box-shadow:none}.btn-row{display:flex;gap:10px;flex-wrap:wrap;margin-top:15px}
+.resource-bar{display:flex;align-items:center;justify-content:space-between;gap:16px;flex-wrap:wrap;margin:18px 0;padding:16px 18px;border:1px solid #b9c9dc;border-radius:18px;background:#eef6ff}
+.resource-bar p{margin:0}
+.concept-strip{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;margin-top:18px}.concept{padding:18px;border-radius:18px;border:1px solid var(--border);background:#fff}.concept strong{display:block;margin-bottom:6px}
+.reflection{margin-top:18px;padding:24px;background:linear-gradient(135deg,#f1fbf4,#fff)}textarea{width:100%;min-height:120px;border:1px solid #bbc5d3;border-radius:14px;padding:14px;resize:vertical}
+.compare-panel{display:none;margin-top:18px}.compare-panel.show{display:grid;grid-template-columns:repeat(3,1fr);gap:14px}.compare-box{border-radius:18px;padding:18px;border:1px solid var(--border)}
+.compare-box:nth-child(1){background:#fff8df}.compare-box:nth-child(2){background:#edf9f5}.compare-box:nth-child(3){background:#f4efff}
+.complete{display:none;margin-top:18px;padding:20px;background:#eaf8f1;border:1px solid #a9d9bf;border-radius:18px;align-items:center;justify-content:space-between;gap:14px}.complete.show{display:flex}
+.badge{display:inline-block;background:#e8f5ee;color:#176847;border-radius:999px;padding:5px 10px;font-weight:800;font-size:.82rem}.section-label{font-size:.82rem;text-transform:uppercase;letter-spacing:.07em;font-weight:800;color:var(--teal)}
+.sr-only{position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0,0,0,0);white-space:nowrap;border:0}
+@media(max-width:850px){.story,.grid2{grid-template-columns:1fr}.story img{min-height:240px;max-height:390px}.concept-strip,.compare-panel.show{grid-template-columns:1fr}.steps{grid-template-columns:1fr 1fr}}
+@media(max-width:520px){main{padding:18px 12px 40px}.sitebar{padding:10px 12px}.steps{grid-template-columns:1fr}.step{text-align:left}.match-row{grid-template-columns:1fr}.activity,.reflection,.story-copy{padding:18px}.complete.show{align-items:flex-start;flex-direction:column}}
+@media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}.progress-fill{transition:none}}
+</style>
+</head>
+<body>
+<header class="sitebar"><div class="sitebar-inner"><div class="brand"><div class="logo">05</div><div>Health, Safety &amp; Nutrition<div class="small">Interactive Reading Guide</div></div></div><div class="small">Week 1 • Course Introduction</div></div></header>
+<main>
+
+<section class="hero">
+<div><span class="badge">Low-stakes self-check</span> <span class="badge">Notice • Prevent • Respond</span>
+<h1>This Class Feels Practical</h1>
+<p class="subtitle">Everyday responsibilities that protect and promote children’s well-being</p></div>
+<div class="progress-wrap"><div style="display:flex;justify-content:space-between;margin-bottom:7px"><strong>Overall progress</strong><span id="progressText">0%</span></div>
+<div class="progress-line" role="progressbar" aria-valuemin="0" aria-valuemax="100" aria-valuenow="0"><div class="progress-fill" id="progressFill"></div></div></div>
+</section>
+
+<nav class="steps"><a class="step active" href="#story">1. Vignette</a><a class="step" href="#explore">2. Responsibilities</a><a class="step" href="#practice">3. Professional Care</a><a class="step" href="#reflect">4. Reflect</a></nav>
+
+<aside class="resource-bar"><p><strong>Week 1 orientation guide.</strong><br><span class="small">This guide previews major Health, Safety, and Nutrition responsibilities using the opening vignette as its source.</span></p></aside>
+<aside class="resource-bar"><p><strong>Practice freely.</strong><br><span class="small">Plan for about 12–15 minutes. Responses remain on this page and are not saved, graded, or submitted.</span></p></aside>
+
+<section id="story" class="card story">
+<img src="images/cldv05-week1-vignette.png" alt="A college student reviews handwashing, food allergy, emergency planning, safe sleep, sanitation, and nutrition materials at a study table">
+<div class="story-copy"><div class="kicker">Opening vignette</div><h2>“This Class Feels Practical”</h2>
+<p>Maya looks over the syllabus and realizes how practical this course will be: illness policies, injury prevention, handwashing, food allergies, emergency plans, safe sleep, meal planning, mandated reporting, sanitation, medication, playground safety, and children with special health needs.</p>
+<p>She remembers seeing teachers do dozens of small things—wiping tables, checking gates, noticing a cough, reminding children to wash hands, reading food labels, documenting injuries, comforting children, and talking with families.</p>
+<p>Those routines once seemed ordinary. Now she is beginning to understand that they are part of professional care.</p>
+<p>The course may include serious or uncomfortable topics, but it is not only about preventing problems. Health, safety, and nutrition also help create environments where children can grow, play, eat, rest, explore, and feel protected.</p>
+<div class="story-note"><strong>Think first:</strong> Which everyday health, safety, or nutrition responsibility deserves especially careful attention from early childhood educators—and why?</div>
+<div class="btn-row"><button class="btn" id="storyDone">I’ve considered the vignette</button></div></div>
+</section>
+
+<section id="explore" class="grid2">
+<article class="card activity"><div class="section-label">The big idea</div><h3>🔎 Choose the strongest response</h3>
+<p class="question">What does the vignette suggest about Health, Safety, and Nutrition?</p>
+<div class="options">
+<label class="option"><input type="radio" name="bigidea" value="0"> The course focuses mainly on emergency situations and formal crisis response.</label>
+<label class="option"><input type="radio" name="bigidea" value="1"> Everyday routines are important parts of intentional professional classroom care.</label>
+<label class="option"><input type="radio" name="bigidea" value="2"> Health responsibilities matter more than safety or nutrition in daily classroom care.</label>
+<label class="option"><input type="radio" name="bigidea" value="3"> Most responsibilities belong to administrators rather than early childhood classroom teachers.</label>
+</div><div class="btn-row"><button class="btn" id="bigideaCheck">Check my thinking</button></div><div class="feedback" id="bigideaFeedback"></div></article>
+
+<article class="card activity"><div class="section-label">Course themes</div><h3>🧩 Match it up</h3>
+<p>The descriptions are intentionally shuffled. Match each course theme with the best example.</p>
+<div class="match-row"><div class="term">Prevention</div><select data-answer="a">
+<option value="">Choose…</option>
+<option value="c">Sharing health concerns and routines with families and colleagues</option>
+<option value="a">Checking gates, washing hands, and reducing avoidable risk</option>
+<option value="d">Noticing changes such as a cough, injury, or allergic reaction</option>
+<option value="b">Preparing emergency procedures and required responses in advance</option>
+</select></div>
+<div class="match-row"><div class="term">Planning</div><select data-answer="b">
+<option value="">Choose…</option>
+<option value="d">Noticing changes such as a cough, injury, or allergic reaction</option>
+<option value="c">Sharing health concerns and routines with families and colleagues</option>
+<option value="b">Preparing emergency procedures and required responses in advance</option>
+<option value="a">Checking gates, washing hands, and reducing avoidable risk</option>
+</select></div>
+<div class="match-row"><div class="term">Observation</div><select data-answer="d">
+<option value="">Choose…</option>
+<option value="b">Preparing emergency procedures and required responses in advance</option>
+<option value="a">Checking gates, washing hands, and reducing avoidable risk</option>
+<option value="d">Noticing changes such as a cough, injury, or allergic reaction</option>
+<option value="c">Sharing health concerns and routines with families and colleagues</option>
+</select></div>
+<div class="match-row"><div class="term">Communication</div><select data-answer="c">
+<option value="">Choose…</option>
+<option value="a">Checking gates, washing hands, and reducing avoidable risk</option>
+<option value="d">Noticing changes such as a cough, injury, or allergic reaction</option>
+<option value="b">Preparing emergency procedures and required responses in advance</option>
+<option value="c">Sharing health concerns and routines with families and colleagues</option>
+</select></div>
+<div class="btn-row"><button class="btn" id="checkMatch">Check matches</button><button class="btn secondary" id="resetMatch">Reset</button></div><div class="feedback" id="matchFeedback"></div></article>
+</section>
+
+<section class="concept-strip">
+<div class="concept"><strong>🧼 Small routines matter.</strong>Handwashing, sanitation, careful supervision, food checks, and documentation can seem ordinary while carrying major consequences.</div>
+<div class="concept"><strong>👀 Attention is professional skill.</strong>Educators protect children partly by noticing changes, hazards, symptoms, and situations that require action.</div>
+<div class="concept"><strong>🌱 Well-being is broader than prevention.</strong>Healthy and safe environments allow children to play, rest, eat, explore, learn, and feel secure.</div>
+</section>
+
+<section class="grid2">
+<article class="card activity"><div class="section-label">Everyday prevention</div><h3>🚪 Before children arrive</h3>
+<p class="question">Which action best illustrates prevention?</p>
+<div class="options">
+<label class="option"><input type="radio" name="prevention" value="0"> Waiting until a child is injured before carefully checking playground equipment.</label>
+<label class="option"><input type="radio" name="prevention" value="1"> Filing a complete incident report after a child experiences a fall.</label>
+<label class="option"><input type="radio" name="prevention" value="2"> Carefully checking playground gates and possible hazards before children begin playing.</label>
+<label class="option"><input type="radio" name="prevention" value="3"> Calling a child’s family after concerning symptoms have become severe.</label>
+</div><div class="btn-row"><button class="btn" id="preventionCheck">Check answer</button></div><div class="feedback" id="preventionFeedback"></div></article>
+
+<article class="card activity"><div class="section-label">Observation</div><h3>🤒 Something seems different</h3>
+<p class="question">A teacher notices that a normally active child is unusually quiet and coughing. What does the vignette suggest the teacher should do first?</p>
+<div class="options">
+<label class="option"><input type="radio" name="observe" value="0"> Pay attention, gather information, and follow appropriate classroom health procedures.</label>
+<label class="option"><input type="radio" name="observe" value="1"> Assume the child is simply tired and continue the planned routine.</label>
+<label class="option"><input type="radio" name="observe" value="2"> Wait until another child or classroom adult notices the change.</label>
+<label class="option"><input type="radio" name="observe" value="3"> Focus only on keeping the classroom schedule and activities unchanged.</label>
+</div><div class="btn-row"><button class="btn" id="observeCheck">Check answer</button></div><div class="feedback" id="observeFeedback"></div></article>
+</section>
+
+<section id="practice" class="grid2">
+<article class="card activity"><div class="section-label">Nutrition responsibility</div><h3>🥜 Read before serving</h3>
+<p class="question">Which action best reflects careful nutrition-related professional care?</p>
+<div class="options">
+<label class="option"><input type="radio" name="nutrition" value="0"> Serve the same snack to every child without checking labels.</label>
+<label class="option"><input type="radio" name="nutrition" value="1"> Ask children to decide whether a food is safe for them.</label>
+<label class="option"><input type="radio" name="nutrition" value="2"> Keep all allergy information available only in the program office.</label>
+<label class="option"><input type="radio" name="nutrition" value="3"> Check all food labels and follow individual allergy information carefully.</label>
+</div><div class="btn-row"><button class="btn" id="nutritionCheck">Check answer</button></div><div class="feedback" id="nutritionFeedback"></div></article>
+
+<article class="card activity"><div class="section-label">Emergency planning</div><h3>📋 Why plan ahead?</h3>
+<p class="question">Why are emergency plans part of everyday professional responsibility?</p>
+<div class="options">
+<label class="option"><input type="radio" name="emergency" value="0"> Emergencies can require quick, organized, and well-informed professional decisions.</label>
+<label class="option"><input type="radio" name="emergency" value="1"> Written emergency plans eliminate the possibility of accidents and injuries.</label>
+<label class="option"><input type="radio" name="emergency" value="2"> Only program directors need to know written emergency procedures thoroughly.</label>
+<label class="option"><input type="radio" name="emergency" value="3"> Emergency plans matter only after a serious classroom emergency occurs.</label>
+</div><div class="btn-row"><button class="btn" id="emergencyCheck">Check answer</button></div><div class="feedback" id="emergencyFeedback"></div></article>
+</section>
+
+<section class="grid2">
+<article class="card activity"><div class="section-label">Responsive care</div><h3>❤️ More than rules</h3>
+<p class="question">Which example best illustrates responsive care?</p>
+<div class="options">
+<label class="option"><input type="radio" name="care" value="0"> Keep classroom routines identical even when a child needs additional support.</label>
+<label class="option"><input type="radio" name="care" value="1"> Comfort a child after a fall while also assessing what happened.</label>
+<label class="option"><input type="radio" name="care" value="2"> Avoid talking with families about important child health concerns or changes.</label>
+<label class="option"><input type="radio" name="care" value="3"> Treat accurate documentation as more important than comforting the injured child.</label>
+</div><div class="btn-row"><button class="btn" id="careCheck">Check answer</button></div><div class="feedback" id="careFeedback"></div></article>
+
+<article class="card activity"><div class="section-label">Professional responsibility</div><h3>🧭 Small details, big consequences</h3>
+<p class="question">Why does Maya conclude that “small details really matter”?</p>
+<div class="options">
+<label class="option"><input type="radio" name="details" value="0"> Small routine tasks are generally easier than thoughtful curriculum planning.</label>
+<label class="option"><input type="radio" name="details" value="1"> Children rarely notice consistent classroom health and routine safety procedures.</label>
+<label class="option"><input type="radio" name="details" value="2"> Careful routine actions can prevent harm and support children’s well-being.</label>
+<label class="option"><input type="radio" name="details" value="3"> Only serious incidents and emergencies require careful professional teacher judgment.</label>
+</div><div class="btn-row"><button class="btn" id="detailsCheck">Check answer</button></div><div class="feedback" id="detailsFeedback"></div></article>
+</section>
+
+<section class="card activity" style="margin-top:18px"><div class="section-label">Final self-check</div><h3>Check your understanding</h3>
+<p class="question">Which statement best captures the Week 1 message?</p>
+<div class="options">
+<label class="option"><input type="radio" name="final" value="0"> Health, safety, and nutrition responsibilities become important only during emergencies.</label>
+<label class="option"><input type="radio" name="final" value="1"> Professional care combines prevention, planning, observation, communication, regulation, and responsive attention.</label>
+<label class="option"><input type="radio" name="final" value="2"> Teachers should focus mainly on avoiding illness and documenting serious incidents.</label>
+<label class="option"><input type="radio" name="final" value="3"> Health, safety, and nutrition remain separate from children’s development, learning, and belonging.</label>
+</div><div class="btn-row"><button class="btn" id="finalCheck">Check my thinking</button></div><div class="feedback" id="finalFeedback"></div></section>
+
+<section id="reflect" class="card reflection">
+<div class="kicker">Final reflection</div><h2>Complete this sentence</h2>
+<p><strong>One everyday responsibility I want to become especially attentive to is…</strong></p>
+<label for="reflectionText" class="sr-only">Your reflection</label><textarea id="reflectionText" placeholder="Type a few words or sentences. This response remains on this page and is not graded or submitted."></textarea>
+<div class="btn-row"><button class="btn" id="compareBtn">Compare My Thinking</button></div>
+<div class="compare-panel" id="comparePanel">
+<div class="compare-box"><h3>The vignette emphasizes…</h3><p>Professional care is often made visible through ordinary routines repeated carefully and consistently.</p></div>
+<div class="compare-box"><h3>Consider…</h3><p>Did your response connect the responsibility to prevention, observation, planning, communication, or responsive care?</p></div>
+<div class="compare-box"><h3>Add to your thinking…</h3><p>The purpose is not only to prevent harm, but to create conditions in which children can learn, play, eat, rest, explore, and feel protected.</p></div>
+</div></section>
+
+<div class="complete" id="completeBox"><div><strong>🌟 Guide complete!</strong><br><span class="small">You previewed the everyday professional responsibilities that will anchor Health, Safety, and Nutrition.</span></div><button class="btn" id="restartBtn">Restart guide</button></div>
+</main>
+
+<script>
+const state={story:false,bigidea:false,match:false,prevention:false,observe:false,nutrition:false,emergency:false,care:false,details:false,final:false,reflect:false};
+const steps=[...document.querySelectorAll('.step')];
+function shuffle(items){for(let i=items.length-1;i>0;i--){const j=Math.floor(Math.random()*(i+1));[items[i],items[j]]=[items[j],items[i]]}return items}
+document.querySelectorAll('.options').forEach(group=>shuffle([...group.children]).forEach(option=>group.appendChild(option)));
+document.querySelectorAll('.match-row select').forEach(select=>{const placeholder=select.options[0],choices=shuffle([...select.options].slice(1));select.replaceChildren(placeholder,...choices)});
+document.querySelectorAll('button').forEach(button=>button.type='button');
+function updateProgress(){const done=Object.values(state).filter(Boolean).length;const pct=Math.round(done/11*100);const bar=document.querySelector('.progress-line');document.getElementById('progressFill').style.width=pct+'%';document.getElementById('progressText').textContent=pct+'%';bar.setAttribute('aria-valuenow',pct);steps.forEach((s,i)=>{s.classList.toggle('done',i<Math.min(4,Math.ceil(done*4/11)));s.classList.toggle('active',i===Math.min(3,Math.floor(done*4/11)))});if(done===11)document.getElementById('completeBox').classList.add('show')}
+function show(box,txt){box.innerHTML=txt;box.classList.add('show')}
+function radioCheck(name,correct,feedbackId,success,retry,key){const c=document.querySelector('input[name='+name+']:checked'),f=document.getElementById(feedbackId);if(!c)return show(f,'⚠️ Choose an answer first.');const ok=Number(c.value)===correct;show(f,ok?'✅ <strong>Correct.</strong> '+success:'↻ <strong>Try again.</strong> '+retry);if(ok){state[key]=true;updateProgress()}}
+document.getElementById('storyDone').onclick=()=>{state.story=true;updateProgress();document.getElementById('explore').scrollIntoView({behavior:'smooth'})};
+document.getElementById('bigideaCheck').onclick=()=>radioCheck('bigidea',1,'bigideaFeedback','The vignette reframes ordinary routines as intentional professional care.','Choose the response that recognizes the importance of everyday practice.','bigidea');
+document.getElementById('checkMatch').onclick=()=>{const ss=[...document.querySelectorAll('.match-row select')],f=document.getElementById('matchFeedback');if(!ss.every(s=>s.value))return show(f,'⚠️ Complete all four matches first.');const n=ss.filter(s=>s.value===s.dataset.answer).length;show(f,n===4?'✅ <strong>Nice work!</strong> All four course themes are matched correctly.':'↻ You matched <strong>'+n+' of 4</strong> correctly. Recheck the examples and try again.');if(n===4){state.match=true;updateProgress()}};
+document.getElementById('resetMatch').onclick=()=>{document.querySelectorAll('.match-row select').forEach(s=>s.value='');document.getElementById('matchFeedback').classList.remove('show')};
+document.getElementById('preventionCheck').onclick=()=>radioCheck('prevention',2,'preventionFeedback','Checking hazards before use is prevention because it reduces risk before harm occurs.','Choose the action taken before an incident.','prevention');
+document.getElementById('observeCheck').onclick=()=>radioCheck('observe',0,'observeFeedback','The vignette highlights noticing changes in children and responding appropriately.','Pay attention before assuming or waiting.','observe');
+document.getElementById('nutritionCheck').onclick=()=>radioCheck('nutrition',3,'nutritionFeedback','Reading labels and following allergy information are everyday nutrition-related safety responsibilities.','Choose the action that uses specific information before serving food.','nutrition');
+document.getElementById('emergencyCheck').onclick=()=>radioCheck('emergency',0,'emergencyFeedback','Planning supports faster, more organized decisions when something serious happens.','Choose preparedness, not the unrealistic promise that emergencies disappear.','emergency');
+document.getElementById('careCheck').onclick=()=>radioCheck('care',1,'careFeedback','Responsive care combines attention to the child with appropriate assessment and follow-through.','Choose the response that attends to both safety and the child’s emotional needs.','care');
+document.getElementById('detailsCheck').onclick=()=>radioCheck('details',2,'detailsFeedback','Small routines matter because repeated careful actions can prevent harm and support children’s overall well-being.','Choose the response linking routine details with meaningful outcomes.','details');
+document.getElementById('finalCheck').onclick=()=>radioCheck('final',1,'finalFeedback','Week 1 frames professional care as a combination of prevention, planning, observation, communication, regulation, and responsive attention.','Choose the comprehensive response.','final');
+document.getElementById('compareBtn').onclick=()=>{const text=document.getElementById('reflectionText').value.trim(),panel=document.getElementById('comparePanel');if(!text)return alert('Please enter a brief reflection before comparing your thinking.');panel.classList.add('show');state.reflect=true;updateProgress();panel.scrollIntoView({behavior:'smooth',block:'nearest'})};
+document.getElementById('restartBtn').onclick=()=>location.reload();
+updateProgress();
+</script>
+</body></html>
