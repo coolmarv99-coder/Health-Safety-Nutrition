@@ -1,0 +1,191 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>CLDV-05 Week 4 Interactive Reading Guide</title>
+<style>
+:root{--navy:#173f63;--teal:#287a78;--ink:#172033;--muted:#5c6678;--gold:#e1ad35;--border:#d8deea;--shadow:0 8px 24px rgba(22,32,51,.09);--green:#287a51;--soft:#f5f7fb}
+*{box-sizing:border-box}html{scroll-behavior:smooth}body{margin:0;font-family:system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif;background:var(--soft);color:var(--ink);line-height:1.55}
+button,input,textarea,select{font:inherit}button{cursor:pointer}a{color:var(--navy)}
+button:focus-visible,input:focus-visible,textarea:focus-visible,select:focus-visible,a:focus-visible{outline:3px solid #4e9cf5;outline-offset:2px}
+.sitebar{background:var(--navy);color:#fff;padding:14px 20px}.sitebar-inner{max-width:1180px;margin:auto;display:flex;align-items:center;justify-content:space-between;gap:18px}.brand{display:flex;align-items:center;gap:12px;font-weight:700}.logo{width:46px;height:46px;border:2px solid #fff;border-radius:12px;display:grid;place-items:center}.small{font-size:.9rem;color:var(--muted)}.sitebar .small{color:#d9e6f5}
+main{max-width:1180px;margin:0 auto;padding:28px 18px 60px}.hero{display:flex;justify-content:space-between;gap:24px;align-items:end;flex-wrap:wrap}h1{font-size:clamp(2rem,4vw,3rem);line-height:1.05;margin:.1em 0}.subtitle{font-size:1.08rem;margin:0;color:#39445a}
+.progress-wrap{min-width:260px}.progress-line{height:10px;background:#d9dee7;border-radius:999px;overflow:hidden}.progress-fill{height:100%;width:0;background:linear-gradient(90deg,var(--green),#52a981);transition:width .35s ease}
+.steps{display:grid;grid-template-columns:repeat(4,1fr);gap:10px;margin:24px 0}.step{background:#fff;border:1px solid var(--border);border-radius:999px;padding:11px 12px;text-align:center;font-weight:650;color:#667085;text-decoration:none}.step.active{background:#eaf5f3;color:#145854;border-color:#a7d2cf}.step.done{background:#eaf7f1;color:#176847}
+.card{background:#fff;border:1px solid var(--border);border-radius:22px;box-shadow:var(--shadow);overflow:hidden}.story{display:grid;grid-template-columns:minmax(300px,44%) 1fr;background:linear-gradient(110deg,#eef7f7,#fff)}.story img{width:100%;height:100%;min-height:430px;object-fit:cover}.story-copy{padding:30px}.kicker{font-size:.82rem;text-transform:uppercase;letter-spacing:.08em;font-weight:800;color:#356c6a}h2{font-size:1.55rem;margin:.25em 0 .5em}h3{font-size:1.18rem;margin:0 0 12px}.story-note{background:rgba(255,255,255,.88);border-left:5px solid var(--gold);padding:14px 16px;border-radius:12px;margin-top:18px}
+.grid2{display:grid;grid-template-columns:1fr 1fr;gap:18px;margin-top:18px}.activity{padding:24px}.question{font-weight:700;margin-bottom:14px}.options{display:grid;gap:10px}.option{display:flex;gap:12px;align-items:flex-start;border:1px solid #ccd3df;border-radius:13px;padding:12px;background:#fff}.feedback{display:none;margin-top:14px;padding:13px 15px;border-radius:13px;background:#edf9f1;border:1px solid #acd7b9}.feedback.show{display:block}
+.match-row{display:grid;grid-template-columns:190px 1fr;gap:12px;align-items:center;margin:10px 0}.term{font-weight:750;background:#edf5ff;border:1px solid #a7c5ef;border-radius:10px;padding:10px}select{width:100%;padding:10px;border:1px solid #bac4d3;border-radius:10px;background:#fff}
+.btn{border:none;border-radius:12px;padding:12px 18px;font-weight:750;background:var(--green);color:#fff;box-shadow:0 4px 12px rgba(40,122,81,.2)}.btn.secondary{background:#fff;color:var(--navy);border:1px solid #aeb9c8;box-shadow:none}.btn-row{display:flex;gap:10px;flex-wrap:wrap;margin-top:15px}
+.resource-bar{display:flex;align-items:center;justify-content:space-between;gap:16px;flex-wrap:wrap;margin:18px 0;padding:16px 18px;border:1px solid #b9c9dc;border-radius:18px;background:#eef6ff}.resource-bar p{margin:0}.resource-link{display:inline-flex;align-items:center;gap:8px;text-decoration:none;border-radius:12px;padding:11px 15px;font-weight:750;background:#fff;color:var(--navy);border:1px solid #9fb0c5}
+.concept-strip{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;margin-top:18px}.concept{padding:18px;border-radius:18px;border:1px solid var(--border);background:#fff}.concept strong{display:block;margin-bottom:6px}
+.detective-cycle{display:grid;grid-template-columns:repeat(4,1fr);gap:10px;margin:18px 0}.detective-step{padding:14px;border-radius:16px;background:#edf7f6;border:1px solid #b8d8d5;text-align:center}.detective-step strong{display:block;color:#145854;letter-spacing:.06em}.detective-step span{font-size:.86rem;color:var(--muted)}
+.scan{display:grid;gap:13px;margin-top:18px}.scan-item{padding:17px;border:1px solid var(--border);border-radius:16px;background:#fff}.scan-item p{margin:0 0 11px}.judgments{display:flex;flex-wrap:wrap;gap:8px}.judgment{border:2px solid #ccd3df;border-radius:999px;padding:8px 12px;background:#fff;color:var(--ink)}.judgment[aria-pressed="true"]{border-color:var(--teal);background:#eaf5f3;color:#145854}.clue{display:block;margin-top:9px;color:var(--muted);font-size:.88rem}.priority-list{display:grid;gap:10px}.priority-item{border:1px solid var(--border);border-radius:13px;padding:13px;background:#fff}.priority-item label{display:flex;gap:10px;align-items:flex-start}.wide{grid-column:1/-1}
+.reflection{margin-top:18px;padding:24px;background:linear-gradient(135deg,#f1fbf4,#fff)}textarea{width:100%;min-height:120px;border:1px solid #bbc5d3;border-radius:14px;padding:14px;resize:vertical}.compare-panel{display:none;margin-top:18px}.compare-panel.show{display:grid;grid-template-columns:repeat(3,1fr);gap:14px}.compare-box{border-radius:18px;padding:18px;border:1px solid var(--border)}.compare-box:nth-child(1){background:#fff8df}.compare-box:nth-child(2){background:#edf9f5}.compare-box:nth-child(3){background:#f4efff}
+.complete{display:none;margin-top:18px;padding:20px;background:#eaf8f1;border:1px solid #a9d9bf;border-radius:18px;align-items:center;justify-content:space-between;gap:14px}.complete.show{display:flex}.badge{display:inline-block;background:#e8f5ee;color:#176847;border-radius:999px;padding:5px 10px;font-weight:800;font-size:.82rem}.section-label{font-size:.82rem;text-transform:uppercase;letter-spacing:.07em;font-weight:800;color:var(--teal)}.sr-only{position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0,0,0,0);white-space:nowrap;border:0}
+@media(max-width:850px){.story,.grid2{grid-template-columns:1fr}.story img{min-height:240px;max-height:390px}.concept-strip,.detective-cycle,.compare-panel.show{grid-template-columns:1fr}.steps{grid-template-columns:1fr 1fr}}@media(max-width:520px){main{padding:18px 12px 40px}.sitebar{padding:10px 12px}.steps{grid-template-columns:1fr}.step{text-align:left}.match-row{grid-template-columns:1fr}.activity,.reflection,.story-copy{padding:18px}.complete.show{align-items:flex-start;flex-direction:column}}@media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}.progress-fill{transition:none}}
+</style>
+</head>
+<body>
+<header class="sitebar"><div class="sitebar-inner"><div class="brand"><div class="logo">05</div><div>Health, Safety &amp; Nutrition<div class="small">Interactive Reading Guide</div></div></div><div class="small">Week 4 • Paris Chapter 3</div></div></header>
+<main>
+
+<section class="hero"><div><span class="badge">Safety Detective · Case File 2</span> <span class="badge">NOTICE → ASSESS → PREVENT → RESPOND</span><h1>The Room Has Risks Too</h1><p class="subtitle">Investigating safe indoor environments through design, materials, supervision, and proportionate response</p></div><div class="progress-wrap"><div style="display:flex;justify-content:space-between;margin-bottom:7px"><strong>Overall progress</strong><span id="progressText">0%</span></div><div class="progress-line" role="progressbar" aria-valuemin="0" aria-valuemax="100" aria-valuenow="0"><div class="progress-fill" id="progressFill"></div></div></div></section>
+
+<nav class="steps"><a class="step active" href="#story">1. Case File</a><a class="step" href="#explore">2. Safety Scan</a><a class="step" href="#practice">3. Decide &amp; Act</a><a class="step" href="#reflect">4. Debrief</a></nav>
+
+<aside class="resource-bar"><p><strong>Keep Paris Chapter 3 nearby.</strong><br><span class="small">This guide supports the reading; it does not replace it.</span></p><a class="resource-link" href="https://socialsci.libretexts.org/Bookshelves/Early_Childhood_Education/Health_Safety_and_Nutrition_(Paris)/02%3A_Safety/2.02%3A_Creating_Safe_Indoor_Environments" target="_blank" rel="noopener noreferrer">📖 Open Paris Chapter 3</a></aside>
+<aside class="resource-bar"><p><strong>Practice freely.</strong><br><span class="small">Plan for about 15–20 minutes. Responses remain on this page and are not saved, graded, or submitted.</span></p></aside>
+
+<section id="story" class="card story">
+<img src="images/cldv05-week4-vignette.png" alt="An early childhood education student inspects a preschool classroom for safety hazards while another teacher organizes materials">
+<div class="story-copy"><div class="kicker">Opening vignette</div><h2>“The Room Has Risks Too”</h2>
+<p>Maya enters the classroom before children arrive. At first, she sees colorful shelves, puzzles, blocks, books, dramatic-play materials, art supplies, and a cozy corner.</p>
+<p>After reading this week’s chapter, however, she begins looking differently. Are the scissors appropriate for the children’s age? Could small toy pieces become choking hazards? Is that cord near the listening center a tripping risk?</p>
+<p>She also notices what has been done well: cleaning supplies are locked away, the water table is emptied and covered, and furniture is arranged so teachers can see across the room.</p>
+<p>Young children climb, reach, taste, pull, run, dump, hide, and test what things can do. Their curiosity is essential to learning—but it means educators have to anticipate risks before children discover them the hard way.</p>
+<p>When a teacher moves one shelf slightly to create a clearer traffic path, Maya writes: <strong>Safety is built into the environment before children ever walk through the door.</strong></p>
+<div class="detective-cycle"><div class="detective-step"><strong>NOTICE</strong><span>Observe without jumping to conclusions</span></div><div class="detective-step"><strong>ASSESS</strong><span>Consider child, exposure, severity, and urgency</span></div><div class="detective-step"><strong>PREVENT</strong><span>Change environment or supervision</span></div><div class="detective-step"><strong>RESPOND</strong><span>Act, communicate, document, follow up</span></div></div>
+<div class="story-note"><strong>Your Week 4 challenge:</strong> Indoor safety is not a hunt for anything that looks unusual. Distinguish a hazard from an acceptable condition—and recognize when you need more evidence.</div>
+<div class="btn-row"><button class="btn" id="storyDone">Open the case file</button></div></div>
+</section>
+
+<section id="explore" class="grid2">
+<article class="card activity wide"><div class="section-label">Safety Scan / Indoor Case File</div><h3>Scan Maya’s classroom</h3>
+<p>Classify each observation. <strong>Unsafe</strong> means action is warranted now; <strong>acceptable</strong> means the condition supports safety; <strong>investigate</strong> means the facts are insufficient for a responsible judgment.</p>
+<div class="scan" id="indoorScan">
+<div class="scan-item" data-answer="unsafe"><p><strong>1.</strong> A clear spray bottle with no label is on the counter above the art sink.</p><div class="judgments"><button class="judgment" data-value="unsafe" aria-pressed="false">Unsafe</button><button class="judgment" data-value="acceptable" aria-pressed="false">Acceptable</button><button class="judgment" data-value="investigate" aria-pressed="false">Investigate</button></div></div>
+<div class="scan-item" data-answer="acceptable"><p><strong>2.</strong> Low open shelving separates centers while preserving sight lines across the room.</p><div class="judgments"><button class="judgment" data-value="unsafe" aria-pressed="false">Unsafe</button><button class="judgment" data-value="acceptable" aria-pressed="false">Acceptable</button><button class="judgment" data-value="investigate" aria-pressed="false">Investigate</button></div></div>
+<div class="scan-item" data-answer="investigate"><p><strong>3.</strong> A basket contains smooth wooden pieces that some children use as pretend food.</p><div class="judgments"><button class="judgment" data-value="unsafe" aria-pressed="false">Unsafe</button><button class="judgment" data-value="acceptable" aria-pressed="false">Acceptable</button><button class="judgment" data-value="investigate" aria-pressed="false">Investigate</button></div><span class="clue">You need to know their size and condition—and the ages, abilities, and mouthing behavior of children who can access them.</span></div>
+<div class="scan-item" data-answer="unsafe"><p><strong>4.</strong> A tall movable shelf is not anchored, and children sometimes pull themselves up using its edge.</p><div class="judgments"><button class="judgment" data-value="unsafe" aria-pressed="false">Unsafe</button><button class="judgment" data-value="acceptable" aria-pressed="false">Acceptable</button><button class="judgment" data-value="investigate" aria-pressed="false">Investigate</button></div></div>
+<div class="scan-item" data-answer="investigate"><p><strong>5.</strong> Child-safe scissors are available at the supervised art table.</p><div class="judgments"><button class="judgment" data-value="unsafe" aria-pressed="false">Unsafe</button><button class="judgment" data-value="acceptable" aria-pressed="false">Acceptable</button><button class="judgment" data-value="investigate" aria-pressed="false">Investigate</button></div><span class="clue">Consider which children are present, whether the scissors truly fit their developmental level, and how access is supervised.</span></div>
+<div class="scan-item" data-answer="acceptable"><p><strong>6.</strong> Cleaning products remain in original labeled containers inside a locked cabinet inaccessible to children.</p><div class="judgments"><button class="judgment" data-value="unsafe" aria-pressed="false">Unsafe</button><button class="judgment" data-value="acceptable" aria-pressed="false">Acceptable</button><button class="judgment" data-value="investigate" aria-pressed="false">Investigate</button></div></div>
+</div><div class="btn-row"><button class="btn" id="checkScan">Check the scan</button><button class="btn secondary" id="resetScan">Clear judgments</button></div><div class="feedback" id="scanFeedback" role="status"></div></article>
+
+<article class="card activity wide"><div class="section-label">Assess and prioritize</div><h3>Which finding receives immediate control?</h3><p>Maya cannot repair everything herself. Which condition should she control first while notifying the appropriate person?</p><div class="priority-list"><div class="priority-item"><label><input type="radio" name="priority" value="0"> A few puzzle pieces are mixed into the wrong labeled bin.</label></div><div class="priority-item"><label><input type="radio" name="priority" value="1"> An unanchored tall shelf is within children’s reach and is already being used for support.</label></div><div class="priority-item"><label><input type="radio" name="priority" value="2"> The cozy corner is visible to teachers but looks less inviting than the other centers.</label></div><div class="priority-item"><label><input type="radio" name="priority" value="3"> Child-safe scissors require closer observation before developmental fit can be confirmed.</label></div></div><div class="btn-row"><button class="btn" id="priorityCheck">Set the priority</button></div><div class="feedback" id="priorityFeedback" role="status"></div></article>
+</section>
+
+<section class="concept-strip">
+<div class="concept"><strong>👀 NOTICE conditions and strengths.</strong>A good scan records what supports safety as well as what may cause harm.</div>
+<div class="concept"><strong>⚖️ ASSESS exposure and consequence.</strong>Age, ability, accessibility, likelihood, severity, and supervision all change the judgment.</div>
+<div class="concept"><strong>🛠️ PREVENT, then RESPOND.</strong>Control immediate exposure; then communicate, document, repair, replace, or follow up as appropriate.</div>
+</section>
+
+<section class="grid2">
+<article class="card activity"><div class="section-label">Applied material decision</div><h3>🧸 “Age-appropriate” is not the end of the assessment</h3>
+<p class="question">A commercially labeled preschool toy has one cracked piece and will be used in a mixed-age room that includes a toddler who mouths objects. What is the strongest response?</p>
+<div class="options">
+<label class="option"><input type="radio" name="materials" value="0"> Remove the damaged piece and reassess the remaining set for size, condition, and access before use.</label>
+<label class="option"><input type="radio" name="materials" value="1"> Use it because the manufacturer labeled the toy for preschool children, as the initial response.</label>
+<label class="option"><input type="radio" name="materials" value="2"> Keep it only at a table and rely on the toddler to remain elsewhere, initially.</label>
+<label class="option"><input type="radio" name="materials" value="3"> Ban all manipulatives from every mixed-age classroom, because this offers a consistent response to the situation described.</label>
+</div><div class="btn-row"><button class="btn" id="materialsCheck">Check answer</button></div><div class="feedback" id="materialsFeedback"></div></article>
+
+<article class="card activity"><div class="section-label">Ambiguous behavior</div><h3>🧭 Hazard, challenge, or unmet need?</h3>
+<p class="question">A child repeatedly climbs onto a low shelf to look through an interior window. What response completes the reasoning cycle?</p>
+<div class="options">
+<label class="option"><input type="radio" name="behavior" value="0"> Remove the child from the classroom center permanently, because this approach offers a consistent response to the situation described here.</label>
+<label class="option"><input type="radio" name="behavior" value="1"> Punish the behavior so the child remembers the rule, because this offers a response in this situation.</label>
+<label class="option"><input type="radio" name="behavior" value="2"> Stop the unsafe access, assess why the child climbs, provide a stable viewing alternative, and review the room arrangement.</label>
+<label class="option"><input type="radio" name="behavior" value="3"> Ignore the behavior if the shelf is low, because this offers a response to the situation described.</label>
+</div><div class="btn-row"><button class="btn" id="behaviorCheck">Check answer</button></div><div class="feedback" id="behaviorFeedback"></div></article>
+</section>
+
+<section id="practice" class="grid2">
+<article class="card activity"><div class="section-label">Choking and poisoning</div><h3>🔒 Out of reach is not always enough</h3>
+<p class="question">Which practice provides the strongest protection from poisoning?</p>
+<div class="options">
+<label class="option"><input type="radio" name="poison" value="0"> Place cleaning products on a high shelf, as the initial response.</label>
+<label class="option"><input type="radio" name="poison" value="1"> Store hazardous substances in locked areas inaccessible to children, initially.</label>
+<label class="option"><input type="radio" name="poison" value="2"> Keep products in familiar drink bottles so adults recognize them.</label>
+<label class="option"><input type="radio" name="poison" value="3"> Explain to children which bottles they may not touch, initially.</label>
+</div><div class="btn-row"><button class="btn" id="poisonCheck">Check answer</button></div><div class="feedback" id="poisonFeedback"></div></article>
+
+<article class="card activity"><div class="section-label">Technology</div><h3>📱 Safe and appropriate use</h3>
+<p class="question">Which approach best supports safe, developmentally appropriate technology use?</p>
+<div class="options">
+<label class="option"><input type="radio" name="technology" value="0"> Use digital devices whenever they keep children occupied, as the initial response.</label>
+<label class="option"><input type="radio" name="technology" value="1"> Avoid all technology in early childhood settings, because this offers a response in practice.</label>
+<label class="option"><input type="radio" name="technology" value="2"> Give children independent access so they learn responsibility, as the initial response.</label>
+<label class="option"><input type="radio" name="technology" value="3"> Select purposeful content, supervise use, and protect children from physical and digital risks.</label>
+</div><div class="btn-row"><button class="btn" id="technologyCheck">Check answer</button></div><div class="feedback" id="technologyFeedback"></div></article>
+</section>
+
+<section class="grid2">
+<article class="card activity"><div class="section-label">Safe sleep</div><h3>😴 Reduce avoidable risk</h3>
+<p class="question">Which infant sleep practice is consistent with the chapter’s safety guidance?</p>
+<div class="options">
+<label class="option"><input type="radio" name="sleep" value="0"> Place infants on their backs on a firm sleep surface with loose items removed.</label>
+<label class="option"><input type="radio" name="sleep" value="1"> Use pillows to keep infants comfortably positioned, because this offers a response in this situation.</label>
+<label class="option"><input type="radio" name="sleep" value="2"> Let infants sleep on couches if an adult remains nearby, for this situation.</label>
+<label class="option"><input type="radio" name="sleep" value="3"> Place infants on their stomachs once they can lift their heads, in practice.</label>
+</div><div class="btn-row"><button class="btn" id="sleepCheck">Check answer</button></div><div class="feedback" id="sleepFeedback"></div></article>
+
+<article class="card activity"><div class="section-label">Indoor falls</div><h3>🪟 Prevent before supervising</h3>
+<p class="question">Which environmental change best prevents an indoor fall?</p>
+<div class="options">
+<label class="option"><input type="radio" name="falls" value="0"> Remind children to stay away from windows, as the initial response.</label>
+<label class="option"><input type="radio" name="falls" value="1"> Rely on window screens as fall protection, as the initial response.</label>
+<label class="option"><input type="radio" name="falls" value="2"> Keep furniture away from windows and use appropriate window guards or stops.</label>
+<label class="option"><input type="radio" name="falls" value="3"> Open windows only during quiet activities, because this offers a response in practice.</label>
+</div><div class="btn-row"><button class="btn" id="fallsCheck">Check answer</button></div><div class="feedback" id="fallsFeedback"></div></article>
+</section>
+
+<section class="card activity" style="margin-top:18px"><div class="section-label">Close the case file</div><h3>Check your Safety Detective reasoning</h3>
+<p class="question">Which statement best integrates Paris Chapter 3?</p>
+<div class="options">
+<label class="option"><input type="radio" name="final" value="0"> A safe indoor classroom depends mainly on teacher vigilance after hazards appear, in practice.</label>
+<label class="option"><input type="radio" name="final" value="1"> Licensing standards alone are enough to prevent indoor injuries, because this offers a response in practice.</label>
+<label class="option"><input type="radio" name="final" value="2"> The safest classrooms minimize movement, climbing, and hands-on materials, as the educator's initial response.</label>
+<label class="option"><input type="radio" name="final" value="3"> Safe design, appropriate materials, supervision, and preventive routines reduce predictable indoor risks while preserving exploration.</label>
+</div><div class="btn-row"><button class="btn" id="finalCheck">Check my thinking</button></div><div class="feedback" id="finalFeedback"></div></section>
+
+<aside class="resource-bar"><p><strong>Need a quick review?</strong><br><span class="small">Revisit classroom design, behavior function, toys and materials, technology, choking, poisoning, burns, safe sleep, drowning, and indoor falls.</span></p><a class="resource-link" href="https://socialsci.libretexts.org/Bookshelves/Early_Childhood_Education/Health_Safety_and_Nutrition_(Paris)/02%3A_Safety/2.02%3A_Creating_Safe_Indoor_Environments" target="_blank" rel="noopener noreferrer">📖 Return to Paris Chapter 3</a></aside>
+
+<section id="reflect" class="card reflection"><div class="kicker">Detective debrief</div><h2>Complete the reasoning</h2>
+<p><strong>One indoor condition I might initially misjudge is… To assess it responsibly, I would need to know…</strong></p>
+<label for="reflectionText" class="sr-only">Your reflection</label><textarea id="reflectionText" placeholder="Type a few words or sentences. This response remains on this page and is not graded or submitted."></textarea>
+<div class="btn-row"><button class="btn" id="compareBtn">Compare My Thinking</button></div>
+<div class="compare-panel" id="comparePanel">
+<div class="compare-box"><h3>NOTICE precisely</h3><p>Describe the observable condition without assuming that unusual automatically means unsafe.</p></div>
+<div class="compare-box"><h3>ASSESS context</h3><p>Consider accessibility, child development, exposure, severity, supervision, and whether more information is needed.</p></div>
+<div class="compare-box"><h3>Act proportionately</h3><p>Prevent serious or immediate harm first, then communicate, document, repair, replace, monitor, or redesign as the situation requires.</p></div>
+</div></section>
+
+<div class="complete" id="completeBox"><div><strong>🔎 Case file complete!</strong><br><span class="small">You applied NOTICE → ASSESS → PREVENT → RESPOND to indoor design, materials, supervision, and hazard priorities.</span></div><button class="btn" id="restartBtn">Restart guide</button></div>
+</main>
+
+<script>
+// Shuffle each complete answer label on every fresh page load. Input values and answer keys move together.
+function shuffleAnswerChoices(group){
+  const choices=[...group.children];
+  for(let i=choices.length-1;i>0;i--){
+    const j=Math.floor(Math.random()*(i+1));
+    [choices[i],choices[j]]=[choices[j],choices[i]];
+  }
+  choices.forEach(choice=>group.appendChild(choice));
+}
+document.querySelectorAll('.options').forEach(shuffleAnswerChoices);
+
+const state={story:false,design:false,match:false,materials:false,behavior:false,poison:false,technology:false,sleep:false,falls:false,final:false,reflect:false};
+const steps=[...document.querySelectorAll('.step')];
+function updateProgress(){const done=Object.values(state).filter(Boolean).length;const pct=Math.round(done/11*100);const bar=document.querySelector('.progress-line');document.getElementById('progressFill').style.width=pct+'%';document.getElementById('progressText').textContent=pct+'%';bar.setAttribute('aria-valuenow',pct);steps.forEach((s,i)=>{s.classList.toggle('done',i<Math.min(4,Math.ceil(done*4/11)));s.classList.toggle('active',i===Math.min(3,Math.floor(done*4/11)))});if(done===11)document.getElementById('completeBox').classList.add('show')}
+function show(box,txt){box.innerHTML=txt;box.classList.add('show')}
+function radioCheck(name,correct,feedbackId,success,retry,key){const c=document.querySelector('input[name='+name+']:checked'),f=document.getElementById(feedbackId);if(!c)return show(f,'⚠️ Choose an answer first.');const ok=Number(c.value)===correct;show(f,ok?'✅ <strong>Correct.</strong> '+success:'↻ <strong>Try again.</strong> '+retry);if(ok){state[key]=true;updateProgress()}}
+document.getElementById('storyDone').onclick=()=>{state.story=true;updateProgress();document.getElementById('explore').scrollIntoView({behavior:'smooth'})};
+document.querySelectorAll('.judgment').forEach(b=>b.onclick=()=>{b.closest('.judgments').querySelectorAll('.judgment').forEach(x=>x.setAttribute('aria-pressed','false'));b.setAttribute('aria-pressed','true')});
+document.getElementById('checkScan').onclick=()=>{const items=[...document.querySelectorAll('.scan-item')],f=document.getElementById('scanFeedback'),answered=items.filter(i=>i.querySelector('[aria-pressed="true"]')).length,correct=items.filter(i=>i.querySelector('[aria-pressed="true"]')?.dataset.value===i.dataset.answer).length;if(answered<items.length)return show(f,'⚠️ Classify all six observations first. You have completed <strong>'+answered+' of 6</strong>.');show(f,correct===items.length?'✅ <strong>Strong investigation.</strong> You identified two hazards, two safety-supporting conditions, and two observations that require context.':'↻ You classified <strong>'+correct+' of 6</strong> appropriately. Reconsider whether unusual always means unsafe and whether missing developmental or access information requires investigation.');if(correct===items.length){state.design=true;updateProgress()}};
+document.getElementById('resetScan').onclick=()=>{document.querySelectorAll('.judgment').forEach(b=>b.setAttribute('aria-pressed','false'));document.getElementById('scanFeedback').classList.remove('show')};
+document.getElementById('priorityCheck').onclick=()=>radioCheck('priority',1,'priorityFeedback','The unstable shelf combines current exposure with potentially severe harm. Control access immediately, then report and correct the condition.','Prioritize the condition with both immediate exposure and the greatest plausible consequence.','match');
+document.getElementById('materialsCheck').onclick=()=>radioCheck('materials',0,'materialsFeedback','Commercial labeling is only one clue. Condition, size, access, and the actual children present determine whether the material is appropriate now.','Choose the response that controls the damaged item and reassesses the real context.','materials');
+document.getElementById('behaviorCheck').onclick=()=>radioCheck('behavior',2,'behaviorFeedback','This response prevents immediate harm, investigates the purpose of the behavior, supplies a safer way to meet the need, and improves the environment.','Complete the cycle rather than relying only on punishment, removal, or inaction.','behavior');
+document.getElementById('poisonCheck').onclick=()=>radioCheck('poison',1,'poisonFeedback','Hazardous substances should be stored in locked areas that children cannot access.','Choose secure storage rather than reminders or height alone.','poison');
+document.getElementById('technologyCheck').onclick=()=>radioCheck('technology',3,'technologyFeedback','Appropriate technology use is purposeful, supervised, developmentally appropriate, and attentive to safety.','Choose guided use rather than unrestricted access or total avoidance.','technology');
+document.getElementById('sleepCheck').onclick=()=>radioCheck('sleep',0,'sleepFeedback','Safe infant sleep uses a firm approved surface, back sleeping, and a sleep area free of loose soft objects.','Choose the response that reduces known sleep risks.','sleep');
+document.getElementById('fallsCheck').onclick=()=>radioCheck('falls',2,'fallsFeedback','Environmental controls such as guards, stops, and furniture placement reduce fall risk before supervision is tested.','Choose the preventive physical change.','falls');
+document.getElementById('finalCheck').onclick=()=>radioCheck('final',3,'finalFeedback','Paris Chapter 3 integrates design, material selection, supervision, behavior guidance, and prevention across several indoor hazards.','Choose the comprehensive prevention response.','final');
+document.getElementById('compareBtn').onclick=()=>{document.getElementById('comparePanel').classList.add('show');state.reflect=true;updateProgress();document.getElementById('comparePanel').scrollIntoView({behavior:'smooth',block:'nearest'})};
+document.getElementById('restartBtn').onclick=()=>location.reload();
+updateProgress();
+</script>
+</body></html>
