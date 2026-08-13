@@ -1,0 +1,215 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>CLDV-05 Week 5 Interactive Reading Guide</title>
+<style>
+:root{--navy:#173f63;--teal:#287a78;--ink:#172033;--muted:#5c6678;--gold:#e1ad35;--border:#d8deea;--shadow:0 8px 24px rgba(22,32,51,.09);--green:#287a51;--soft:#f5f7fb}
+*{box-sizing:border-box}html{scroll-behavior:smooth}
+body{margin:0;font-family:system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif;background:var(--soft);color:var(--ink);line-height:1.55}
+button,input,textarea,select{font:inherit}button{cursor:pointer}a{color:var(--navy)}
+button:focus-visible,input:focus-visible,textarea:focus-visible,select:focus-visible,a:focus-visible{outline:3px solid #4e9cf5;outline-offset:2px}
+.sitebar{background:var(--navy);color:#fff;padding:14px 20px}.sitebar-inner{max-width:1180px;margin:auto;display:flex;align-items:center;justify-content:space-between;gap:18px}
+.brand{display:flex;align-items:center;gap:12px;font-weight:700}.logo{width:46px;height:46px;border:2px solid #fff;border-radius:12px;display:grid;place-items:center}.small{font-size:.9rem;color:var(--muted)}.sitebar .small{color:#d9e6f5}
+main{max-width:1180px;margin:0 auto;padding:28px 18px 60px}.hero{display:flex;justify-content:space-between;gap:24px;align-items:end;flex-wrap:wrap}
+h1{font-size:clamp(2rem,4vw,3rem);line-height:1.05;margin:.1em 0}.subtitle{font-size:1.08rem;margin:0;color:#39445a}
+.progress-wrap{min-width:260px}.progress-line{height:10px;background:#d9dee7;border-radius:999px;overflow:hidden}.progress-fill{height:100%;width:0;background:linear-gradient(90deg,var(--green),#52a981);transition:width .35s ease}
+.steps{display:grid;grid-template-columns:repeat(4,1fr);gap:10px;margin:24px 0}.step{background:#fff;border:1px solid var(--border);border-radius:999px;padding:11px 12px;text-align:center;font-weight:650;color:#667085;text-decoration:none}.step.active{background:#eaf5f3;color:#145854;border-color:#a7d2cf}.step.done{background:#eaf7f1;color:#176847}
+.card{background:#fff;border:1px solid var(--border);border-radius:22px;box-shadow:var(--shadow);overflow:hidden}
+.story{display:grid;grid-template-columns:minmax(300px,44%) 1fr;background:linear-gradient(110deg,#f3f9ee,#fff)}.story img{width:100%;height:100%;min-height:430px;object-fit:cover}.story-copy{padding:30px}
+.kicker{font-size:.82rem;text-transform:uppercase;letter-spacing:.08em;font-weight:800;color:#52713f}h2{font-size:1.55rem;margin:.25em 0 .5em}h3{font-size:1.18rem;margin:0 0 12px}
+.story-note{background:rgba(255,255,255,.88);border-left:5px solid var(--gold);padding:14px 16px;border-radius:12px;margin-top:18px}
+.grid2{display:grid;grid-template-columns:1fr 1fr;gap:18px;margin-top:18px}.activity{padding:24px}.question{font-weight:700;margin-bottom:14px}.options{display:grid;gap:10px}
+.option{display:flex;gap:12px;align-items:flex-start;border:1px solid #ccd3df;border-radius:13px;padding:12px;background:#fff}
+.feedback{display:none;margin-top:14px;padding:13px 15px;border-radius:13px;background:#edf9f1;border:1px solid #acd7b9}.feedback.show{display:block}
+.match-row{display:grid;grid-template-columns:190px 1fr;gap:12px;align-items:center;margin:10px 0}.term{font-weight:750;background:#edf5ff;border:1px solid #a7c5ef;border-radius:10px;padding:10px}
+select{width:100%;padding:10px;border:1px solid #bac4d3;border-radius:10px;background:#fff}
+.btn{border:none;border-radius:12px;padding:12px 18px;font-weight:750;background:var(--green);color:#fff;box-shadow:0 4px 12px rgba(40,122,81,.2)}
+.btn.secondary{background:#fff;color:var(--navy);border:1px solid #aeb9c8;box-shadow:none}.btn-row{display:flex;gap:10px;flex-wrap:wrap;margin-top:15px}
+.resource-bar{display:flex;align-items:center;justify-content:space-between;gap:16px;flex-wrap:wrap;margin:18px 0;padding:16px 18px;border:1px solid #b9c9dc;border-radius:18px;background:#eef6ff}
+.resource-bar p{margin:0}.resource-link{display:inline-flex;align-items:center;gap:8px;text-decoration:none;border-radius:12px;padding:11px 15px;font-weight:750;background:#fff;color:var(--navy);border:1px solid #9fb0c5}
+.concept-strip{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;margin-top:18px}.concept{padding:18px;border-radius:18px;border:1px solid var(--border);background:#fff}.concept strong{display:block;margin-bottom:6px}
+.cycle{display:grid;grid-template-columns:repeat(4,1fr);gap:10px;margin:18px 0}.cycle div{padding:13px;border-radius:15px;background:#edf7f0;border:1px solid #bed9c5;text-align:center}.cycle strong{display:block;color:#176847;letter-spacing:.05em}.cycle span{font-size:.84rem;color:var(--muted)}
+.scan{display:grid;gap:13px;margin-top:16px}.scan-item{padding:17px;border:1px solid var(--border);border-radius:16px;background:#fff}.scan-item p{margin:0 0 10px}.judgments{display:flex;gap:8px;flex-wrap:wrap}.judgment{border:2px solid #ccd3df;border-radius:999px;padding:8px 12px;background:#fff;color:var(--ink)}.judgment[aria-pressed="true"]{border-color:var(--teal);background:#eaf5f3;color:#145854}.clue{display:block;margin-top:8px;font-size:.88rem;color:var(--muted)}.wide{grid-column:1/-1}
+.reflection{margin-top:18px;padding:24px;background:linear-gradient(135deg,#f1fbf4,#fff)}textarea{width:100%;min-height:120px;border:1px solid #bbc5d3;border-radius:14px;padding:14px;resize:vertical}
+.compare-panel{display:none;margin-top:18px}.compare-panel.show{display:grid;grid-template-columns:repeat(3,1fr);gap:14px}.compare-box{border-radius:18px;padding:18px;border:1px solid var(--border)}
+.compare-box:nth-child(1){background:#fff8df}.compare-box:nth-child(2){background:#edf9f5}.compare-box:nth-child(3){background:#f4efff}
+.complete{display:none;margin-top:18px;padding:20px;background:#eaf8f1;border:1px solid #a9d9bf;border-radius:18px;align-items:center;justify-content:space-between;gap:14px}.complete.show{display:flex}
+.badge{display:inline-block;background:#e8f5ee;color:#176847;border-radius:999px;padding:5px 10px;font-weight:800;font-size:.82rem}.section-label{font-size:.82rem;text-transform:uppercase;letter-spacing:.07em;font-weight:800;color:var(--teal)}
+.sr-only{position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0,0,0,0);white-space:nowrap;border:0}
+@media(max-width:850px){.story,.grid2{grid-template-columns:1fr}.story img{min-height:240px;max-height:390px}.concept-strip,.cycle,.compare-panel.show{grid-template-columns:1fr}.steps{grid-template-columns:1fr 1fr}}
+@media(max-width:520px){main{padding:18px 12px 40px}.sitebar{padding:10px 12px}.steps{grid-template-columns:1fr}.step{text-align:left}.match-row{grid-template-columns:1fr}.activity,.reflection,.story-copy{padding:18px}.complete.show{align-items:flex-start;flex-direction:column}}
+@media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}.progress-fill{transition:none}}
+</style>
+</head>
+<body>
+<header class="sitebar"><div class="sitebar-inner"><div class="brand"><div class="logo">05</div><div>Health, Safety &amp; Nutrition<div class="small">Interactive Reading Guide</div></div></div><div class="small">Week 5 • Paris Chapter 4</div></div></header>
+
+<main>
+<section class="hero"><div><span class="badge">Safety Detective · Case File 3</span> <span class="badge">NOTICE → ASSESS → PREVENT → RESPOND</span>
+<h1>Safe Enough to Explore</h1>
+<p class="subtitle">Outdoor play, playground design, supervision, inspections, weather, and healthy challenge</p></div>
+<div class="progress-wrap"><div style="display:flex;justify-content:space-between;margin-bottom:7px"><strong>Overall progress</strong><span id="progressText">0%</span></div>
+<div class="progress-line" role="progressbar" aria-valuemin="0" aria-valuemax="100" aria-valuenow="0"><div class="progress-fill" id="progressFill"></div></div></div>
+</section>
+
+<nav class="steps"><a class="step active" href="#story">1. Case File</a><a class="step" href="#explore">2. Yard Scan</a><a class="step" href="#practice">3. Dynamic Decisions</a><a class="step" href="#reflect">4. Debrief</a></nav>
+
+<aside class="resource-bar"><p><strong>Keep Paris Chapter 4 nearby.</strong><br><span class="small">This guide supports the reading; it does not replace it.</span></p>
+<a class="resource-link" href="https://socialsci.libretexts.org/Bookshelves/Early_Childhood_Education/Health_Safety_and_Nutrition_(Paris)/02%3A_Safety/2.03%3A_Creating_Safe_Outdoor_Environments" target="_blank" rel="noopener noreferrer">📖 Open Paris Chapter 4</a></aside>
+<aside class="resource-bar"><p><strong>Practice freely.</strong><br><span class="small">Plan for about 15–20 minutes. Responses remain on this page and are not saved, graded, or submitted.</span></p></aside>
+
+<section id="story" class="card story">
+<img src="images/cldv05-week5-vignette.png" alt="An early childhood education student observes diverse preschool children and teachers on a playground with climbing equipment, sand play, and active supervision">
+<div class="story-copy"><div class="kicker">Opening vignette</div><h2>“Safe Enough to Explore”</h2>
+<p>Maya watches children scatter across the preschool yard. One runs toward the slide. Two crouch near dirt looking for bugs. Others turn sticks into magic wands.</p>
+<p>At first, the yard looks like freedom. Then she notices the planning behind it: fencing, impact-absorbing surfacing, open space around swings, and teachers positioned so they can see across different play areas.</p>
+<p>A child reaches the top of the climbing structure and pauses. Maya worries for a moment, but the nearby teacher stays close without stopping him. “Use both hands,” she says. “Check where your feet are going.”</p>
+<p>The child climbs down and beams. Maya realizes that safety is not about removing every challenge. Children need to run, climb, balance, dig, test their bodies, and feel capable.</p>
+<p>She writes: <strong>The goal is not a risk-free childhood. The goal is thoughtful, supervised, developmentally appropriate challenge.</strong></p>
+<div class="cycle"><div><strong>NOTICE</strong><span>Scan conditions, children, and movement</span></div><div><strong>ASSESS</strong><span>Weigh exposure, severity, and context</span></div><div><strong>PREVENT</strong><span>Modify zones, equipment, or supervision</span></div><div><strong>RESPOND</strong><span>Act, communicate, document, follow up</span></div></div>
+<div class="story-note"><strong>Week 5 challenge:</strong> Outdoor conditions change while children play. Your safety plan must change with them.</div>
+<div class="btn-row"><button class="btn" id="storyDone">Open the outdoor case file</button></div></div>
+</section>
+
+<section id="explore" class="grid2">
+<article class="card activity wide"><div class="section-label">Safety Scan / Changing outdoor conditions</div><h3>🔍 Scan the entire yard</h3><p>Classify each condition. Some require immediate correction, some support safe exploration, and some require more information.</p>
+<div class="scan" id="yardScan">
+<div class="scan-item" data-answer="unsafe"><p><strong>1.</strong> A tricycle is parked inside the climber’s use zone.</p><div class="judgments"><button class="judgment" data-value="unsafe" aria-pressed="false">Unsafe now</button><button class="judgment" data-value="acceptable" aria-pressed="false">Acceptable</button><button class="judgment" data-value="investigate" aria-pressed="false">Investigate</button></div></div>
+<div class="scan-item" data-answer="acceptable"><p><strong>2.</strong> Two educators stand in separate zones with overlapping sight lines and signal when children move between areas.</p><div class="judgments"><button class="judgment" data-value="unsafe" aria-pressed="false">Unsafe now</button><button class="judgment" data-value="acceptable" aria-pressed="false">Acceptable</button><button class="judgment" data-value="investigate" aria-pressed="false">Investigate</button></div></div>
+<div class="scan-item" data-answer="investigate"><p><strong>3.</strong> A child climbs onto a broad, low boulder while a teacher remains close.</p><div class="judgments"><button class="judgment" data-value="unsafe" aria-pressed="false">Unsafe now</button><button class="judgment" data-value="acceptable" aria-pressed="false">Acceptable</button><button class="judgment" data-value="investigate" aria-pressed="false">Investigate</button></div><span class="clue">Consider height, landing surface, footwear, weather, the child’s ability, and whether the teacher can assist.</span></div>
+<div class="scan-item" data-answer="unsafe"><p><strong>4.</strong> Loose-fill surfacing beneath the slide has been kicked away until hard ground is visible.</p><div class="judgments"><button class="judgment" data-value="unsafe" aria-pressed="false">Unsafe now</button><button class="judgment" data-value="acceptable" aria-pressed="false">Acceptable</button><button class="judgment" data-value="investigate" aria-pressed="false">Investigate</button></div></div>
+<div class="scan-item" data-answer="investigate"><p><strong>5.</strong> The temperature is rising, but children are active in both sun and shade.</p><div class="judgments"><button class="judgment" data-value="unsafe" aria-pressed="false">Unsafe now</button><button class="judgment" data-value="acceptable" aria-pressed="false">Acceptable</button><button class="judgment" data-value="investigate" aria-pressed="false">Investigate</button></div><span class="clue">Check actual conditions, air quality, hydration access, exertion, children’s responses, and program policy.</span></div>
+<div class="scan-item" data-answer="acceptable"><p><strong>6.</strong> The gate is self-closing and self-latching, and its route remains visible from a staffed zone.</p><div class="judgments"><button class="judgment" data-value="unsafe" aria-pressed="false">Unsafe now</button><button class="judgment" data-value="acceptable" aria-pressed="false">Acceptable</button><button class="judgment" data-value="investigate" aria-pressed="false">Investigate</button></div></div>
+</div><div class="btn-row"><button class="btn" id="checkScan">Check the yard scan</button><button class="btn secondary" id="resetScan">Clear judgments</button></div><div class="feedback" id="scanFeedback" role="status"></div></article>
+
+<article class="card activity wide"><div class="section-label">Supervision deployment</div><h3>👀 The yard changes—reposition the adults</h3><p class="question">One teacher begins helping a child at the far sandbox. At the same moment, three children move toward the climber and the child who follows vehicle sounds approaches the gate. What is the strongest response?</p><div class="options"><label class="option"><input type="radio" name="approach" value="0"> Keep the original zones because changing them may confuse the teachers, because this offers a consistent response to the situation described.</label><label class="option"><input type="radio" name="approach" value="1"> Signal a role change, reposition to preserve gate and climber coverage, scan and count, then assist the sandbox child without creating a blind zone.</label><label class="option"><input type="radio" name="approach" value="2"> Close the climber for the remainder of outdoor play, because this approach offers a clear and consistent response based on the information currently available here.</label><label class="option"><input type="radio" name="approach" value="3"> Ask children near the gate to remind one another to stay inside, because this offers a response to the situation described.</label></div><div class="btn-row"><button class="btn" id="approachCheck">Test the supervision plan</button></div><div class="feedback" id="approachFeedback"></div></article>
+</section>
+
+<section class="concept-strip">
+<div class="concept"><strong>🏃 Challenge has developmental value.</strong>Running, climbing, digging, and balancing build competence when unnecessary hazards are controlled.</div>
+<div class="concept"><strong>🛝 Conditions are dynamic.</strong>Surfacing shifts, equipment wears, objects move into use zones, and weather changes during play.</div>
+<div class="concept"><strong>👀 Supervision zones must move too.</strong>Teachers reposition, communicate, scan, count, anticipate, and intervene as children redistribute themselves.</div>
+</section>
+
+<section class="grid2">
+<article class="card activity"><div class="section-label">Use zones</div><h3>↔️ Keep the landing area clear</h3>
+<p class="question">Why are use zones important around playground equipment?</p>
+<div class="options">
+<label class="option"><input type="radio" name="usezone" value="0"> They create places where teachers can stand without moving, initially.</label>
+<label class="option"><input type="radio" name="usezone" value="1"> They keep younger children completely separate from older children, initially.</label>
+<label class="option"><input type="radio" name="usezone" value="2"> They provide space for movement and falls without nearby obstacles.</label>
+<label class="option"><input type="radio" name="usezone" value="3"> They identify areas where children should play quietly, for this situation.</label>
+</div><div class="btn-row"><button class="btn" id="usezoneCheck">Check answer</button></div><div class="feedback" id="usezoneFeedback"></div></article>
+
+<article class="card activity"><div class="section-label">Daily inspection</div><h3>🔍 Before play begins</h3>
+<p class="question">Which finding should prompt immediate correction before children use the playground?</p>
+<div class="options">
+<label class="option"><input type="radio" name="inspection" value="0"> A tricycle has been left inside the fall zone of a climber.</label>
+<label class="option"><input type="radio" name="inspection" value="1"> Several children prefer the sandbox to the climber, for this situation.</label>
+<label class="option"><input type="radio" name="inspection" value="2"> A shaded area has fewer toys than the sunny area, initially.</label>
+<label class="option"><input type="radio" name="inspection" value="3"> Children used the equipment differently yesterday, because this offers a response in practice.</label>
+</div><div class="btn-row"><button class="btn" id="inspectionCheck">Check answer</button></div><div class="feedback" id="inspectionFeedback"></div></article>
+</section>
+
+<section id="practice" class="grid2">
+<article class="card activity"><div class="section-label">Active supervision</div><h3>👀 Position with purpose</h3>
+<p class="question">Which teacher behavior best reflects active outdoor supervision?</p>
+<div class="options">
+<label class="option"><input type="radio" name="supervision" value="0"> Stay near the doorway so every child knows where the adult is.</label>
+<label class="option"><input type="radio" name="supervision" value="1"> Focus on the highest climber while another teacher handles everything else, initially.</label>
+<label class="option"><input type="radio" name="supervision" value="2"> Move as needed, maintain sight lines, communicate with coworkers, and anticipate children’s actions.</label>
+<label class="option"><input type="radio" name="supervision" value="3"> Let experienced preschoolers supervise their own play, because this offers a response in practice.</label>
+</div><div class="btn-row"><button class="btn" id="supervisionCheck">Check answer</button></div><div class="feedback" id="supervisionFeedback"></div></article>
+
+<article class="card activity"><div class="section-label">Weather and hydration</div><h3>☀️ Conditions change</h3>
+<p class="question">On a very warm day, which response best supports outdoor safety?</p>
+<div class="options">
+<label class="option"><input type="radio" name="heat" value="0"> Keep the usual schedule so children remain consistent, for this situation.</label>
+<label class="option"><input type="radio" name="heat" value="1"> Let children decide whether they need water, as the educator's immediate professional response.</label>
+<label class="option"><input type="radio" name="heat" value="2"> Move all physical play indoors for the rest of the season.</label>
+<label class="option"><input type="radio" name="heat" value="3"> Increase water access, use shade, monitor children, and adjust activity for conditions.</label>
+</div><div class="btn-row"><button class="btn" id="heatCheck">Check answer</button></div><div class="feedback" id="heatFeedback"></div></article>
+</section>
+
+<section class="grid2">
+<article class="card activity"><div class="section-label">Water safety</div><h3>💧 Extra vigilance</h3>
+<p class="question">Why do water activities require especially careful supervision?</p>
+<div class="options">
+<label class="option"><input type="radio" name="water" value="0"> Young children can drown quickly, so access and supervision must be tightly controlled.</label>
+<label class="option"><input type="radio" name="water" value="1"> Water play is unsafe for preschool-aged children, as the educator's initial response.</label>
+<label class="option"><input type="radio" name="water" value="2"> Children are usually distracted when they play near water, for this situation.</label>
+<label class="option"><input type="radio" name="water" value="3"> Licensing prohibits most outdoor water activities, because this offers a response in this situation.</label>
+</div><div class="btn-row"><button class="btn" id="waterCheck">Check answer</button></div><div class="feedback" id="waterFeedback"></div></article>
+
+<article class="card activity"><div class="section-label">Field trips and transportation</div><h3>🚌 Safety travels with the group</h3>
+<p class="question">Which practice is strongest when children leave the program site?</p>
+<div class="options">
+<label class="option"><input type="radio" name="fieldtrip" value="0"> Depend on the destination’s staff to manage safety, for this situation.</label>
+<label class="option"><input type="radio" name="fieldtrip" value="1"> Plan supervision, transportation, attendance checks, emergency information, and site-specific hazards in advance.</label>
+<label class="option"><input type="radio" name="fieldtrip" value="2"> Use the same routine for every destination, as the educator's immediate professional response.</label>
+<label class="option"><input type="radio" name="fieldtrip" value="3"> Reduce documentation so teachers can focus on children, for this situation.</label>
+</div><div class="btn-row"><button class="btn" id="fieldtripCheck">Check answer</button></div><div class="feedback" id="fieldtripFeedback"></div></article>
+</section>
+
+<section class="card activity" style="margin-top:18px"><div class="section-label">Final self-check</div><h3>Check your understanding</h3>
+<p class="question">Which statement best integrates Paris Chapter 4?</p>
+<div class="options">
+<label class="option"><input type="radio" name="final" value="0"> Outdoor safety is mainly the teacher’s ability to stop risky behavior quickly, for this situation.</label>
+<label class="option"><input type="radio" name="final" value="1"> Well-designed playgrounds require little adult supervision, because this approach offers a consistent response to the situation described.</label>
+<label class="option"><input type="radio" name="final" value="2"> Removing climbing and active play is the most reliable injury-prevention strategy, as the initial response.</label>
+<label class="option"><input type="radio" name="final" value="3"> Safe outdoor programs combine healthy challenge with thoughtful design, inspection, supervision, and protection from environmental hazards.</label>
+</div><div class="btn-row"><button class="btn" id="finalCheck">Check my thinking</button></div><div class="feedback" id="finalFeedback"></div></section>
+
+<aside class="resource-bar"><p><strong>Need a quick review?</strong><br><span class="small">Revisit playground design, impact-absorbing surfaces, use zones, age appropriateness, inspections, active supervision, weather, water safety, and field trips.</span></p>
+<a class="resource-link" href="https://socialsci.libretexts.org/Bookshelves/Early_Childhood_Education/Health_Safety_and_Nutrition_(Paris)/02%3A_Safety/2.03%3A_Creating_Safe_Outdoor_Environments" target="_blank" rel="noopener noreferrer">📖 Return to Paris Chapter 4</a></aside>
+
+<section id="reflect" class="card reflection"><div class="kicker">Detective debrief</div><h2>Explain your judgment</h2>
+<p><strong>An outdoor condition may shift from acceptable challenge to unacceptable hazard when…</strong></p>
+<label for="reflectionText" class="sr-only">Your reflection</label><textarea id="reflectionText" placeholder="Type a few words or sentences. This response remains on this page and is not graded or submitted."></textarea>
+<div class="btn-row"><button class="btn" id="compareBtn">Compare My Thinking</button></div>
+<div class="compare-panel" id="comparePanel">
+<div class="compare-box"><h3>The chapter emphasizes…</h3><p>Children need outdoor challenge for health and development, but adults must reduce hazards that add danger without adding useful learning.</p></div>
+<div class="compare-box"><h3>Consider…</h3><p>Did your response mention developmental appropriateness, supervision, equipment design, surfacing, use zones, weather, or the child’s abilities?</p></div>
+<div class="compare-box"><h3>Add to your thinking…</h3><p>The teacher’s role is often to stay close enough to support while allowing the child to experience competence, judgment, and growing independence.</p></div>
+</div></section>
+
+<div class="complete" id="completeBox"><div><strong>🔎 Outdoor case file complete!</strong><br><span class="small">You applied NOTICE → ASSESS → PREVENT → RESPOND across a changing outdoor environment.</span></div><button class="btn" id="restartBtn">Restart guide</button></div>
+</main>
+
+<script>
+// Shuffle each complete answer label on every fresh page load. Input values and answer keys move together.
+function shuffleAnswerChoices(group){
+  const choices=[...group.children];
+  for(let i=choices.length-1;i>0;i--){
+    const j=Math.floor(Math.random()*(i+1));
+    [choices[i],choices[j]]=[choices[j],choices[i]];
+  }
+  choices.forEach(choice=>group.appendChild(choice));
+}
+document.querySelectorAll('.options').forEach(shuffleAnswerChoices);
+
+const state={story:false,approach:false,match:false,usezone:false,inspection:false,supervision:false,heat:false,water:false,fieldtrip:false,final:false,reflect:false};
+const steps=[...document.querySelectorAll('.step')];
+document.querySelectorAll('.options').forEach(group=>{const choices=[...group.children];for(let i=choices.length-1;i>0;i--){const j=Math.floor(Math.random()*(i+1));[choices[i],choices[j]]=[choices[j],choices[i]]}choices.forEach(choice=>group.appendChild(choice))});
+function updateProgress(){const done=Object.values(state).filter(Boolean).length;const pct=Math.round(done/11*100);const bar=document.querySelector('.progress-line');document.getElementById('progressFill').style.width=pct+'%';document.getElementById('progressText').textContent=pct+'%';bar.setAttribute('aria-valuenow',pct);steps.forEach((s,i)=>{s.classList.toggle('done',i<Math.min(4,Math.ceil(done*4/11)));s.classList.toggle('active',i===Math.min(3,Math.floor(done*4/11)))});if(done===11)document.getElementById('completeBox').classList.add('show')}
+function show(box,txt){box.innerHTML=txt;box.classList.add('show')}
+function radioCheck(name,correct,feedbackId,success,retry,key){const c=document.querySelector('input[name='+name+']:checked'),f=document.getElementById(feedbackId);if(!c)return show(f,'⚠️ Choose an answer first.');const ok=Number(c.value)===correct;show(f,ok?'✅ <strong>Correct.</strong> '+success:'↻ <strong>Try again.</strong> '+retry);if(ok){state[key]=true;updateProgress()}}
+document.getElementById('storyDone').onclick=()=>{state.story=true;updateProgress();document.getElementById('explore').scrollIntoView({behavior:'smooth'})};
+document.querySelectorAll('.judgment').forEach(b=>b.onclick=()=>{b.closest('.judgments').querySelectorAll('.judgment').forEach(x=>x.setAttribute('aria-pressed','false'));b.setAttribute('aria-pressed','true')});
+document.getElementById('checkScan').onclick=()=>{const items=[...document.querySelectorAll('.scan-item')],f=document.getElementById('scanFeedback'),answered=items.filter(i=>i.querySelector('[aria-pressed="true"]')).length,correct=items.filter(i=>i.querySelector('[aria-pressed="true"]')?.dataset.value===i.dataset.answer).length;if(answered<items.length)return show(f,'⚠️ Classify all six conditions first. You have completed <strong>'+answered+' of 6</strong>.');show(f,correct===items.length?'✅ <strong>Complete scan.</strong> You distinguished immediate hazards, protective conditions, and observations whose risk changes with context.':'↻ You classified <strong>'+correct+' of 6</strong> appropriately. Reconsider moving objects, surfacing, protective systems, and when weather or challenge requires more evidence.');if(correct===items.length){state.match=true;updateProgress()}};
+document.getElementById('resetScan').onclick=()=>{document.querySelectorAll('.judgment').forEach(b=>b.setAttribute('aria-pressed','false'));document.getElementById('scanFeedback').classList.remove('show')};
+document.getElementById('approachCheck').onclick=()=>radioCheck('approach',1,'approachFeedback','Active outdoor supervision is dynamic. Adults communicate and reposition so helping one child does not abandon coverage elsewhere.','Choose the response that preserves whole-yard accountability as people and risks move.','approach');
+document.getElementById('usezoneCheck').onclick=()=>radioCheck('usezone',2,'usezoneFeedback','Use zones create clear space around equipment so children are less likely to collide with obstacles or one another.','Choose the response about safe movement and fall space.','usezone');
+document.getElementById('inspectionCheck').onclick=()=>radioCheck('inspection',0,'inspectionFeedback','Movable objects inside a fall or use zone can turn an ordinary fall into a more serious injury.','Choose the condition that creates an immediate physical hazard.','inspection');
+document.getElementById('supervisionCheck').onclick=()=>radioCheck('supervision',2,'supervisionFeedback','Active supervision combines positioning, sight lines, communication, observation, anticipation, and intervention.','Choose the coordinated, mobile supervision response.','supervision');
+document.getElementById('heatCheck').onclick=()=>radioCheck('heat',3,'heatFeedback','Outdoor routines should respond to weather through hydration, shade, observation, and changes in activity or timing.','Choose the response that adjusts to environmental conditions.','heat');
+document.getElementById('waterCheck').onclick=()=>radioCheck('water',0,'waterFeedback','Drowning can happen rapidly, so young children need controlled access and especially vigilant supervision around water.','Choose the response about the speed and seriousness of drowning risk.','water');
+document.getElementById('fieldtripCheck').onclick=()=>radioCheck('fieldtrip',1,'fieldtripFeedback','Off-site safety begins with advance planning for supervision, transportation, attendance, emergencies, and the specific destination.','Choose comprehensive advance planning.','fieldtrip');
+document.getElementById('finalCheck').onclick=()=>radioCheck('final',3,'finalFeedback','Paris Chapter 4 combines outdoor play benefits with design, inspection, active supervision, and protection from environmental hazards.','Choose the comprehensive balance of challenge and prevention.','final');
+document.getElementById('compareBtn').onclick=()=>{document.getElementById('comparePanel').classList.add('show');state.reflect=true;updateProgress();document.getElementById('comparePanel').scrollIntoView({behavior:'smooth',block:'nearest'})};
+document.getElementById('restartBtn').onclick=()=>location.reload();
+updateProgress();
+</script>
+</body></html>
