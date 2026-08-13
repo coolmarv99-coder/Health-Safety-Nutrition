@@ -1,0 +1,204 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>CLDV-05 Week 7 Interactive Reading Guide</title>
+<style>
+:root{--navy:#173f63;--teal:#287a78;--ink:#172033;--muted:#5c6678;--gold:#e1ad35;--border:#d8deea;--shadow:0 8px 24px rgba(22,32,51,.09);--green:#287a51;--soft:#f5f7fb}
+*{box-sizing:border-box}html{scroll-behavior:smooth}body{margin:0;font-family:system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif;background:var(--soft);color:var(--ink);line-height:1.55}
+button,input,textarea,select{font:inherit}button{cursor:pointer}a{color:var(--navy)}
+button:focus-visible,input:focus-visible,textarea:focus-visible,select:focus-visible,a:focus-visible{outline:3px solid #4e9cf5;outline-offset:2px}
+.sitebar{background:var(--navy);color:#fff;padding:14px 20px}.sitebar-inner{max-width:1180px;margin:auto;display:flex;align-items:center;justify-content:space-between;gap:18px}
+.brand{display:flex;align-items:center;gap:12px;font-weight:700}.logo{width:46px;height:46px;border:2px solid #fff;border-radius:12px;display:grid;place-items:center}
+.small{font-size:.9rem;color:var(--muted)}.sitebar .small{color:#d9e6f5}main{max-width:1180px;margin:0 auto;padding:28px 18px 60px}
+.hero{display:flex;justify-content:space-between;gap:24px;align-items:end;flex-wrap:wrap}h1{font-size:clamp(2rem,4vw,3rem);line-height:1.05;margin:.1em 0}.subtitle{font-size:1.08rem;margin:0;color:#39445a}
+.progress-wrap{min-width:260px}.progress-line{height:10px;background:#d9dee7;border-radius:999px;overflow:hidden}.progress-fill{height:100%;width:0;background:linear-gradient(90deg,var(--green),#52a981);transition:width .35s ease}
+.steps{display:grid;grid-template-columns:repeat(4,1fr);gap:10px;margin:24px 0}.step{background:#fff;border:1px solid var(--border);border-radius:999px;padding:11px 12px;text-align:center;font-weight:650;color:#667085;text-decoration:none}
+.step.active{background:#eaf5f3;color:#145854;border-color:#a7d2cf}.step.done{background:#eaf7f1;color:#176847}
+.card{background:#fff;border:1px solid var(--border);border-radius:22px;box-shadow:var(--shadow);overflow:hidden}
+.story{display:grid;grid-template-columns:minmax(300px,44%) 1fr;background:linear-gradient(110deg,#f7f1f1,#fff)}.story img{width:100%;height:100%;min-height:430px;object-fit:cover}.story-copy{padding:30px}
+.kicker{font-size:.82rem;text-transform:uppercase;letter-spacing:.08em;font-weight:800;color:#7a4c55}h2{font-size:1.55rem;margin:.25em 0 .5em}h3{font-size:1.18rem;margin:0 0 12px}
+.story-note{background:rgba(255,255,255,.88);border-left:5px solid var(--gold);padding:14px 16px;border-radius:12px;margin-top:18px}
+.grid2{display:grid;grid-template-columns:1fr 1fr;gap:18px;margin-top:18px}.activity{padding:24px}.question{font-weight:700;margin-bottom:14px}.options{display:grid;gap:10px}
+.option{display:flex;gap:12px;align-items:flex-start;border:1px solid #ccd3df;border-radius:13px;padding:12px;background:#fff}.feedback{display:none;margin-top:14px;padding:13px 15px;border-radius:13px;background:#edf9f1;border:1px solid #acd7b9}.feedback.show{display:block}
+.match-row{display:grid;grid-template-columns:190px 1fr;gap:12px;align-items:center;margin:10px 0}.term{font-weight:750;background:#edf5ff;border:1px solid #a7c5ef;border-radius:10px;padding:10px}select{width:100%;padding:10px;border:1px solid #bac4d3;border-radius:10px;background:#fff}
+.btn{border:none;border-radius:12px;padding:12px 18px;font-weight:750;background:var(--green);color:#fff;box-shadow:0 4px 12px rgba(40,122,81,.2)}.btn.secondary{background:#fff;color:var(--navy);border:1px solid #aeb9c8;box-shadow:none}.btn-row{display:flex;gap:10px;flex-wrap:wrap;margin-top:15px}
+.resource-bar{display:flex;align-items:center;justify-content:space-between;gap:16px;flex-wrap:wrap;margin:18px 0;padding:16px 18px;border:1px solid #b9c9dc;border-radius:18px;background:#eef6ff}.resource-bar p{margin:0}.resource-link{display:inline-flex;align-items:center;gap:8px;text-decoration:none;border-radius:12px;padding:11px 15px;font-weight:750;background:#fff;color:var(--navy);border:1px solid #9fb0c5}
+.concept-strip{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;margin-top:18px}.concept{padding:18px;border-radius:18px;border:1px solid var(--border);background:#fff}.concept strong{display:block;margin-bottom:6px}
+.cycle{display:grid;grid-template-columns:repeat(4,1fr);gap:10px;margin:18px 0}.cycle div{padding:13px;border-radius:15px;background:#f8eeee;border:1px solid #dec7cc;text-align:center}.cycle strong{display:block;color:#7a4c55;letter-spacing:.05em}.cycle span{font-size:.84rem;color:var(--muted)}.evidence{display:grid;gap:13px;margin-top:16px}.evidence-item{padding:17px;border:1px solid var(--border);border-radius:16px;background:#fff}.evidence-item p{margin:0 0 10px}.labels{display:flex;gap:8px;flex-wrap:wrap}.label-btn{border:2px solid #ccd3df;border-radius:999px;padding:8px 12px;background:#fff;color:var(--ink)}.label-btn[aria-pressed="true"]{border-color:#7a4c55;background:#f8eeee}.wide{grid-column:1/-1}.quote{border-left:4px solid var(--gold);padding:10px 14px;background:#fff9e8;border-radius:0 10px 10px 0}
+.reflection{margin-top:18px;padding:24px;background:linear-gradient(135deg,#f1fbf4,#fff)}textarea{width:100%;min-height:120px;border:1px solid #bbc5d3;border-radius:14px;padding:14px;resize:vertical}
+.compare-panel{display:none;margin-top:18px}.compare-panel.show{display:grid;grid-template-columns:repeat(3,1fr);gap:14px}.compare-box{border-radius:18px;padding:18px;border:1px solid var(--border)}
+.compare-box:nth-child(1){background:#fff8df}.compare-box:nth-child(2){background:#edf9f5}.compare-box:nth-child(3){background:#f4efff}
+.complete{display:none;margin-top:18px;padding:20px;background:#eaf8f1;border:1px solid #a9d9bf;border-radius:18px;align-items:center;justify-content:space-between;gap:14px}.complete.show{display:flex}
+.badge{display:inline-block;background:#e8f5ee;color:#176847;border-radius:999px;padding:5px 10px;font-weight:800;font-size:.82rem}.section-label{font-size:.82rem;text-transform:uppercase;letter-spacing:.07em;font-weight:800;color:var(--teal)}
+.sr-only{position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0,0,0,0);white-space:nowrap;border:0}
+@media(max-width:850px){.story,.grid2{grid-template-columns:1fr}.story img{min-height:240px;max-height:390px}.concept-strip,.cycle,.compare-panel.show{grid-template-columns:1fr}.steps{grid-template-columns:1fr 1fr}}
+@media(max-width:520px){main{padding:18px 12px 40px}.sitebar{padding:10px 12px}.steps{grid-template-columns:1fr}.step{text-align:left}.match-row{grid-template-columns:1fr}.activity,.reflection,.story-copy{padding:18px}.complete.show{align-items:flex-start;flex-direction:column}}
+</style>
+</head>
+<body>
+<header class="sitebar"><div class="sitebar-inner"><div class="brand"><div class="logo">05</div><div>Health, Safety &amp; Nutrition<div class="small">Interactive Reading Guide</div></div></div><div class="small">Week 7 • Paris Chapter 6</div></div></header>
+<main>
+
+<section class="hero"><div><span class="badge">Safety Detective · Final Case File</span> <span class="badge">NOTICE → ASSESS → PREVENT → RESPOND</span>
+<h1>The Hardest Responsibility</h1>
+<p class="subtitle">Child maltreatment, warning signs, protective factors, mandated reporting, and professional care</p></div>
+<div class="progress-wrap"><div style="display:flex;justify-content:space-between;margin-bottom:7px"><strong>Overall progress</strong><span id="progressText">0%</span></div><div class="progress-line" role="progressbar" aria-valuemin="0" aria-valuemax="100" aria-valuenow="0"><div class="progress-fill" id="progressFill"></div></div></div></section>
+
+<nav class="steps"><a class="step active" href="#story">1. Case File</a><a class="step" href="#explore">2. Evidence Lens</a><a class="step" href="#practice">3. Report &amp; Support</a><a class="step" href="#reflect">4. Safety Finale</a></nav>
+
+<aside class="resource-bar"><p><strong>Content note.</strong><br><span class="small">This chapter addresses child abuse and neglect. The guide focuses on educators’ professional responsibilities without using graphic detail.</span></p></aside>
+<aside class="resource-bar"><p><strong>Keep Paris Chapter 6 nearby.</strong><br><span class="small">This guide supports the reading; it does not replace it.</span></p><a class="resource-link" href="https://socialsci.libretexts.org/Bookshelves/Early_Childhood_Education/Health_Safety_and_Nutrition_(Paris)/02%3A_Safety/2.05%3A_Child_Maltreatment" target="_blank" rel="noopener noreferrer">📖 Open Paris Chapter 6</a></aside>
+
+<section id="story" class="card story">
+<img src="images/cldv05-week7-vignette.png" alt="Two early childhood education students discuss mandated reporting and child protection while studying together">
+<div class="story-copy"><div class="kicker">Opening vignette</div><h2>“The Hardest Responsibility”</h2>
+<p>Maya feels quiet after reading the chapter. Some Health, Safety, and Nutrition topics feel routine; child maltreatment feels much heavier because real children may be hurt, neglected, frightened, or unsafe.</p>
+<p>She tells a classmate that mandated reporting makes her nervous: “What if I’m wrong? What if I make things worse?”</p>
+<p>Her classmate reminds her of the key distinction: educators are not investigators. They are responsible for noticing concerns, documenting carefully, following the law, and reporting reasonable suspicions.</p>
+<p>Maya realizes that professionalism sometimes requires emotional courage. Avoiding an uncomfortable possibility may feel easier, but children depend on adults who are willing to pay attention.</p>
+<p>She writes: <strong>Protecting children sometimes means doing the difficult right thing.</strong></p>
+<div class="cycle"><div><strong>NOTICE</strong><span>Observe signs, patterns, and exact words</span></div><div><strong>ASSESS</strong><span>Use reasonable suspicion—not proof</span></div><div><strong>PREVENT</strong><span>Maintain immediate safety and avoid added harm</span></div><div><strong>RESPOND</strong><span>Report, document, protect privacy, support</span></div></div>
+<div class="story-note"><strong>Final Safety challenge:</strong> Be observant without becoming an investigator; be compassionate without making promises you cannot keep; act without waiting for certainty.</div>
+<div class="btn-row"><button class="btn" id="storyDone">Open the final case file</button></div></div>
+</section>
+
+<section id="explore" class="grid2">
+<article class="card activity wide"><div class="section-label">Evidence Lens / Observation Scan</div><h3>🔎 Separate observation from conclusion</h3><p>Classify each statement. Objective records describe what was seen or heard; interpretations may guide concern but should not be recorded as fact; investigative actions exceed the educator’s role.</p><div class="evidence" id="evidenceScan">
+<div class="evidence-item" data-answer="objective"><p><strong>1.</strong> “At 9:10 a.m., I observed a purple mark approximately two inches wide on Jordan’s upper arm.”</p><div class="labels"><button class="label-btn" data-value="objective" aria-pressed="false">Objective observation</button><button class="label-btn" data-value="interpretation" aria-pressed="false">Interpretation</button><button class="label-btn" data-value="investigation" aria-pressed="false">Investigation</button></div></div>
+<div class="evidence-item" data-answer="interpretation"><p><strong>2.</strong> “Jordan’s caregiver clearly caused the mark.”</p><div class="labels"><button class="label-btn" data-value="objective" aria-pressed="false">Objective observation</button><button class="label-btn" data-value="interpretation" aria-pressed="false">Interpretation</button><button class="label-btn" data-value="investigation" aria-pressed="false">Investigation</button></div></div>
+<div class="evidence-item" data-answer="objective"><p><strong>3.</strong> “Jordan said, ‘I don’t want to go home today.’”</p><div class="labels"><button class="label-btn" data-value="objective" aria-pressed="false">Objective observation</button><button class="label-btn" data-value="interpretation" aria-pressed="false">Interpretation</button><button class="label-btn" data-value="investigation" aria-pressed="false">Investigation</button></div></div>
+<div class="evidence-item" data-answer="investigation"><p><strong>4.</strong> Ask Jordan repeatedly who caused the mark, where it happened, and whether the first answer is “really true.”</p><div class="labels"><button class="label-btn" data-value="objective" aria-pressed="false">Objective observation</button><button class="label-btn" data-value="interpretation" aria-pressed="false">Interpretation</button><button class="label-btn" data-value="investigation" aria-pressed="false">Investigation</button></div></div>
+<div class="evidence-item" data-answer="interpretation"><p><strong>5.</strong> “This family’s financial stress proves neglect.”</p><div class="labels"><button class="label-btn" data-value="objective" aria-pressed="false">Objective observation</button><button class="label-btn" data-value="interpretation" aria-pressed="false">Interpretation</button><button class="label-btn" data-value="investigation" aria-pressed="false">Investigation</button></div></div>
+</div><div class="btn-row"><button class="btn" id="checkEvidence">Check the evidence lens</button><button class="btn secondary" id="resetEvidence">Clear choices</button></div><div class="feedback" id="evidenceFeedback" role="status"></div></article>
+
+<article class="card activity wide"><div class="section-label">Responding to a disclosure</div><h3>❤️ Maya hears something concerning</h3><p class="quote">During quiet play, a child tells Maya, “Someone at home hurt me. Please don’t tell anybody.”</p><p class="question">What is Maya’s strongest immediate response?</p><div class="options"><label class="option"><input type="radio" name="role" value="0"> Promise secrecy so the child feels safe enough to continue talking, because this approach offers a clear and consistent response to the situation described here.</label><label class="option"><input type="radio" name="role" value="1"> Stay calm, listen without leading questions, affirm that telling was okay, explain that she must seek help to keep the child safe, record exact words, and follow reporting requirements.</label><label class="option"><input type="radio" name="role" value="2"> Ask detailed questions until she can determine exactly what occurred, because this approach offers a clear and consistent response based on the information currently available to the educator here today.</label><label class="option"><input type="radio" name="role" value="3"> Contact the family first so they have an opportunity to explain, because this approach offers a clear and consistent response to the situation described here.</label></div><div class="btn-row"><button class="btn" id="roleCheck">Test the response</button></div><div class="feedback" id="roleFeedback"></div></article>
+</section>
+
+<section class="concept-strip">
+<div class="concept"><strong>👀 Signs are indicators, not proof.</strong>A concerning behavior or injury may have more than one explanation. Patterns, repeated signs, disclosures, and context deserve careful attention.</div>
+<div class="concept"><strong>⚖️ Risk is not destiny.</strong>Risk factors may increase vulnerability, but they do not prove maltreatment. Protective relationships and community supports can reduce risk.</div>
+<div class="concept"><strong>📞 Reporting is not investigating.</strong>A report asks the appropriate agency to assess the concern. The educator’s job is not to determine guilt or prove an allegation.</div>
+</section>
+
+<section class="grid2">
+<article class="card activity"><div class="section-label">Warning signs</div><h3>🔎 Look for patterns</h3>
+<p class="question">A child suddenly becomes withdrawn and fearful and repeatedly arrives with unexplained injuries. What is the most appropriate professional response?</p>
+<div class="options">
+<label class="option"><input type="radio" name="signs" value="0"> Assume the signs prove physical abuse, as the educator's immediate professional response.</label>
+<label class="option"><input type="radio" name="signs" value="1"> Ignore the concern unless the child names a perpetrator, initially.</label>
+<label class="option"><input type="radio" name="signs" value="2"> Take the pattern seriously, document observations objectively, and follow mandated-reporting requirements.</label>
+<label class="option"><input type="radio" name="signs" value="3"> Confront the family to determine whether the explanation is truthful.</label>
+</div><div class="btn-row"><button class="btn" id="signsCheck">Check answer</button></div><div class="feedback" id="signsFeedback"></div></article>
+
+<article class="card activity"><div class="section-label">Risk and protective factors</div><h3>🌱 Think beyond blame</h3>
+<p class="question">Which statement best reflects the chapter’s discussion of risk factors?</p>
+<div class="options">
+<label class="option"><input type="radio" name="risk" value="0"> Risk factors can increase vulnerability but do not establish that maltreatment is occurring.</label>
+<label class="option"><input type="radio" name="risk" value="1"> Poverty by itself is evidence of neglect, because this offers a response in practice.</label>
+<label class="option"><input type="radio" name="risk" value="2"> Families with stressors should automatically be reported, as the educator's initial response.</label>
+<label class="option"><input type="radio" name="risk" value="3"> Protective factors matter only after maltreatment has occurred, as the initial response.</label>
+</div><div class="btn-row"><button class="btn" id="riskCheck">Check answer</button></div><div class="feedback" id="riskFeedback"></div></article>
+</section>
+
+<section id="practice" class="grid2">
+<article class="card activity"><div class="section-label">Reasonable suspicion</div><h3>📞 You do not need proof</h3>
+<p class="question">Which statement is most accurate for a California mandated reporter?</p>
+<div class="options">
+<label class="option"><input type="radio" name="suspicion" value="0"> Reporting should wait until an administrator agrees, because this offers a consistent response to the situation described.</label>
+<label class="option"><input type="radio" name="suspicion" value="1"> A report is required only after the child repeats the allegation, as the initial response.</label>
+<label class="option"><input type="radio" name="suspicion" value="2"> The reporter must first rule out innocent explanations, because this offers a response in practice.</label>
+<label class="option"><input type="radio" name="suspicion" value="3"> Known or reasonably suspected abuse or neglect must be reported; the reporter does not determine validity.</label>
+</div><div class="btn-row"><button class="btn" id="suspicionCheck">Check answer</button></div><div class="feedback" id="suspicionFeedback"></div></article>
+
+<article class="card activity"><div class="section-label">Documentation</div><h3>📝 Record what you actually observed</h3>
+<p class="question">Which note is the most objective documentation?</p>
+<div class="options">
+<label class="option"><input type="radio" name="document" value="0"> “Parent obviously hurt the child again.”, because this offers a response to the situation described.</label>
+<label class="option"><input type="radio" name="document" value="1"> “Child had a purple bruise approximately two inches wide on the upper arm and said, ‘It hurts.’”</label>
+<label class="option"><input type="radio" name="document" value="2"> “This family seems dangerous.”, because this approach offers a clear and consistent response to the situation described here.</label>
+<label class="option"><input type="radio" name="document" value="3"> “Child probably fell, but I’m not sure.”, because this offers a response in this situation.</label>
+</div><div class="btn-row"><button class="btn" id="documentCheck">Check answer</button></div><div class="feedback" id="documentFeedback"></div></article>
+</section>
+
+<section class="grid2">
+<article class="card activity"><div class="section-label">Supervisor involvement</div><h3>👥 Whose decision is it?</h3>
+<p class="question">A teacher reasonably suspects maltreatment but a supervisor says, “Don’t report yet; I’ll look into it.” What should the teacher understand?</p>
+<div class="options">
+<label class="option"><input type="radio" name="supervisor" value="0"> The supervisor’s decision replaces the teacher’s legal responsibility, as the educator's immediate professional response.</label>
+<label class="option"><input type="radio" name="supervisor" value="1"> The teacher should wait until the center finishes its internal review, initially.</label>
+<label class="option"><input type="radio" name="supervisor" value="2"> The mandated reporter’s duty is individual and cannot be blocked by a supervisor.</label>
+<label class="option"><input type="radio" name="supervisor" value="3"> Reporting is optional if the family has no prior history, in practice.</label>
+</div><div class="btn-row"><button class="btn" id="supervisorCheck">Check answer</button></div><div class="feedback" id="supervisorFeedback"></div></article>
+
+<article class="card activity"><div class="section-label">Trauma-informed support</div><h3>❤️ After concern is reported</h3>
+<p class="question">Which classroom response is most supportive of a child who has experienced trauma?</p>
+<div class="options">
+<label class="option"><input type="radio" name="support" value="0"> Provide predictable routines, safe relationships, and patient, responsive support, initially.</label>
+<label class="option"><input type="radio" name="support" value="1"> Ask the child repeatedly for more details about what happened.</label>
+<label class="option"><input type="radio" name="support" value="2"> Lower all expectations indefinitely, because this offers a response in practice.</label>
+<label class="option"><input type="radio" name="support" value="3"> Avoid discussing emotions so the child can forget the experience.</label>
+</div><div class="btn-row"><button class="btn" id="supportCheck">Check answer</button></div><div class="feedback" id="supportFeedback"></div></article>
+</section>
+
+<section class="card activity" style="margin-top:18px"><div class="section-label">Final self-check</div><h3>Check your understanding</h3>
+<p class="question">Which statement best integrates Paris Chapter 6?</p>
+<div class="options">
+<label class="option"><input type="radio" name="final" value="0"> Educators should investigate suspected maltreatment carefully before reporting, because this offers a response in this situation.</label>
+<label class="option"><input type="radio" name="final" value="1"> Warning signs are reliable proof when several occur together, because this offers a response in practice.</label>
+<label class="option"><input type="radio" name="final" value="2"> Mandated reporting is mainly an administrative responsibility, because this approach offers a consistent response to the situation described here.</label>
+<label class="option"><input type="radio" name="final" value="3"> Protecting children requires recognizing possible signs, understanding risk and protective factors, reporting reasonable suspicions, and providing supportive care.</label>
+</div><div class="btn-row"><button class="btn" id="finalCheck">Check my thinking</button></div><div class="feedback" id="finalFeedback"></div></section>
+
+<aside class="resource-bar"><p><strong>Need a quick review?</strong><br><span class="small">Revisit the four forms of maltreatment, risk and protective factors, warning signs, mandated reporting, confidentiality, what happens after a report, and trauma-informed support.</span></p>
+<a class="resource-link" href="https://socialsci.libretexts.org/Bookshelves/Early_Childhood_Education/Health_Safety_and_Nutrition_(Paris)/02%3A_Safety/2.05%3A_Child_Maltreatment" target="_blank" rel="noopener noreferrer">📖 Return to Paris Chapter 6</a></aside>
+
+<section id="reflect" class="card reflection"><div class="kicker">Safety Detective finale</div><h2>Complete this sentence</h2>
+<p><strong>The difference between reporting and investigating matters because…</strong></p>
+<label for="reflectionText" class="sr-only">Your reflection</label><textarea id="reflectionText" placeholder="Type a few words or sentences. This response remains on this page and is not graded or submitted."></textarea>
+<div class="btn-row"><button class="btn" id="compareBtn">Compare My Thinking</button></div>
+<div class="compare-panel" id="comparePanel">
+<div class="compare-box"><h3>The chapter emphasizes…</h3><p>Mandated reporters act on known or reasonable suspicion; they do not determine whether an allegation is ultimately substantiated.</p></div>
+<div class="compare-box"><h3>Consider…</h3><p>Did your response distinguish observation and reporting from questioning witnesses, proving allegations, or deciding guilt?</p></div>
+<div class="compare-box"><h3>Add to your thinking…</h3><p>Objective documentation, confidentiality, respectful treatment of families, and steady support for the child remain important throughout the process.</p></div>
+</div></section>
+
+<div class="complete" id="completeBox"><div><strong>🔎 Safety series complete!</strong><br><span class="small">Across Weeks 3–7, you used NOTICE → ASSESS → PREVENT → RESPOND—from environmental hazards and supervision to emergencies and child protection.</span></div><button class="btn" id="restartBtn">Restart guide</button></div>
+</main>
+
+<script>
+// Shuffle each complete answer label on every fresh page load. Input values and answer keys move together.
+function shuffleAnswerChoices(group){
+  const choices=[...group.children];
+  for(let i=choices.length-1;i>0;i--){
+    const j=Math.floor(Math.random()*(i+1));
+    [choices[i],choices[j]]=[choices[j],choices[i]];
+  }
+  choices.forEach(choice=>group.appendChild(choice));
+}
+document.querySelectorAll('.options').forEach(shuffleAnswerChoices);
+
+const state={story:false,role:false,match:false,signs:false,risk:false,suspicion:false,document:false,supervisor:false,support:false,final:false,reflect:false};
+const steps=[...document.querySelectorAll('.step')];
+document.querySelectorAll('.options').forEach(group=>{const choices=[...group.children];for(let i=choices.length-1;i>0;i--){const j=Math.floor(Math.random()*(i+1));[choices[i],choices[j]]=[choices[j],choices[i]]}choices.forEach(choice=>group.appendChild(choice))});
+function updateProgress(){const done=Object.values(state).filter(Boolean).length;const pct=Math.round(done/11*100);const bar=document.querySelector('.progress-line');document.getElementById('progressFill').style.width=pct+'%';document.getElementById('progressText').textContent=pct+'%';bar.setAttribute('aria-valuenow',pct);steps.forEach((s,i)=>{s.classList.toggle('done',i<Math.min(4,Math.ceil(done*4/11)));s.classList.toggle('active',i===Math.min(3,Math.floor(done*4/11)))});if(done===11)document.getElementById('completeBox').classList.add('show')}
+function show(box,txt){box.innerHTML=txt;box.classList.add('show')}
+function radioCheck(name,correct,feedbackId,success,retry,key){const c=document.querySelector('input[name='+name+']:checked'),f=document.getElementById(feedbackId);if(!c)return show(f,'⚠️ Choose an answer first.');const ok=Number(c.value)===correct;show(f,ok?'✅ <strong>Correct.</strong> '+success:'↻ <strong>Try again.</strong> '+retry);if(ok){state[key]=true;updateProgress()}}
+document.getElementById('storyDone').onclick=()=>{state.story=true;updateProgress();document.getElementById('explore').scrollIntoView({behavior:'smooth'})};
+document.querySelectorAll('.label-btn').forEach(b=>b.onclick=()=>{b.closest('.labels').querySelectorAll('.label-btn').forEach(x=>x.setAttribute('aria-pressed','false'));b.setAttribute('aria-pressed','true')});
+document.getElementById('checkEvidence').onclick=()=>{const items=[...document.querySelectorAll('.evidence-item')],f=document.getElementById('evidenceFeedback'),answered=items.filter(i=>i.querySelector('[aria-pressed="true"]')).length,correct=items.filter(i=>i.querySelector('[aria-pressed="true"]')?.dataset.value===i.dataset.answer).length;if(answered<items.length)return show(f,'⚠️ Classify all five statements first. You have completed <strong>'+answered+' of 5</strong>.');show(f,correct===items.length?'✅ <strong>Clear professional lens.</strong> You separated observable facts and exact words from conclusions, stereotypes, and investigative questioning.':'↻ You classified <strong>'+correct+' of 5</strong> appropriately. Reconsider which statements could be verified directly and which assert a cause or pursue proof.');if(correct===items.length){state.match=true;updateProgress()}};
+document.getElementById('resetEvidence').onclick=()=>{document.querySelectorAll('.label-btn').forEach(b=>b.setAttribute('aria-pressed','false'));document.getElementById('evidenceFeedback').classList.remove('show')};
+document.getElementById('roleCheck').onclick=()=>radioCheck('role',1,'roleFeedback','A supportive response is calm and non-leading. The educator does not promise secrecy or investigate; the educator records exact words and follows reporting requirements.','Choose the response that supports the child while staying within the mandated reporter’s role.','role');
+document.getElementById('signsCheck').onclick=()=>radioCheck('signs',2,'signsFeedback','Signs are not proof, but repeated or concerning patterns warrant objective documentation and appropriate mandated action.','Avoid both certainty without evidence and inaction.','signs');
+document.getElementById('riskCheck').onclick=()=>radioCheck('risk',0,'riskFeedback','Risk factors may increase vulnerability, but they do not establish maltreatment and should not be confused with proof.','Choose the response that recognizes risk without stereotyping families.','risk');
+document.getElementById('suspicionCheck').onclick=()=>radioCheck('suspicion',3,'suspicionFeedback','California mandated reporters report known or reasonably suspected abuse or neglect; deciding whether the allegation is valid belongs to investigators.','Choose the response that does not require proof or supervisor approval.','suspicion');
+document.getElementById('documentCheck').onclick=()=>radioCheck('document',1,'documentFeedback','Objective documentation records observable facts and the child’s own words rather than conclusions about what caused them.','Choose the note that separates observation from interpretation.','document');
+document.getElementById('supervisorCheck').onclick=()=>radioCheck('supervisor',2,'supervisorFeedback','The reporting obligation belongs to the mandated reporter and cannot be impeded by a supervisor or administrator.','Choose the response about the reporter’s individual legal duty.','supervisor');
+document.getElementById('supportCheck').onclick=()=>radioCheck('support',0,'supportFeedback','Safe relationships, predictable routines, and responsive care can support resilience without turning the teacher into an investigator or therapist.','Choose stability and relationship rather than repeated questioning.','support');
+document.getElementById('finalCheck').onclick=()=>radioCheck('final',3,'finalFeedback','The chapter combines recognition, prevention, mandated reporting, and supportive care while keeping investigation outside the educator’s role.','Choose the comprehensive professional response.','final');
+document.getElementById('compareBtn').onclick=()=>{document.getElementById('comparePanel').classList.add('show');state.reflect=true;updateProgress();document.getElementById('comparePanel').scrollIntoView({behavior:'smooth',block:'nearest'})};
+document.getElementById('restartBtn').onclick=()=>location.reload();
+updateProgress();
+</script>
+</body></html>
