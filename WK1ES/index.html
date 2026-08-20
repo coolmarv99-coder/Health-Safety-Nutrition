@@ -1,0 +1,230 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>CLDV-05 Semana 1 Guía Interactiva de Lectura</title>
+<style>
+:root{--navy:#173f63;--teal:#287a78;--ink:#172033;--muted:#5c6678;--gold:#e1ad35;--border:#d8deea;--shadow:0 8px 24px rgba(22,32,51,.09);--green:#287a51;--soft:#f5f7fb}
+*{box-sizing:border-box}html{scroll-behavior:smooth}
+body{margin:0;font-family:system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif;background:var(--soft);color:var(--ink);line-height:1.55}
+button,input,textarea,select{font:inherit}button{cursor:pointer}
+button:focus-visible,input:focus-visible,textarea:focus-visible,select:focus-visible{outline:3px solid #4e9cf5;outline-offset:2px}
+.sitebar{background:var(--navy);color:#fff;padding:14px 20px}.sitebar-inner{max-width:1180px;margin:auto;display:flex;align-items:center;justify-content:space-between;gap:18px}
+.brand{display:flex;align-items:center;gap:12px;font-weight:700}.logo{width:46px;height:46px;border:2px solid #fff;border-radius:12px;display:grid;place-items:center}
+.small{font-size:.9rem;color:var(--muted)}.sitebar .small{color:#d9e6f5}
+main{max-width:1180px;margin:0 auto;padding:28px 18px 60px}.hero{display:flex;justify-content:space-between;gap:24px;align-items:end;flex-wrap:wrap}
+h1{font-size:clamp(2rem,4vw,3rem);line-height:1.05;margin:.1em 0}.subtitle{font-size:1.08rem;margin:0;color:#39445a}
+.progress-wrap{min-width:260px}.progress-line{height:10px;background:#d9dee7;border-radius:999px;overflow:hidden}.progress-fill{height:100%;width:0;background:linear-gradient(90deg,var(--green),#52a981);transition:width .35s ease}
+.steps{display:grid;grid-template-columns:repeat(4,1fr);gap:10px;margin:24px 0}.step{background:#fff;border:1px solid var(--border);border-radius:999px;padding:11px 12px;text-align:center;font-weight:650;color:#667085;text-decoration:none}.step.active{background:#eaf5f3;color:#145854;border-color:#a7d2cf}.step.done{background:#eaf7f1;color:#176847}
+.card{background:#fff;border:1px solid var(--border);border-radius:22px;box-shadow:var(--shadow);overflow:hidden}
+.story{display:grid;grid-template-columns:minmax(300px,44%) 1fr;background:linear-gradient(110deg,#f3f8f4,#fff)}.story img{width:100%;height:100%;min-height:430px;object-fit:cover}.story-copy{padding:30px}
+.kicker{font-size:.82rem;text-transform:uppercase;letter-spacing:.08em;font-weight:800;color:#3e6a4f}h2{font-size:1.55rem;margin:.25em 0 .5em}h3{font-size:1.18rem;margin:0 0 12px}
+.story-note{background:rgba(255,255,255,.88);border-left:5px solid var(--gold);padding:14px 16px;border-radius:12px;margin-top:18px}
+.grid2{display:grid;grid-template-columns:1fr 1fr;gap:18px;margin-top:18px}.activity{padding:24px}.question{font-weight:700;margin-bottom:14px}
+.options{display:grid;gap:10px}.option{display:flex;gap:12px;align-items:flex-start;border:1px solid #ccd3df;border-radius:13px;padding:12px;background:#fff}
+.feedback{display:none;margin-top:14px;padding:13px 15px;border-radius:13px;background:#edf9f1;border:1px solid #acd7b9}.feedback.show{display:block}
+.match-row{display:grid;grid-template-columns:190px 1fr;gap:12px;align-items:center;margin:10px 0}.term{font-weight:750;background:#edf5ff;border:1px solid #a7c5ef;border-radius:10px;padding:10px}
+select{width:100%;padding:10px;border:1px solid #bac4d3;border-radius:10px;background:#fff}
+.btn{border:none;border-radius:12px;padding:12px 18px;font-weight:750;background:var(--green);color:#fff;box-shadow:0 4px 12px rgba(40,122,81,.2)}
+.btn.secondary{background:#fff;color:var(--navy);border:1px solid #aeb9c8;box-shadow:none}.btn-row{display:flex;gap:10px;flex-wrap:wrap;margin-top:15px}
+.resource-bar{display:flex;align-items:center;justify-content:space-between;gap:16px;flex-wrap:wrap;margin:18px 0;padding:16px 18px;border:1px solid #b9c9dc;border-radius:18px;background:#eef6ff}
+.resource-bar p{margin:0}
+.concept-strip{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;margin-top:18px}.concept{padding:18px;border-radius:18px;border:1px solid var(--border);background:#fff}.concept strong{display:block;margin-bottom:6px}
+.reflection{margin-top:18px;padding:24px;background:linear-gradient(135deg,#f1fbf4,#fff)}textarea{width:100%;min-height:120px;border:1px solid #bbc5d3;border-radius:14px;padding:14px;resize:vertical}
+.compare-panel{display:none;margin-top:18px}.compare-panel.show{display:grid;grid-template-columns:repeat(3,1fr);gap:14px}.compare-box{border-radius:18px;padding:18px;border:1px solid var(--border)}
+.compare-box:nth-child(1){background:#fff8df}.compare-box:nth-child(2){background:#edf9f5}.compare-box:nth-child(3){background:#f4efff}
+.complete{display:none;margin-top:18px;padding:20px;background:#eaf8f1;border:1px solid #a9d9bf;border-radius:18px;align-items:center;justify-content:space-between;gap:14px}.complete.show{display:flex}
+.badge{display:inline-block;background:#e8f5ee;color:#176847;border-radius:999px;padding:5px 10px;font-weight:800;font-size:.82rem}.section-label{font-size:.82rem;text-transform:uppercase;letter-spacing:.07em;font-weight:800;color:var(--teal)}
+.sr-only{position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0,0,0,0);white-space:nowrap;border:0}
+@media(max-width:850px){.story,.grid2{grid-template-columns:1fr}.story img{min-height:240px;max-height:390px}.concept-strip,.compare-panel.show{grid-template-columns:1fr}.steps{grid-template-columns:1fr 1fr}}
+@media(max-width:520px){main{padding:18px 12px 40px}.sitebar{padding:10px 12px}.steps{grid-template-columns:1fr}.step{text-align:left}.match-row{grid-template-columns:1fr}.activity,.reflection,.story-copy{padding:18px}.complete.show{align-items:flex-start;flex-direction:column}}
+@media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}.progress-fill{transition:none}}
+</style>
+</head>
+<body>
+<header class="sitebar"><div class="sitebar-inner"><div class="brand"><div class="logo">05</div><div>Salud, Seguridad y Nutrición<div class="small">Guía Interactiva de Lectura</div></div></div><div class="small">Semana 1 • Introducción al curso</div></div></header>
+<main>
+
+<section class="hero">
+<div><span class="badge">Autoevaluación sin calificación</span> <span class="badge">Observar • Prevenir • Responder</span>
+<h1>Esta clase se siente muy práctica</h1>
+<p class="subtitle">Responsabilidades cotidianas que protegen y promueven el bienestar infantil</p></div>
+<div class="progress-wrap"><div style="display:flex;justify-content:space-between;margin-bottom:7px"><strong>Progreso general</strong><span id="progressText">0%</span></div>
+<div class="progress-line" role="progressbar" aria-valuemin="0" aria-valuemax="100" aria-valuenow="0"><div class="progress-fill" id="progressFill"></div></div></div>
+</section>
+
+<nav class="steps"><a class="step active" href="#story">1. Viñeta</a><a class="step" href="#explore">2. Responsabilidades</a><a class="step" href="#practice">3. Cuidado profesional</a><a class="step" href="#reflect">4. Reflexiona</a></nav>
+
+<aside class="resource-bar"><p><strong>Guía de orientación de la Semana 1.</strong><br><span class="small">Esta guía presenta las principales responsabilidades de Salud, Seguridad y Nutrición a partir de la viñeta inicial.</span></p></aside>
+<aside class="resource-bar"><p><strong>Practica con tranquilidad.</strong><br><span class="small">Calcula aproximadamente 12–15 minutos. Tus respuestas permanecen en esta página; no se guardan, califican ni entregan.</span></p></aside>
+
+<section id="story" class="card story">
+<img src="images/cldv05-week1-vignette.png" alt="Una estudiante universitaria revisa materiales sobre lavado de manos, alergias alimentarias, planificación para emergencias, sueño seguro, higiene y nutrición en una mesa de estudio">
+<div class="story-copy"><div class="kicker">Viñeta inicial</div><h2>“Esta clase se siente muy práctica”</h2>
+<p>Maya revisa el programa del curso y se da cuenta de lo práctico que será: políticas sobre enfermedades, prevención de lesiones, lavado de manos, alergias alimentarias, planes de emergencia, sueño seguro, planificación de comidas, denuncia obligatoria, higiene, medicamentos, seguridad en el patio de juegos y niños con necesidades especiales de salud.</p>
+<p>Recuerda haber visto a las maestras y los maestros hacer decenas de pequeñas cosas: limpiar mesas, revisar puertas y portones, notar una tos, recordarles a los niños que se laven las manos, leer etiquetas de alimentos, documentar lesiones, consolar a los niños y conversar con las familias.</p>
+<p>Antes, esas rutinas le parecían comunes. Ahora empieza a comprender que forman parte del cuidado profesional.</p>
+<p>El curso puede incluir temas serios o incómodos, pero no se trata solamente de prevenir problemas. La salud, la seguridad y la nutrición también ayudan a crear ambientes donde los niños puedan crecer, jugar, comer, descansar, explorar y sentirse protegidos.</p>
+<div class="story-note"><strong>Piensa primero:</strong> ¿Qué responsabilidad cotidiana relacionada con la salud, la seguridad o la nutrición merece una atención especialmente cuidadosa por parte de los educadores de la primera infancia, y por qué?</div>
+<div class="btn-row"><button class="btn" id="storyDone">Ya reflexioné sobre la viñeta</button></div></div>
+</section>
+
+<section id="explore" class="grid2">
+<article class="card activity"><div class="section-label">La idea principal</div><h3>🔎 Elige la mejor respuesta</h3>
+<p class="question">¿Qué sugiere la viñeta sobre Salud, Seguridad y Nutrición?</p>
+<div class="options">
+<label class="option"><input type="radio" name="bigidea" value="0"> El curso se enfoca principalmente en situaciones de emergencia y en respuestas formales ante crisis.</label>
+<label class="option"><input type="radio" name="bigidea" value="1"> Las rutinas cotidianas son partes importantes del cuidado profesional e intencional en el aula.</label>
+<label class="option"><input type="radio" name="bigidea" value="2"> Las responsabilidades de salud son más importantes que la seguridad o la nutrición en el cuidado diario del aula.</label>
+<label class="option"><input type="radio" name="bigidea" value="3"> La mayoría de estas responsabilidades corresponden a los administradores y no a los educadores de la primera infancia.</label>
+</div><div class="btn-row"><button class="btn" id="bigideaCheck">Revisar mi razonamiento</button></div><div class="feedback" id="bigideaFeedback"></div></article>
+
+<article class="card activity"><div class="section-label">Temas del curso</div><h3>🧩 Relaciona los conceptos</h3>
+<p>Las descripciones están mezcladas intencionalmente. Relaciona cada tema del curso con el mejor ejemplo.</p>
+<div class="match-row"><div class="term">Prevención (Prevention)</div><select data-answer="a">
+<option value="">Elige…</option>
+<option value="c">Compartir con las familias y colegas las preocupaciones de salud y las rutinas</option>
+<option value="a">Revisar puertas y portones, lavarse las manos y reducir riesgos evitables</option>
+<option value="d">Notar cambios como una tos, una lesión o una reacción alérgica</option>
+<option value="b">Preparar con anticipación los procedimientos de emergencia y las respuestas requeridas</option>
+</select></div>
+<div class="match-row"><div class="term">Planificación (Planning)</div><select data-answer="b">
+<option value="">Elige…</option>
+<option value="d">Notar cambios como una tos, una lesión o una reacción alérgica</option>
+<option value="c">Compartir con las familias y colegas las preocupaciones de salud y las rutinas</option>
+<option value="b">Preparar con anticipación los procedimientos de emergencia y las respuestas requeridas</option>
+<option value="a">Revisar puertas y portones, lavarse las manos y reducir riesgos evitables</option>
+</select></div>
+<div class="match-row"><div class="term">Observación (Observation)</div><select data-answer="d">
+<option value="">Elige…</option>
+<option value="b">Preparar con anticipación los procedimientos de emergencia y las respuestas requeridas</option>
+<option value="a">Revisar puertas y portones, lavarse las manos y reducir riesgos evitables</option>
+<option value="d">Notar cambios como una tos, una lesión o una reacción alérgica</option>
+<option value="c">Compartir con las familias y colegas las preocupaciones de salud y las rutinas</option>
+</select></div>
+<div class="match-row"><div class="term">Comunicación (Communication)</div><select data-answer="c">
+<option value="">Elige…</option>
+<option value="a">Revisar puertas y portones, lavarse las manos y reducir riesgos evitables</option>
+<option value="d">Notar cambios como una tos, una lesión o una reacción alérgica</option>
+<option value="b">Preparar con anticipación los procedimientos de emergencia y las respuestas requeridas</option>
+<option value="c">Compartir con las familias y colegas las preocupaciones de salud y las rutinas</option>
+</select></div>
+<div class="btn-row"><button class="btn" id="checkMatch">Revisar relaciones</button><button class="btn secondary" id="resetMatch">Restablecer</button></div><div class="feedback" id="matchFeedback"></div></article>
+</section>
+
+<section class="concept-strip">
+<div class="concept"><strong>🧼 Las pequeñas rutinas importan.</strong>El lavado de manos, la higiene, la supervisión cuidadosa, la revisión de alimentos y la documentación pueden parecer tareas comunes, pero tienen consecuencias importantes.</div>
+<div class="concept"><strong>👀 Prestar atención es una habilidad profesional.</strong>Los educadores protegen a los niños, en parte, al notar cambios, peligros, síntomas y situaciones que requieren actuar.</div>
+<div class="concept"><strong>🌱 El bienestar va más allá de la prevención.</strong>Los ambientes saludables y seguros permiten que los niños jueguen, descansen, coman, exploren, aprendan y se sientan seguros.</div>
+</section>
+
+<section class="grid2">
+<article class="card activity"><div class="section-label">Prevención cotidiana</div><h3>🚪 Antes de que lleguen los niños</h3>
+<p class="question">¿Qué acción ilustra mejor la prevención?</p>
+<div class="options">
+<label class="option"><input type="radio" name="prevention" value="0"> Esperar hasta que un niño se lesione antes de revisar cuidadosamente el equipo del patio de juegos.</label>
+<label class="option"><input type="radio" name="prevention" value="1"> Completar un informe detallado del incidente después de que un niño se cae.</label>
+<label class="option"><input type="radio" name="prevention" value="2"> Revisar cuidadosamente los portones del patio y los posibles peligros antes de que los niños comiencen a jugar.</label>
+<label class="option"><input type="radio" name="prevention" value="3"> Llamar a la familia de un niño después de que los síntomas preocupantes se hayan vuelto graves.</label>
+</div><div class="btn-row"><button class="btn" id="preventionCheck">Revisar respuesta</button></div><div class="feedback" id="preventionFeedback"></div></article>
+
+<article class="card activity"><div class="section-label">Observación (Observation)</div><h3>🤒 Algo parece diferente</h3>
+<p class="question">Una maestra nota que un niño normalmente activo está inusualmente callado y tosiendo. ¿Qué sugiere la viñeta que debería hacer primero?</p>
+<div class="options">
+<label class="option"><input type="radio" name="observe" value="0"> Prestar atención, reunir información y seguir los procedimientos de salud apropiados del aula.</label>
+<label class="option"><input type="radio" name="observe" value="1"> Suponer que el niño simplemente está cansado y continuar con la rutina planificada.</label>
+<label class="option"><input type="radio" name="observe" value="2"> Esperar hasta que otro niño o adulto del aula note el cambio.</label>
+<label class="option"><input type="radio" name="observe" value="3"> Enfocarse únicamente en mantener sin cambios el horario y las actividades del aula.</label>
+</div><div class="btn-row"><button class="btn" id="observeCheck">Revisar respuesta</button></div><div class="feedback" id="observeFeedback"></div></article>
+</section>
+
+<section id="practice" class="grid2">
+<article class="card activity"><div class="section-label">Responsabilidad nutricional</div><h3>🥜 Leer antes de servir</h3>
+<p class="question">¿Qué acción refleja mejor un cuidado profesional y cuidadoso relacionado con la nutrición?</p>
+<div class="options">
+<label class="option"><input type="radio" name="nutrition" value="0"> Servir la misma merienda a todos los niños sin revisar las etiquetas.</label>
+<label class="option"><input type="radio" name="nutrition" value="1"> Pedirles a los niños que decidan si un alimento es seguro para ellos.</label>
+<label class="option"><input type="radio" name="nutrition" value="2"> Mantener toda la información sobre alergias disponible únicamente en la oficina del programa.</label>
+<label class="option"><input type="radio" name="nutrition" value="3"> Revisar todas las etiquetas de los alimentos y seguir cuidadosamente la información individual sobre alergias.</label>
+</div><div class="btn-row"><button class="btn" id="nutritionCheck">Revisar respuesta</button></div><div class="feedback" id="nutritionFeedback"></div></article>
+
+<article class="card activity"><div class="section-label">Planificación para emergencias</div><h3>📋 ¿Por qué planificar con anticipación?</h3>
+<p class="question">¿Por qué los planes de emergencia forman parte de la responsabilidad profesional cotidiana?</p>
+<div class="options">
+<label class="option"><input type="radio" name="emergency" value="0"> Las emergencias pueden requerir decisiones profesionales rápidas, organizadas y bien informadas.</label>
+<label class="option"><input type="radio" name="emergency" value="1"> Los planes de emergencia por escrito eliminan la posibilidad de accidentes y lesiones.</label>
+<label class="option"><input type="radio" name="emergency" value="2"> Solo los directores del programa necesitan conocer a fondo los procedimientos de emergencia por escrito.</label>
+<label class="option"><input type="radio" name="emergency" value="3"> Los planes de emergencia solo importan después de que ocurre una emergencia grave en el aula.</label>
+</div><div class="btn-row"><button class="btn" id="emergencyCheck">Revisar respuesta</button></div><div class="feedback" id="emergencyFeedback"></div></article>
+</section>
+
+<section class="grid2">
+<article class="card activity"><div class="section-label">Cuidado responsivo (Responsive Care)</div><h3>❤️ Más que reglas</h3>
+<p class="question">¿Qué ejemplo ilustra mejor el cuidado responsivo?</p>
+<div class="options">
+<label class="option"><input type="radio" name="care" value="0"> Mantener las rutinas del aula exactamente iguales incluso cuando un niño necesita apoyo adicional.</label>
+<label class="option"><input type="radio" name="care" value="1"> Consolar a un niño después de una caída y, al mismo tiempo, evaluar lo ocurrido.</label>
+<label class="option"><input type="radio" name="care" value="2"> Evitar hablar con las familias sobre preocupaciones o cambios importantes en la salud de un niño.</label>
+<label class="option"><input type="radio" name="care" value="3"> Considerar que la documentación precisa es más importante que consolar al niño lesionado.</label>
+</div><div class="btn-row"><button class="btn" id="careCheck">Revisar respuesta</button></div><div class="feedback" id="careFeedback"></div></article>
+
+<article class="card activity"><div class="section-label">Responsabilidad profesional</div><h3>🧭 Pequeños detalles, grandes consecuencias</h3>
+<p class="question">¿Por qué concluye Maya que “los pequeños detalles realmente importan”?</p>
+<div class="options">
+<label class="option"><input type="radio" name="details" value="0"> Las pequeñas tareas rutinarias generalmente son más fáciles que una planificación curricular cuidadosa.</label>
+<label class="option"><input type="radio" name="details" value="1"> Los niños rara vez notan los procedimientos constantes de salud y seguridad cotidiana del aula.</label>
+<label class="option"><input type="radio" name="details" value="2"> Las acciones rutinarias realizadas con cuidado pueden prevenir daños y apoyar el bienestar de los niños.</label>
+<label class="option"><input type="radio" name="details" value="3"> Solo los incidentes graves y las emergencias requieren un juicio profesional cuidadoso por parte del educador.</label>
+</div><div class="btn-row"><button class="btn" id="detailsCheck">Revisar respuesta</button></div><div class="feedback" id="detailsFeedback"></div></article>
+</section>
+
+<section class="card activity" style="margin-top:18px"><div class="section-label">Autoevaluación final</div><h3>Comprueba tu comprensión</h3>
+<p class="question">¿Qué afirmación resume mejor el mensaje de la Semana 1?</p>
+<div class="options">
+<label class="option"><input type="radio" name="final" value="0"> Las responsabilidades de salud, seguridad y nutrición se vuelven importantes solamente durante las emergencias.</label>
+<label class="option"><input type="radio" name="final" value="1"> El cuidado profesional combina prevención, planificación, observación, comunicación, cumplimiento de normas y atención responsiva.</label>
+<label class="option"><input type="radio" name="final" value="2"> Los educadores deben enfocarse principalmente en evitar enfermedades y documentar incidentes graves.</label>
+<label class="option"><input type="radio" name="final" value="3"> La salud, la seguridad y la nutrición permanecen separadas del desarrollo, el aprendizaje y el sentido de pertenencia de los niños.</label>
+</div><div class="btn-row"><button class="btn" id="finalCheck">Revisar mi razonamiento</button></div><div class="feedback" id="finalFeedback"></div></section>
+
+<section id="reflect" class="card reflection">
+<div class="kicker">Reflexión final</div><h2>Completa esta oración</h2>
+<p><strong>Una responsabilidad cotidiana a la que quiero prestar especial atención es…</strong></p>
+<label for="reflectionText" class="sr-only">Tu reflexión</label><textarea id="reflectionText" placeholder="Escribe unas palabras u oraciones. Esta respuesta permanece en esta página y no se califica ni se entrega."></textarea>
+<div class="btn-row"><button class="btn" id="compareBtn">Comparar mi razonamiento</button></div>
+<div class="compare-panel" id="comparePanel">
+<div class="compare-box"><h3>La viñeta enfatiza…</h3><p>El cuidado profesional suele hacerse visible mediante rutinas comunes que se realizan con cuidado y constancia.</p></div>
+<div class="compare-box"><h3>Considera…</h3><p>¿Relacionaste esta responsabilidad con la prevención, la observación, la planificación, la comunicación o el cuidado responsivo?</p></div>
+<div class="compare-box"><h3>Amplía tu razonamiento…</h3><p>El propósito no es solamente prevenir daños, sino crear condiciones en las que los niños puedan aprender, jugar, comer, descansar, explorar y sentirse protegidos.</p></div>
+</div></section>
+
+<div class="complete" id="completeBox"><div><strong>🌟 ¡Guía completada!</strong><br><span class="small">Has explorado las responsabilidades profesionales cotidianas que serán la base del curso de Salud, Seguridad y Nutrición.</span></div><button class="btn" id="restartBtn">Reiniciar guía</button></div>
+</main>
+
+<script>
+const state={story:false,bigidea:false,match:false,prevention:false,observe:false,nutrition:false,emergency:false,care:false,details:false,final:false,reflect:false};
+const steps=[...document.querySelectorAll('.step')];
+function shuffle(items){for(let i=items.length-1;i>0;i--){const j=Math.floor(Math.random()*(i+1));[items[i],items[j]]=[items[j],items[i]]}return items}
+document.querySelectorAll('.options').forEach(group=>shuffle([...group.children]).forEach(option=>group.appendChild(option)));
+document.querySelectorAll('.match-row select').forEach(select=>{const placeholder=select.options[0],choices=shuffle([...select.options].slice(1));select.replaceChildren(placeholder,...choices)});
+document.querySelectorAll('button').forEach(button=>button.type='button');
+function updateProgress(){const done=Object.values(state).filter(Boolean).length;const pct=Math.round(done/11*100);const bar=document.querySelector('.progress-line');document.getElementById('progressFill').style.width=pct+'%';document.getElementById('progressText').textContent=pct+'%';bar.setAttribute('aria-valuenow',pct);steps.forEach((s,i)=>{s.classList.toggle('done',i<Math.min(4,Math.ceil(done*4/11)));s.classList.toggle('active',i===Math.min(3,Math.floor(done*4/11)))});if(done===11)document.getElementById('completeBox').classList.add('show')}
+function show(box,txt){box.innerHTML=txt;box.classList.add('show')}
+function radioCheck(name,correct,feedbackId,success,retry,key){const c=document.querySelector('input[name='+name+']:checked'),f=document.getElementById(feedbackId);if(!c)return show(f,'⚠️ Elige una respuesta primero.');const ok=Number(c.value)===correct;show(f,ok?'✅ <strong>Correcto.</strong> '+success:'↻ <strong>Inténtalo de nuevo.</strong> '+retry);if(ok){state[key]=true;updateProgress()}}
+document.getElementById('storyDone').onclick=()=>{state.story=true;updateProgress();document.getElementById('explore').scrollIntoView({behavior:'smooth'})};
+document.getElementById('bigideaCheck').onclick=()=>radioCheck('bigidea',1,'bigideaFeedback','La viñeta presenta las rutinas cotidianas como parte de un cuidado profesional e intencional.','Elige la respuesta que reconoce la importancia de la práctica cotidiana.','bigidea');
+document.getElementById('checkMatch').onclick=()=>{const ss=[...document.querySelectorAll('.match-row select')],f=document.getElementById('matchFeedback');if(!ss.every(s=>s.value))return show(f,'⚠️ Completa primero las cuatro relaciones.');const n=ss.filter(s=>s.value===s.dataset.answer).length;show(f,n===4?'✅ <strong>¡Buen trabajo!</strong> Los cuatro temas del curso están relacionados correctamente.':'↻ Relacionaste correctamente <strong>'+n+' de 4</strong>. Revisa los ejemplos e inténtalo de nuevo.');if(n===4){state.match=true;updateProgress()}};
+document.getElementById('resetMatch').onclick=()=>{document.querySelectorAll('.match-row select').forEach(s=>s.value='');document.getElementById('matchFeedback').classList.remove('show')};
+document.getElementById('preventionCheck').onclick=()=>radioCheck('prevention',2,'preventionFeedback','Revisar los peligros antes de usar un espacio o equipo es prevención porque reduce el riesgo antes de que ocurra un daño.','Elige la acción que se realiza antes de que ocurra un incidente.','prevention');
+document.getElementById('observeCheck').onclick=()=>radioCheck('observe',0,'observeFeedback','La viñeta destaca la importancia de notar cambios en los niños y responder de manera apropiada.','Presta atención antes de hacer suposiciones o esperar.','observe');
+document.getElementById('nutritionCheck').onclick=()=>radioCheck('nutrition',3,'nutritionFeedback','Leer etiquetas y seguir la información sobre alergias son responsabilidades cotidianas de seguridad relacionadas con la nutrición.','Elige la acción que utiliza información específica antes de servir alimentos.','nutrition');
+document.getElementById('emergencyCheck').onclick=()=>radioCheck('emergency',0,'emergencyFeedback','La planificación favorece decisiones más rápidas y organizadas cuando ocurre algo serio.','Elige la preparación, no la promesa poco realista de que las emergencias desaparecerán.','emergency');
+document.getElementById('careCheck').onclick=()=>radioCheck('care',1,'careFeedback','El cuidado responsivo combina la atención al niño con una evaluación apropiada y el seguimiento necesario.','Elige la respuesta que atiende tanto la seguridad como las necesidades emocionales del niño.','care');
+document.getElementById('detailsCheck').onclick=()=>radioCheck('details',2,'detailsFeedback','Las pequeñas rutinas importan porque las acciones cuidadosas y repetidas pueden prevenir daños y apoyar el bienestar general de los niños.','Elige la respuesta que relaciona los detalles rutinarios con resultados importantes.','details');
+document.getElementById('finalCheck').onclick=()=>radioCheck('final',1,'finalFeedback','La Semana 1 presenta el cuidado profesional como una combinación de prevención, planificación, observación, comunicación, cumplimiento de normas y atención responsiva.','Elige la respuesta más completa.','final');
+document.getElementById('compareBtn').onclick=()=>{const text=document.getElementById('reflectionText').value.trim(),panel=document.getElementById('comparePanel');if(!text)return alert('Escribe una breve reflexión antes de comparar tu razonamiento.');panel.classList.add('show');state.reflect=true;updateProgress();panel.scrollIntoView({behavior:'smooth',block:'nearest'})};
+document.getElementById('restartBtn').onclick=()=>location.reload();
+updateProgress();
+</script>
+</body></html>
